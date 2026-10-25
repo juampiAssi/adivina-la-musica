@@ -157,31 +157,126 @@ input[type='text'] {
   gap: 0.75rem;
 }
 
-/* Contenedor del reproductor de YouTube. */
-.player-frame {
-  position: relative;
-  aspect-ratio: 16 / 9;
-  max-width: 360px;
-  width: 100%;
-  background: #000;
-  border-radius: 8px;
-  overflow: hidden;
-}
-
-.player-frame iframe {
-  width: 100%;
-  height: 100%;
-}
-
-/* Capa borrosa por delante del iframe (prueba de V1). */
-.player-blur {
-  position: absolute;
-  inset: 0;
-  z-index: 1;
+/* Recuadro que acompaña al audio mientras suena (no muestra nada de la respuesta). */
+.audio-visual {
   display: grid;
   place-items: center;
+  height: 140px;
   font-size: 2rem;
-  background: rgb(15 17 21 / 0.35);
-  backdrop-filter: blur(24px);
-  -webkit-backdrop-filter: blur(24px);
+  border-radius: 8px;
+  background: linear-gradient(135deg, #241b4d, var(--bg));
+  border: 1px solid var(--border);
+}
+
+.audio-visual.is-playing {
+  border-color: var(--accent);
+}
+
+/* Video de YouTube que se muestra al terminar la ronda. */
+.reveal-frame {
+  aspect-ratio: 16 / 9;
+  width: 100%;
+  border-radius: 8px;
+  overflow: hidden;
+  background: #000;
+}
+
+.reveal-frame iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+/* ---- Instrucciones y resumen ---- */
+.card h2 {
+  margin: 0;
+}
+
+.steps {
+  margin: 0;
+  padding-left: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.clue-points {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.5rem;
+}
+
+.clue-points li {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0.5rem;
+  border-radius: 8px;
+  background: var(--bg);
+  border: 1px solid var(--border);
+}
+
+.summary {
+  text-align: center;
+  align-items: center;
+}
+
+/* Revelación sin video: portada + tema. */
+.track-reveal {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.track-reveal img {
+  border-radius: 8px;
+  flex-shrink: 0;
+}
+
+.track-reveal p {
+  margin: 0;
+}
+
+.track-title {
+  font-weight: 700;
+}
+
+/* ---- Autocompletado de la respuesta ---- */
+.autocomplete {
+  position: relative;
+}
+
+.suggestions {
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 0;
+  right: 0;
+  z-index: 10;
+  margin: 0;
+  padding: 0.25rem;
+  list-style: none;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  box-shadow: 0 8px 24px rgb(0 0 0 / 0.4);
+}
+
+.suggestions li {
+  padding: 0.55rem 0.65rem;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.suggestions li:hover,
+.suggestions li.is-highlighted {
+  background: var(--accent);
+}
+
+.btn-ghost {
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--muted);
 }

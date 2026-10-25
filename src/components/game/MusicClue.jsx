@@ -1,21 +1,31 @@
-import { useYouTubePlayer } from '../../hooks/useYouTubePlayer.js'
+import { useAudioClip } from '../../hooks/useAudioClip.js'
 import { CLUES } from '../../utils/scoring.js'
+import TrackReveal from './TrackReveal.jsx'
+import YouTubeReveal from './YouTubeReveal.jsx'
 
-// Pista de tipo "music": reproductor de YouTube que corta el fragmento
-// según el nivel de pista actual (3 s, 6 s o 10 s).
-export default function MusicClue({ question, level }) {
-  const { containerRef, ready, playing, error, playClip } = useYouTubePlayer(question.youtubeId)
+// Pista de tipo "music": el audio sale del fragmento de 30 s de Deezer y se corta
+// según el nivel de pista actual (3 s, 6 s o 10 s). Al terminar la ronda
+// (finished) se muestra el video de YouTube o, si no hay, la portada del tema.
+export default function MusicClue({ question, level, finished }) {
+  const { ready, playing, track, error, playClip } = useAudioClip(question.deezerTrackId)
   const { seconds } = CLUES[level]
+
+  if (finished) {
+    return (
+      <div className="clue">
+        {question.youtubeId ? (
+          <YouTubeReveal youtubeId={question.youtubeId} startSeconds={question.startSeconds} title={question.title} />
+        ) : (
+          <TrackReveal track={track} />
+        )}
+      </div>
+    )
+  }
 
   return (
     <div className="clue">
-      {/* El hook agrega el iframe de YouTube dentro de este div.
-          La capa borrosa va por delante para que no se vea el título ni la portada.
-          OJO: las políticas de YouTube prohíben tapar el reproductor (ver BITACORA). */}
-      <div className="player-frame" ref={containerRef}>
-        <div className="player-blur" aria-hidden="true">
-          <span>{playing ? '♪ ♪ ♪' : '🎧'}</span>
-        </div>
+      <div className={`audio-visual ${playing ? 'is-playing' : ''}`} aria-hidden="true">
+        {playing ? '♪ ♪ ♪' : '🎧'}
       </div>
       {error ? (
         <p className="alert alert-error" role="alert">
@@ -26,9 +36,9 @@ export default function MusicClue({ question, level }) {
           type="button"
           className="btn btn-primary"
           disabled={!ready || playing}
-          onClick={() => playClip(question.startSeconds, seconds)}
+          onClick={() => playClip(question.deezerStartSeconds ?? 0, seconds)}
         >
-          {!ready ? 'Cargando reproductor…' : playing ? 'Sonando…' : `▶ Escuchar ${seconds} segundos`}
+          {!ready ? 'Cargando canción…' : playing ? 'Sonando…' : `▶ Escuchar ${seconds} segundos`}
         </button>
       )}
     </div>

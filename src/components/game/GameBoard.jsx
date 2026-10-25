@@ -9,8 +9,8 @@ import MusicClue from './MusicClue.jsx'
 const clueByType = { music: MusicClue }
 
 // Lógica del juego, independiente del tipo de pista: nivel actual, intentos y puntos.
-// Cuando termina la ronda avisa con onFinish({ points, attempts, correct }).
-export default function GameBoard({ question, onFinish, onNext }) {
+// Cuando termina la ronda avisa con onFinish({ points, attempts, correct, skipped }).
+export default function GameBoard({ question, answerOptions, onFinish, onNext, isLast }) {
   const [level, setLevel] = useState(0)
   const [attempts, setAttempts] = useState(0)
   const [result, setResult] = useState(null) // null mientras se juega
@@ -18,9 +18,9 @@ export default function GameBoard({ question, onFinish, onNext }) {
 
   const Clue = clueByType[question.type]
 
-  function finish(correct) {
+  function finish(correct, skipped = false) {
     const points = correct ? CLUES[level].points : 0
-    const outcome = { points, attempts: attempts + (correct ? 1 : 0), correct }
+    const outcome = { points, attempts: attempts + (correct ? 1 : 0), correct, skipped }
     setResult(outcome)
     onFinish?.(outcome)
   }
@@ -39,9 +39,14 @@ export default function GameBoard({ question, onFinish, onNext }) {
     }
   }
 
-  function handleSkip() {
+  function handleNextClue() {
     setMessage('')
     setLevel(level + 1)
+  }
+
+  // Saltear: termina la ronda sin puntos y muestra la respuesta.
+  function handleGiveUp() {
+    finish(false, true)
   }
 
   if (!Clue) {
@@ -50,24 +55,39 @@ export default function GameBoard({ question, onFinish, onNext }) {
 
   return (
     <div className="card">
-      <p className="muted">
-        Pista {level + 1} de {CLUES.length} · vale {CLUES[level].points} puntos
-      </p>
-      <Clue question={question} level={level} />
+      {!result && (
+        <p className="muted">
+          Pista {level + 1} de {CLUES.length} · vale {CLUES[level].points} puntos
+        </p>
+      )}
+      <Clue question={question} level={level} finished={Boolean(result)} />
       {message && !result && <p className="alert alert-info">{message}</p>}
 
       {result ? (
         <div className="result">
-          <p className={`alert ${result.correct ? 'alert-success' : 'alert-error'}`} role="status">
-            {result.correct ? `¡Correcto! Ganaste ${result.points} puntos.` : 'Se acabaron las pistas.'}{' '}
+          <p
+            className={`alert ${result.correct ? 'alert-success' : result.skipped ? 'alert-info' : 'alert-error'}`}
+            role="status"
+          >
+            {result.correct
+              ? `¡Correcto! Ganaste ${result.points} puntos.`
+              : result.skipped
+                ? 'Salteaste esta canción.'
+                : 'Se acabaron las pistas.'}{' '}
             La respuesta era <strong>{question.title}</strong>.
           </p>
           <button type="button" className="btn btn-primary" onClick={onNext}>
-            Siguiente canción
+            {isLast ? 'Ver resultado' : 'Siguiente canción'}
           </button>
         </div>
       ) : (
-        <AnswerForm onSubmit={handleAnswer} onSkip={handleSkip} canSkip={level < MAX_LEVEL} />
+        <AnswerForm
+          options={answerOptions}
+          onSubmit={handleAnswer}
+          onNextClue={handleNextClue}
+          canNextClue={level < MAX_LEVEL}
+          onGiveUp={handleGiveUp}
+        />
       )}
     </div>
   )

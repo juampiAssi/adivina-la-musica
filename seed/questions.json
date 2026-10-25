@@ -1,0 +1,3637 @@
+[
+  {
+    "id": "dz-122039372",
+    "title": "El Rey León",
+    "aliases": [
+      "The Lion King",
+      "Rey León"
+    ],
+    "category": "película",
+    "type": "music",
+    "difficulty": "medium",
+    "deezerTrackId": "122039372",
+    "deezerStartSeconds": 0,
+    "youtubeId": "",
+    "startSeconds": 0,
+    "sourceTrack": "Hakuna Matata — Claudia Pizá ",
+    "needsReview": false
+  },
+  {
+    "id": "dz-24307571",
+    "title": "El Rey León",
+    "aliases": [
+      "The Lion King",
+      "Rey León"
+    ],
+    "category": "película",
+    "type": "music",
+    "difficulty": "medium",
+    "deezerTrackId": "24307571",
+    "deezerStartSeconds": 0,
+    "youtubeId": "",
+    "startSeconds": 0,
+    "sourceTrack": "Circle of Life — Carmen Twillie",
+    "needsReview": false
+  },
+  {
+    "id": "dz-130871168",
+    "title": "Stranger Things",
+    "aliases": [],
+    "category": "serie",
+    "type": "music",
+    "difficulty": "medium",
+    "deezerTrackId": "130871168",
+    "deezerStartSeconds": 0,
+    "youtubeId": "",
+    "startSeconds": 0,
+    "sourceTrack": "Stranger Things — Kyle Dixon",
+    "needsReview": false
+  },
+  {
+    "id": "dz-69962764",
+    "title": "Stranger Things",
+    "aliases": [],
+    "category": "serie",
+    "type": "music",
+    "difficulty": "medium",
+    "deezerTrackId": "69962764",
+    "deezerStartSeconds": 0,
+    "youtubeId": "",
+    "startSeconds": 0,
+    "sourceTrack": "Should I Stay or Should I Go — The Clash",
+    "needsReview": false
+  },
+  {
+    "id": "dz-2955445321",
+    "title": "La Pantera Rosa",
+    "aliases": [
+      "The Pink Panther",
+      "Pantera Rosa"
+    ],
+    "category": "película",
+    "type": "music",
+    "difficulty": "medium",
+    "deezerTrackId": "2955445321",
+    "deezerStartSeconds": 0,
+    "youtubeId": "",
+    "startSeconds": 0,
+    "sourceTrack": "The Pink Panther — Royal Philharmonic Concert Orchestra",
+    "needsReview": false
+  },
+  {
+    "id": "dz-14489593",
+    "title": "Indiana Jones: cazadores del arca perdida",
+    "aliases": [
+      "Indiana Jones",
+      "Raiders of the Lost Ark",
+      "Los cazadores del arca perdida"
+    ],
+    "category": "película",
+    "type": "music",
+    "difficulty": "medium",
+    "deezerTrackId": "14489593",
+    "deezerStartSeconds": 0,
+    "youtubeId": "",
+    "startSeconds": 0,
+    "sourceTrack": "Raiders March (Indiana Jones En Busca Del Arca Perdida BSO) — Inma Shara",
+    "needsReview": false
+  },
+  {
+    "id": "dz-696962792",
+    "title": "Toy Story",
+    "aliases": [],
+    "category": "película",
+    "type": "music",
+    "difficulty": "medium",
+    "deezerTrackId": "696962792",
+    "deezerStartSeconds": 0,
+    "youtubeId": "",
+    "startSeconds": 0,
+    "sourceTrack": "You've Got a Friend In Me — Randy Newman",
+    "needsReview": false
+  },
+  {
+    "id": "dz-130871228",
+    "title": "Stranger Things",
+    "aliases": [],
+    "category": "serie",
+    "type": "music",
+    "difficulty": "medium",
+    "deezerTrackId": "130871228",
+    "deezerStartSeconds": 0,
+    "youtubeId": "",
+    "startSeconds": 0,
+    "sourceTrack": "Lights Out — Kyle Dixon",
+    "needsReview": false
+  },
+  {
+    "id": "dz-111635004",
+    "title": "Robin Hood",
+    "aliases": [],
+    "category": "película",
+    "type": "music",
+    "difficulty": "medium",
+    "deezerTrackId": "111635004",
+    "deezerStartSeconds": 0,
+    "youtubeId": "",
+    "startSeconds": 0,
+    "sourceTrack": "Whistle-Stop (Robin Hood - Intro) — Nassim Al Fakir",
+    "needsReview": false
+  },
+  {
+    "id": "dz-2608999752",
+    "title": "Gravity Falls",
+    "aliases": [
+      "Gravity Falls: un verano de misterios"
+    ],
+    "category": "serie",
+    "type": "music",
+    "difficulty": "medium",
+    "deezerTrackId": "2608999752",
+    "deezerStartSeconds": 0,
+    "youtubeId": "",
+    "startSeconds": 0,
+    "sourceTrack": "Gravity Falls Main Title Theme (from \"Gravity Falls\") — Brad Breeck",
+    "needsReview": false
+  },
+  {
+    "id": "dz-17840804",
+    "title": "Los Vengadores",
+    "aliases": [
+      "The Avengers",
+      "Avengers"
+    ],
+    "category": "película",
+    "type": "music",
+    "difficulty": "medium",
+    "deezerTrackId": "17840804",
+    "deezerStartSeconds": 0,
+    "youtubeId": "",
+    "startSeconds": 0,
+    "sourceTrack": "The Avengers — Alan Silvestri",
+    "needsReview": false
+  },
+  {
+    "id": "dz-908907182",
+    "title": "Jurassic World",
+    "aliases": [
+      "Mundo Jurásico"
+    ],
+    "category": "película",
+    "type": "music",
+    "difficulty": "medium",
+    "deezerTrackId": "908907182",
+    "deezerStartSeconds": 0,
+    "youtubeId": "",
+    "startSeconds": 0,
+    "sourceTrack": "Welcome to Jurassic World — Michael Giacchino",
+    "needsReview": false
+  },
+  {
+    "id": "dz-4247131381",
+    "title": "Náufrago",
+    "aliases": [
+      "Cast Away"
+    ],
+    "category": "película",
+    "type": "music",
+    "difficulty": "medium",
+    "deezerTrackId": "4247131381",
+    "deezerStartSeconds": 0,
+    "youtubeId": "",
+    "startSeconds": 0,
+    "sourceTrack": "End Credits (From \"Cast Away\") — Brussels Philharmonic",
+    "needsReview": false
+  },
+  {
+    "id": "dz-78917814",
+    "title": "Cómo entrenar a tu dragón 2",
+    "aliases": [
+      "Cómo entrenar a tu dragón",
+      "How to Train Your Dragon 2",
+      "How to Train Your Dragon"
+    ],
+    "category": "película",
+    "type": "music",
+    "difficulty": "medium",
+    "deezerTrackId": "78917814",
+    "deezerStartSeconds": 0,
+    "youtubeId": "",
+    "startSeconds": 0,
+    "sourceTrack": "Where No One Goes — John Powell",
+    "needsReview": false
+  },
+  {
+    "id": "dz-435175452",
+    "title": "El gran showman",
+    "aliases": [
+      "The Greatest Showman"
+    ],
+    "category": "película",
+    "type": "music",
+    "difficulty": "medium",
+    "deezerTrackId": "435175452",
+    "deezerStartSeconds": 0,
+    "youtubeId": "",
+    "startSeconds": 0,
+    "sourceTrack": "The Greatest Show — Hugh Jackman",
+    "needsReview": false
+  },
+  {
+    "id": "dz-435175462",
+    "title": "El gran showman",
+    "aliases": [
+      "The Greatest Showman"
+    ],
+    "category": "película",
+    "type": "music",
+    "difficulty": "medium",
+    "deezerTrackId": "435175462",
+    "deezerStartSeconds": 0,
+    "youtubeId": "",
+    "startSeconds": 0,
+    "sourceTrack": "A Million Dreams — Ziv Zaifman",
+    "needsReview": false
+  },
+  {
+    "id": "dz-7375715",
+    "title": "La era de hielo",
+    "aliases": [
+      "La era del hielo",
+      "Ice Age"
+    ],
+    "category": "película",
+    "type": "music",
+    "difficulty": "medium",
+    "deezerTrackId": "7375715",
+    "deezerStartSeconds": 0,
+    "youtubeId": "",
+    "startSeconds": 0,
+    "sourceTrack": "Send Me On My Way — Rusted Root",
+    "needsReview": false
+  },
+  {
+    "id": "dz-917741",
+    "title": "Shrek",
+    "aliases": [],
+    "category": "película",
+    "type": "music",
+    "difficulty": "medium",
+    "deezerTrackId": "917741",
+    "deezerStartSeconds": 0,
+    "youtubeId": "",
+    "startSeconds": 0,
+    "sourceTrack": "I'm a Believer — Smash Mouth",
+    "needsReview": false
+  },
+  {
+    "id": "dz-917717",
+    "title": "Shrek",
+    "aliases": [],
+    "category": "película",
+    "type": "music",
+    "difficulty": "medium",
+    "deezerTrackId": "917717",
+    "deezerStartSeconds": 0,
+    "youtubeId": "",
+    "startSeconds": 0,
+    "sourceTrack": "All Star — Smash Mouth",
+    "needsReview": false
+  },
+  {
+    "id": "dz-104910464",
+    "title": "Vecinos invasores",
+    "aliases": [
+      "Over the Hedge"
+    ],
+    "category": "película",
+    "type": "music",
+    "difficulty": "medium",
+    "deezerTrackId": "104910464",
+    "deezerStartSeconds": 0,
+    "youtubeId": "",
+    "startSeconds": 0,
+    "sourceTrack": "RJ Enters the Cave — Rupert Gregson-Williams",
+    "needsReview": false
+  },
+  {
+    "id": "dz-128948748",
+    "title": "Cars",
+    "aliases": [
+      "Cars: una aventura sobre ruedas"
+    ],
+    "category": "película",
+    "type": "music",
+    "difficulty": "medium",
+    "deezerTrackId": "128948748",
+    "deezerStartSeconds": 0,
+    "youtubeId": "",
+    "startSeconds": 0,
+    "sourceTrack": "Real Gone — Sheryl Crow",
+    "needsReview": false
+  },
+  {
+    "id": "dz-3613362",
+    "title": "Stranger Things",
+    "aliases": [],
+    "category": "serie",
+    "type": "music",
+    "difficulty": "medium",
+    "deezerTrackId": "3613362",
+    "deezerStartSeconds": 0,
+    "youtubeId": "",
+    "startSeconds": 0,
+    "sourceTrack": "Sh-Boom — The Chords",
+    "needsReview": false
+  },
+  {
+    "id": "dz-128948798",
+    "title": "Cars",
+    "aliases": [
+      "Cars: una aventura sobre ruedas"
+    ],
+    "category": "película",
+    "type": "music",
+    "difficulty": "medium",
+    "deezerTrackId": "128948798",
+    "deezerStartSeconds": 0,
+    "youtubeId": "",
+    "startSeconds": 0,
+    "sourceTrack": "The Big Race — Randy Newman",
+    "needsReview": false
+  },
+  {
+    "id": "dz-371523561",
+    "title": "Spider-Man: de regreso a casa",
+    "aliases": [
+      "Spider-Man",
+      "Spider-Man: Homecoming",
+      "Hombre Araña"
+    ],
+    "category": "película",
+    "type": "music",
+    "difficulty": "medium",
+    "deezerTrackId": "371523561",
+    "deezerStartSeconds": 0,
+    "youtubeId": "",
+    "startSeconds": 0,
+    "sourceTrack": "Theme (from \"Spider Man\") [Original Television Series] — Michael Giacchino",
+    "needsReview": false
+  },
+  {
+    "id": "dz-101112858",
+    "title": "Intensamente",
+    "aliases": [
+      "Inside Out",
+      "Del revés"
+    ],
+    "category": "película",
+    "type": "music",
+    "difficulty": "medium",
+    "deezerTrackId": "101112858",
+    "deezerStartSeconds": 0,
+    "youtubeId": "",
+    "startSeconds": 0,
+    "sourceTrack": "Bundle of Joy — Michael Giacchino",
+    "needsReview": false
+  },
+  {
+    "id": "dz-136710424",
+    "title": "Cuenta conmigo",
+    "aliases": [
+      "Stand by Me"
+    ],
+    "category": "película",
+    "type": "music",
+    "difficulty": "medium",
+    "deezerTrackId": "136710424",
+    "deezerStartSeconds": 0,
+    "youtubeId": "",
+    "startSeconds": 0,
+    "sourceTrack": "Stand By Me — Ben E. King",
+    "needsReview": true
+  },
+  {
+    "id": "dz-78917810",
+    "title": "Cómo entrenar a tu dragón 2",
+    "aliases": [
+      "Cómo entrenar a tu dragón",
+      "How to Train Your Dragon 2",
+      "How to Train Your Dragon"
+    ],
+    "category": "película",
+    "type": "music",
+    "difficulty": "medium",
+    "deezerTrackId": "78917810",
+    "deezerStartSeconds": 0,
+    "youtubeId": "",
+    "startSeconds": 0,
+    "sourceTrack": "Stoick's Ship — John Powell",
+    "needsReview": false
+  },
+  {
+    "id": "dz-769477",
+    "title": "Friends",
+    "aliases": [],
+    "category": "serie",
+    "type": "music",
+    "difficulty": "medium",
+    "deezerTrackId": "769477",
+    "deezerStartSeconds": 0,
+    "youtubeId": "",
+    "startSeconds": 0,
+    "sourceTrack": "I'll Be There for You (Theme from Friends) — The Rembrandts",
+    "needsReview": false
+  },
+  {
+    "id": "dz-122039510",
+    "title": "Enredados",
+    "aliases": [
+      "Tangled",
+      "Rapunzel"
+    ],
+    "category": "película",
+    "type": "music",
+    "difficulty": "medium",
+    "deezerTrackId": "122039510",
+    "deezerStartSeconds": 0,
+    "youtubeId": "",
+    "startSeconds": 0,
+    "sourceTrack": "Veo En Ti La Luz — Chayanne",
+    "needsReview": false
+  },
+  {
+    "id": "dz-122039374",
+    "title": "El Rey León",
+    "aliases": [
+      "The Lion King",
+      "Rey León"
+    ],
+    "category": "película",
+    "type": "music",
+    "difficulty": "medium",
+    "deezerTrackId": "122039374",
+    "deezerStartSeconds": 0,
+    "youtubeId": "",
+    "startSeconds": 0,
+    "sourceTrack": "Esta Noche Es para Amar — Renato López",
+    "needsReview": false
+  },
+  {
+    "id": "dz-590517892",
+    "title": "Valiente",
+    "aliases": [
+      "Brave"
+    ],
+    "category": "película",
+    "type": "music",
+    "difficulty": "medium",
+    "deezerTrackId": "590517892",
+    "deezerStartSeconds": 0,
+    "youtubeId": "",
+    "startSeconds": 0,
+    "sourceTrack": "Viento y Cielo Alcanzar — Yuridia",
+    "needsReview": false
+  },
+  {
+    "id": "dz-1761528767",
+    "title": "La Sirenita",
+    "aliases": [
+      "The Little Mermaid"
+    ],
+    "category": "película",
+    "type": "music",
+    "difficulty": "medium",
+    "deezerTrackId": "1761528767",
+    "deezerStartSeconds": 0,
+    "youtubeId": "",
+    "startSeconds": 0,
+    "sourceTrack": "Kiss the Girl (Soundtrack Version) — Samuel E. Wright",
+    "needsReview": false
+  },
+  {
+    "id": "dz-1762561427",
+    "title": "Tierra de osos",
+    "aliases": [
+      "Brother Bear"
+    ],
+    "category": "película",
+    "type": "music",
+    "difficulty": "medium",
+    "deezerTrackId": "1762561427",
+    "deezerStartSeconds": 0,
+    "youtubeId": "",
+    "startSeconds": 0,
+    "sourceTrack": "On My Way — Phil Collins",
+    "needsReview": false
+  },
+  {
+    "id": "dz-350057141",
+    "title": "Frozen",
+    "aliases": [
+      "Frozen: una aventura congelada"
+    ],
+    "category": "película",
+    "type": "music",
+    "difficulty": "medium",
+    "deezerTrackId": "350057141",
+    "deezerStartSeconds": 0,
+    "youtubeId": "",
+    "startSeconds": 0,
+    "sourceTrack": "Libre Soy — Carmen Sarahi",
+    "needsReview": false
+  },
+  {
+    "id": "dz-2497925",
+    "title": "Simbad: la leyenda de los siete mares",
+    "aliases": [
+      "Simbad",
+      "Sinbad",
+      "Sinbad: Legend of the Seven Seas"
+    ],
+    "category": "película",
+    "type": "music",
+    "difficulty": "medium",
+    "deezerTrackId": "2497925",
+    "deezerStartSeconds": 0,
+    "youtubeId": "",
+    "startSeconds": 0,
+    "sourceTrack": "Rescue! — Harry Gregson-Williams",
+    "needsReview": false
+  },
+  {
+    "id": "dz-887427832",
+    "title": "Toy Story 3",
+    "aliases": [
+      "Toy Story"
+    ],
+    "category": "película",
+    "type": "music",
+    "difficulty": "medium",
+    "deezerTrackId": "887427832",
+    "deezerStartSeconds": 0,
+    "youtubeId": "",
+    "startSeconds": 0,
+    "sourceTrack": "So Long — Randy Newman",
+    "needsReview": false
+  },
+  {
+    "id": "dz-882819672",
+    "title": "Cómo entrenar a tu dragón 3",
+    "aliases": [
+      "Cómo entrenar a tu dragón",
+      "Cómo entrenar a tu dragón: el mundo oculto",
+      "How to Train Your Dragon: The Hidden World",
+      "How to Train Your Dragon"
+    ],
+    "category": "película",
+    "type": "music",
+    "difficulty": "medium",
+    "deezerTrackId": "882819672",
+    "deezerStartSeconds": 0,
+    "youtubeId": "",
+    "startSeconds": 0,
+    "sourceTrack": "As Long as He's Safe — John Powell",
+    "needsReview": false
+  },
+  {
+    "id": "dz-119437660",
+    "title": "Cómo entrenar a tu dragón",
+    "aliases": [
+      "How to Train Your Dragon"
+    ],
+    "category": "película",
+    "type": "music",
+    "difficulty": "medium",
+    "deezerTrackId": "119437660",
+    "deezerStartSeconds": 0,
+    "youtubeId": "",
+    "startSeconds": 0,
+    "sourceTrack": "Coming Back Around — John Powell",
+    "needsReview": false
+  },
+  {
+    "id": "dz-119437636",
+    "title": "Cómo entrenar a tu dragón",
+    "aliases": [
+      "How to Train Your Dragon"
+    ],
+    "category": "película",
+    "type": "music",
+    "difficulty": "medium",
+    "deezerTrackId": "119437636",
+    "deezerStartSeconds": 0,
+    "youtubeId": "",
+    "startSeconds": 0,
+    "sourceTrack": "Test Drive — John Powell",
+    "needsReview": false
+  },
+  {
+    "id": "dz-3583331",
+    "title": "Transformers",
+    "aliases": [],
+    "category": "película",
+    "type": "music",
+    "difficulty": "medium",
+    "deezerTrackId": "3583331",
+    "deezerStartSeconds": 0,
+    "youtubeId": "",
+    "startSeconds": 0,
+    "sourceTrack": "Optimus — Steve Jablonsky",
+    "needsReview": false
+  },
+  {
+    "id": "dz-3583326",
+    "title": "Transformers",
+    "aliases": [],
+    "category": "película",
+    "type": "music",
+    "difficulty": "medium",
+    "deezerTrackId": "3583326",
+    "deezerStartSeconds": 0,
+    "youtubeId": "",
+    "startSeconds": 0,
+    "sourceTrack": "Autobots — Steve Jablonsky",
+    "needsReview": false
+  },
+  {
+    "id": "dz-882820092",
+    "title": "Mi villano favorito 2",
+    "aliases": [
+      "Mi villano favorito",
+      "Despicable Me 2",
+      "Despicable Me"
+    ],
+    "category": "película",
+    "type": "music",
+    "difficulty": "medium",
+    "deezerTrackId": "882820092",
+    "deezerStartSeconds": 0,
+    "youtubeId": "",
+    "startSeconds": 0,
+    "sourceTrack": "Another Irish Drinking Song — The Minions",
+    "needsReview": false
+  },
+  {
+    "id": "dz-3809086042",
+    "title": "Mi villano favorito 2",
+    "aliases": [
+      "Mi villano favorito",
+      "Despicable Me 2",
+      "Despicable Me"
+    ],
+    "category": "película",
+    "type": "music",
+    "difficulty": "medium",
+    "deezerTrackId": "3809086042",
+    "deezerStartSeconds": 0,
+    "youtubeId": "",
+    "startSeconds": 0,
+    "sourceTrack": "Y.M.C.A. — Village People",
+    "needsReview": true
+  },
+  {
+    "id": "dz-98833998",
+    "title": "Home: no hay lugar como el hogar",
+    "aliases": [
+      "Home"
+    ],
+    "category": "película",
+    "type": "music",
+    "difficulty": "medium",
+    "deezerTrackId": "98833998",
+    "deezerStartSeconds": 0,
+    "youtubeId": "",
+    "startSeconds": 0,
+    "sourceTrack": "Towards the Sun — Rihanna",
+    "needsReview": false
+  },
+  {
+    "id": "dz-669424122",
+    "title": "Avengers: Endgame",
+    "aliases": [
+      "Endgame",
+      "Avengers",
+      "Vengadores: Endgame",
+      "Los Vengadores: Endgame"
+    ],
+    "category": "película",
+    "type": "music",
+    "difficulty": "medium",
+    "deezerTrackId": "669424122",
+    "deezerStartSeconds": 0,
+    "youtubeId": "",
+    "startSeconds": 0,
+    "sourceTrack": "Main on End — Alan Silvestri",
+    "needsReview": false
+  },
+  {
+    "id": "dz-1241609712",
+    "title": "Shrek 2",
+    "aliases": [
+      "Shrek"
+    ],
+    "category": "película",
+    "type": "music",
+    "difficulty": "medium",
+    "deezerTrackId": "1241609712",
+    "deezerStartSeconds": 0,
+    "youtubeId": "",
+    "startSeconds": 0,
+    "sourceTrack": "Funkytown — Lipps, Inc.",
+    "needsReview": false
+  },
+  {
+    "id": "dz-2131884577",
+    "title": "Piratas del Caribe: la maldición del Perla Negra",
+    "aliases": [
+      "Piratas del Caribe",
+      "Pirates of the Caribbean: The Curse of the Black Pearl",
+      "Pirates of the Caribbean"
+    ],
+    "category": "película",
+    "type": "music",
+    "difficulty": "medium",
+    "deezerTrackId": "2131884577",
+    "deezerStartSeconds": 0,
+    "youtubeId": "",
+    "startSeconds": 0,
+    "sourceTrack": "He's a Pirate — Klaus Badelt",
+    "needsReview": false
+  },
+  {
+    "id": "dz-419915782",
+    "title": "Coco",
+    "aliases": [],
+    "category": "película",
+    "type": "music",
+    "difficulty": "medium",
+    "deezerTrackId": "419915782",
+    "deezerStartSeconds": 0,
+    "youtubeId": "",
+    "startSeconds": 0,
+    "sourceTrack": "Un Poco Loco — Luis Ángel Gómez Jaramillo",
+    "needsReview": false
+  },
+  {
+    "id": "dz-414308332",
+    "title": "The Walking Dead",
+    "aliases": [],
+    "category": "serie",
+    "type": "music",
+    "difficulty": "medium",
+    "deezerTrackId": "414308332",
+    "deezerStartSeconds": 0,
+    "youtubeId": "",
+    "startSeconds": 0,
+    "sourceTrack": "Theme from the Walking Dead — Bear McCreary",
+    "needsReview": false
+  },
+  {
+    "id": "dz-925391152",
+    "title": "Thomas y sus amigos",
+    "aliases": [
+      "Thomas & Friends",
+      "Thomas el tren",
+      "Thomas"
+    ],
+    "category": "serie",
+    "type": "music",
+    "difficulty": "medium",
+    "deezerTrackId": "925391152",
+    "deezerStartSeconds": 0,
+    "youtubeId": "",
+    "startSeconds": 0,
+    "sourceTrack": "Thomas Theme — Thomas",
+    "needsReview": false
+  },
+  {
+    "id": "dz-631860162",
+    "title": "Piratas del Caribe",
+    "aliases": [
+      "Pirates of the Caribbean"
+    ],
+    "category": "película",
+    "type": "music",
+    "difficulty": "medium",
+    "deezerTrackId": "631860162",
+    "deezerStartSeconds": 0,
+    "youtubeId": "",
+    "startSeconds": 0,
+    "sourceTrack": "Pirates of The Caribbean Orchestra Suite: Part 2, Drink Up Me Hearties Yo Ho (Live) — Hans Zimmer",
+    "needsReview": false
+  },
+  {
+    "id": "dz-119871330",
+    "title": "Volver al futuro",
+    "aliases": [
+      "Back to the Future"
+    ],
+    "category": "película",
+    "type": "music",
+    "difficulty": "medium",
+    "deezerTrackId": "119871330",
+    "deezerStartSeconds": 0,
+    "youtubeId": "",
+    "startSeconds": 0,
+    "sourceTrack": "Back To the Future: Skateboard Chase — Alan Silvestri",
+    "needsReview": false
+  },
+  {
+    "id": "dz-109704852",
+    "title": "Volver al futuro III",
+    "aliases": [
+      "Volver al futuro",
+      "Volver al futuro 3",
+      "Back to the Future",
+      "Back to the Future Part III"
+    ],
+    "category": "película",
+    "type": "music",
+    "difficulty": "medium",
+    "deezerTrackId": "109704852",
+    "deezerStartSeconds": 0,
+    "youtubeId": "",
+    "startSeconds": 0,
+    "sourceTrack": "Main Title — Alan Silvestri",
+    "needsReview": false
+  },
+  {
+    "id": "dz-491889532",
+    "title": "Volver al futuro III",
+    "aliases": [
+      "Volver al futuro",
+      "Volver al futuro 3",
+      "Back to the Future",
+      "Back to the Future Part III"
+    ],
+    "category": "película",
+    "type": "music",
+    "difficulty": "medium",
+    "deezerTrackId": "491889532",
+    "deezerStartSeconds": 0,
+    "youtubeId": "",
+    "startSeconds": 0,
+    "sourceTrack": "End Credits — Alan Silvestri",
+    "needsReview": false
+  },
+  {
+    "id": "dz-3852364121",
+    "title": "Peaky Blinders",
+    "aliases": [],
+    "category": "serie",
+    "type": "music",
+    "difficulty": "medium",
+    "deezerTrackId": "3852364121",
+    "deezerStartSeconds": 0,
+    "youtubeId": "",
+    "startSeconds": 0,
+    "sourceTrack": "Red Right Hand (2011 Remaster) — Nick Cave",
+    "needsReview": false
+  },
+  {
+    "id": "dz-3977507",
+    "title": "Diarios de motocicleta",
+    "aliases": [
+      "The Motorcycle Diaries"
+    ],
+    "category": "película",
+    "type": "music",
+    "difficulty": "medium",
+    "deezerTrackId": "3977507",
+    "deezerStartSeconds": 0,
+    "youtubeId": "",
+    "startSeconds": 0,
+    "sourceTrack": "La Partida — Gustavo Santaolalla",
+    "needsReview": false
+  },
+  {
+    "id": "dz-767121772",
+    "title": "Joker",
+    "aliases": [
+      "Guasón",
+      "El Guasón"
+    ],
+    "category": "película",
+    "type": "music",
+    "difficulty": "medium",
+    "deezerTrackId": "767121772",
+    "deezerStartSeconds": 0,
+    "youtubeId": "",
+    "startSeconds": 0,
+    "sourceTrack": "Bathroom Dance — Hildur Guðnadóttir",
+    "needsReview": false
+  },
+  {
+    "id": "dz-3601186",
+    "title": "Joker",
+    "aliases": [
+      "Guasón",
+      "El Guasón"
+    ],
+    "category": "película",
+    "type": "music",
+    "difficulty": "medium",
+    "deezerTrackId": "3601186",
+    "deezerStartSeconds": 0,
+    "youtubeId": "",
+    "startSeconds": 0,
+    "sourceTrack": "Smile — Jimmy Durante",
+    "needsReview": false
+  },
+  {
+    "id": "dz-69928673",
+    "title": "Joker",
+    "aliases": [
+      "Guasón",
+      "El Guasón"
+    ],
+    "category": "película",
+    "type": "music",
+    "difficulty": "medium",
+    "deezerTrackId": "69928673",
+    "deezerStartSeconds": 0,
+    "youtubeId": "",
+    "startSeconds": 0,
+    "sourceTrack": "Rock and Roll, Pt. 2 — Gary Glitter",
+    "needsReview": false
+  },
+  {
+    "id": "dz-4232526",
+    "title": "Up: una aventura de altura",
+    "aliases": [
+      "Up"
+    ],
+    "category": "película",
+    "type": "music",
+    "difficulty": "medium",
+    "deezerTrackId": "4232526",
+    "deezerStartSeconds": 0,
+    "youtubeId": "",
+    "startSeconds": 0,
+    "sourceTrack": "Married Life — Michael Giacchino",
+    "needsReview": false
+  },
+  {
+    "id": "dz-122039506",
+    "title": "Enredados",
+    "aliases": [
+      "Tangled",
+      "Rapunzel"
+    ],
+    "category": "película",
+    "type": "music",
+    "difficulty": "medium",
+    "deezerTrackId": "122039506",
+    "deezerStartSeconds": 0,
+    "youtubeId": "",
+    "startSeconds": 0,
+    "sourceTrack": "Mi Vida Empieza Así — Danna Paola",
+    "needsReview": false
+  },
+  {
+    "id": "dz-1761711377",
+    "title": "Enredados",
+    "aliases": [
+      "Tangled",
+      "Rapunzel"
+    ],
+    "category": "película",
+    "type": "music",
+    "difficulty": "medium",
+    "deezerTrackId": "1761711377",
+    "deezerStartSeconds": 0,
+    "youtubeId": "",
+    "startSeconds": 0,
+    "sourceTrack": "Cuándo Empezaré a Vivir — Danna Paola",
+    "needsReview": false
+  },
+  {
+    "id": "dz-123409758",
+    "title": "Frozen",
+    "aliases": [
+      "Frozen: una aventura congelada"
+    ],
+    "category": "película",
+    "type": "music",
+    "difficulty": "medium",
+    "deezerTrackId": "123409758",
+    "deezerStartSeconds": 0,
+    "youtubeId": "",
+    "startSeconds": 0,
+    "sourceTrack": "Verano — David Filio",
+    "needsReview": false
+  },
+  {
+    "id": "dz-72427149",
+    "title": "Frozen",
+    "aliases": [
+      "Frozen: una aventura congelada"
+    ],
+    "category": "película",
+    "type": "music",
+    "difficulty": "medium",
+    "deezerTrackId": "72427149",
+    "deezerStartSeconds": 0,
+    "youtubeId": "",
+    "startSeconds": 0,
+    "sourceTrack": "Vuelie (feat. Cantus) — Christophe Beck",
+    "needsReview": false
+  },
+  {
+    "id": "dz-123409748",
+    "title": "Frozen",
+    "aliases": [
+      "Frozen: una aventura congelada"
+    ],
+    "category": "película",
+    "type": "music",
+    "difficulty": "medium",
+    "deezerTrackId": "123409748",
+    "deezerStartSeconds": 0,
+    "youtubeId": "",
+    "startSeconds": 0,
+    "sourceTrack": "¿Y Si Hacemos Un Muñeco? — Romina Marroquín Payró",
+    "needsReview": false
+  },
+  {
+    "id": "dz-561875052",
+    "title": "Tarzán",
+    "aliases": [
+      "Tarzan"
+    ],
+    "category": "película",
+    "type": "music",
+    "difficulty": "medium",
+    "deezerTrackId": "561875052",
+    "deezerStartSeconds": 0,
+    "youtubeId": "",
+    "startSeconds": 0,
+    "sourceTrack": "Trashin' the Camp — Rosie O'Donnell",
+    "needsReview": false
+  },
+  {
+    "id": "dz-595453882",
+    "title": "Enredados",
+    "aliases": [
+      "Tangled",
+      "Rapunzel"
+    ],
+    "category": "película",
+    "type": "music",
+    "difficulty": "medium",
+    "deezerTrackId": "595453882",
+    "deezerStartSeconds": 0,
+    "youtubeId": "",
+    "startSeconds": 0,
+    "sourceTrack": "Kingdom Dance — Alan Menken",
+    "needsReview": false
+  },
+  {
+    "id": "dz-123409750",
+    "title": "Frozen",
+    "aliases": [
+      "Frozen: una aventura congelada"
+    ],
+    "category": "película",
+    "type": "music",
+    "difficulty": "medium",
+    "deezerTrackId": "123409750",
+    "deezerStartSeconds": 0,
+    "youtubeId": "",
+    "startSeconds": 0,
+    "sourceTrack": "Finalmente y Como Nunca — Romina Marroquín Payró",
+    "needsReview": false
+  },
+  {
+    "id": "dz-123409752",
+    "title": "Frozen",
+    "aliases": [
+      "Frozen: una aventura congelada"
+    ],
+    "category": "película",
+    "type": "music",
+    "difficulty": "medium",
+    "deezerTrackId": "123409752",
+    "deezerStartSeconds": 0,
+    "youtubeId": "",
+    "startSeconds": 0,
+    "sourceTrack": "La Puerta Es el Amor — Romina Marroquín Payró",
+    "needsReview": false
+  },
+  {
+    "id": "dz-121634942",
+    "title": "Ratatouille",
+    "aliases": [],
+    "category": "película",
+    "type": "music",
+    "difficulty": "medium",
+    "deezerTrackId": "121634942",
+    "deezerStartSeconds": 0,
+    "youtubeId": "",
+    "startSeconds": 0,
+    "sourceTrack": "Le Festin (From \"Ratatouille\"/Soundtrack Version) — Camille",
+    "needsReview": false
+  },
+  {
+    "id": "dz-64482978",
+    "title": "El planeta del tesoro",
+    "aliases": [
+      "Treasure Planet"
+    ],
+    "category": "película",
+    "type": "music",
+    "difficulty": "medium",
+    "deezerTrackId": "64482978",
+    "deezerStartSeconds": 0,
+    "youtubeId": "",
+    "startSeconds": 0,
+    "sourceTrack": "Sigo Aquí (Treasure Planet) - Tema Principal de la B.S.O. el Planeta del Tesoro — Alex Ubago",
+    "needsReview": false
+  },
+  {
+    "id": "dz-804008732",
+    "title": "Frozen 2",
+    "aliases": [
+      "Frozen II",
+      "Frozen"
+    ],
+    "category": "película",
+    "type": "music",
+    "difficulty": "medium",
+    "deezerTrackId": "804008732",
+    "deezerStartSeconds": 0,
+    "youtubeId": "",
+    "startSeconds": 0,
+    "sourceTrack": "Mil Memorias — Leslie Gil",
+    "needsReview": false
+  },
+  {
+    "id": "dz-804008742",
+    "title": "Frozen 2",
+    "aliases": [
+      "Frozen II",
+      "Frozen"
+    ],
+    "category": "película",
+    "type": "music",
+    "difficulty": "medium",
+    "deezerTrackId": "804008742",
+    "deezerStartSeconds": 0,
+    "youtubeId": "",
+    "startSeconds": 0,
+    "sourceTrack": "Desde el Corazón — Romina Marroquín Payró",
+    "needsReview": false
+  },
+  {
+    "id": "dz-804008752",
+    "title": "Frozen 2",
+    "aliases": [
+      "Frozen II",
+      "Frozen"
+    ],
+    "category": "película",
+    "type": "music",
+    "difficulty": "medium",
+    "deezerTrackId": "804008752",
+    "deezerStartSeconds": 0,
+    "youtubeId": "",
+    "startSeconds": 0,
+    "sourceTrack": "Mucho Más Allá — Carmen Sarahi",
+    "needsReview": false
+  },
+  {
+    "id": "dz-804008762",
+    "title": "Frozen 2",
+    "aliases": [
+      "Frozen II",
+      "Frozen"
+    ],
+    "category": "película",
+    "type": "music",
+    "difficulty": "medium",
+    "deezerTrackId": "804008762",
+    "deezerStartSeconds": 0,
+    "youtubeId": "",
+    "startSeconds": 0,
+    "sourceTrack": "Cuando Sea Mayor — David Filio",
+    "needsReview": false
+  },
+  {
+    "id": "dz-804008792",
+    "title": "Frozen 2",
+    "aliases": [
+      "Frozen II",
+      "Frozen"
+    ],
+    "category": "película",
+    "type": "music",
+    "difficulty": "medium",
+    "deezerTrackId": "804008792",
+    "deezerStartSeconds": 0,
+    "youtubeId": "",
+    "startSeconds": 0,
+    "sourceTrack": "Muéstrate — Carmen Sarahi",
+    "needsReview": false
+  },
+  {
+    "id": "dz-869025302",
+    "title": "1917",
+    "aliases": [],
+    "category": "película",
+    "type": "music",
+    "difficulty": "medium",
+    "deezerTrackId": "869025302",
+    "deezerStartSeconds": 0,
+    "youtubeId": "",
+    "startSeconds": 0,
+    "sourceTrack": "I Am a Poor Wayfaring Stranger (Original Lyrics) — Jos Slovick",
+    "needsReview": false
+  },
+  {
+    "id": "dz-823113522",
+    "title": "1917",
+    "aliases": [],
+    "category": "película",
+    "type": "music",
+    "difficulty": "medium",
+    "deezerTrackId": "823113522",
+    "deezerStartSeconds": 0,
+    "youtubeId": "",
+    "startSeconds": 0,
+    "sourceTrack": "1917 — Thomas Newman",
+    "needsReview": false
+  },
+  {
+    "id": "dz-61289638",
+    "title": "Ralph, el demoledor",
+    "aliases": [
+      "Wreck-It Ralph",
+      "Ralph"
+    ],
+    "category": "película",
+    "type": "music",
+    "difficulty": "medium",
+    "deezerTrackId": "61289638",
+    "deezerStartSeconds": 0,
+    "youtubeId": "",
+    "startSeconds": 0,
+    "sourceTrack": "When Can I See You Again? — Owl City",
+    "needsReview": false
+  },
+  {
+    "id": "dz-13674187",
+    "title": "Toy Story 2",
+    "aliases": [
+      "Toy Story"
+    ],
+    "category": "película",
+    "type": "music",
+    "difficulty": "medium",
+    "deezerTrackId": "13674187",
+    "deezerStartSeconds": 0,
+    "youtubeId": "",
+    "startSeconds": 0,
+    "sourceTrack": "When She Loved Me — Sarah McLachlan",
+    "needsReview": false
+  },
+  {
+    "id": "dz-69838319",
+    "title": "Breaking Bad",
+    "aliases": [],
+    "category": "serie",
+    "type": "music",
+    "difficulty": "medium",
+    "deezerTrackId": "69838319",
+    "deezerStartSeconds": 0,
+    "youtubeId": "",
+    "startSeconds": 0,
+    "sourceTrack": "Breaking Bad - Main Title Theme (Extended) — Dave Porter",
+    "needsReview": false
+  },
+  {
+    "id": "dz-1014549",
+    "title": "Forrest Gump",
+    "aliases": [],
+    "category": "película",
+    "type": "music",
+    "difficulty": "medium",
+    "deezerTrackId": "1014549",
+    "deezerStartSeconds": 0,
+    "youtubeId": "",
+    "startSeconds": 0,
+    "sourceTrack": "I'm Forrest... Forrest Gump — Alan Silvestri",
+    "needsReview": false
+  },
+  {
+    "id": "dz-60724056",
+    "title": "Capitán América: el primer vengador",
+    "aliases": [
+      "Capitán América",
+      "Captain America",
+      "Captain America: The First Avenger"
+    ],
+    "category": "película",
+    "type": "music",
+    "difficulty": "medium",
+    "deezerTrackId": "60724056",
+    "deezerStartSeconds": 0,
+    "youtubeId": "",
+    "startSeconds": 0,
+    "sourceTrack": "Captain America — Alan Silvestri",
+    "needsReview": false
+  },
+  {
+    "id": "dz-24206301",
+    "title": "Piratas del Caribe: la maldición del Perla Negra",
+    "aliases": [
+      "Piratas del Caribe",
+      "Pirates of the Caribbean: The Curse of the Black Pearl",
+      "Pirates of the Caribbean"
+    ],
+    "category": "película",
+    "type": "music",
+    "difficulty": "medium",
+    "deezerTrackId": "24206301",
+    "deezerStartSeconds": 0,
+    "youtubeId": "",
+    "startSeconds": 0,
+    "sourceTrack": "Fog Bound — Klaus Badelt",
+    "needsReview": false
+  },
+  {
+    "id": "dz-11207952",
+    "title": "Piratas del Caribe: navegando aguas misteriosas",
+    "aliases": [
+      "Piratas del Caribe",
+      "Pirates of the Caribbean: On Stranger Tides",
+      "Pirates of the Caribbean"
+    ],
+    "category": "película",
+    "type": "music",
+    "difficulty": "medium",
+    "deezerTrackId": "11207952",
+    "deezerStartSeconds": 0,
+    "youtubeId": "",
+    "startSeconds": 0,
+    "sourceTrack": "Guilty of Being Innocent of Being Jack Sparrow — Hans Zimmer",
+    "needsReview": false
+  },
+  {
+    "id": "dz-67770820",
+    "title": "The Last of Us",
+    "aliases": [],
+    "category": "videojuego",
+    "type": "music",
+    "difficulty": "medium",
+    "deezerTrackId": "67770820",
+    "deezerStartSeconds": 0,
+    "youtubeId": "",
+    "startSeconds": 0,
+    "sourceTrack": "The Last of Us — Gustavo Santaolalla",
+    "needsReview": false
+  },
+  {
+    "id": "dz-887427772",
+    "title": "Toy Story 3",
+    "aliases": [
+      "Toy Story"
+    ],
+    "category": "película",
+    "type": "music",
+    "difficulty": "medium",
+    "deezerTrackId": "887427772",
+    "deezerStartSeconds": 0,
+    "youtubeId": "",
+    "startSeconds": 0,
+    "sourceTrack": "You Got Lucky — Randy Newman",
+    "needsReview": false
+  },
+  {
+    "id": "dz-986571912",
+    "title": "Hora de Aventura",
+    "aliases": [
+      "Adventure Time"
+    ],
+    "category": "serie",
+    "type": "music",
+    "difficulty": "medium",
+    "deezerTrackId": "986571912",
+    "deezerStartSeconds": 0,
+    "youtubeId": "",
+    "startSeconds": 0,
+    "sourceTrack": "Island Song (Come Along with Me) [feat. Ashley Eriksson] — Adventure Time",
+    "needsReview": false
+  },
+  {
+    "id": "dz-1392861552",
+    "title": "Rick and Morty",
+    "aliases": [
+      "Rick y Morty"
+    ],
+    "category": "serie",
+    "type": "music",
+    "difficulty": "medium",
+    "deezerTrackId": "1392861552",
+    "deezerStartSeconds": 0,
+    "youtubeId": "",
+    "startSeconds": 0,
+    "sourceTrack": "Rick and Morty Theme — Rick and Morty",
+    "needsReview": false
+  },
+  {
+    "id": "dz-681961992",
+    "title": "Mary Poppins",
+    "aliases": [],
+    "category": "película",
+    "type": "music",
+    "difficulty": "medium",
+    "deezerTrackId": "681961992",
+    "deezerStartSeconds": 0,
+    "youtubeId": "",
+    "startSeconds": 0,
+    "sourceTrack": "Overture - Mary Poppins (Instrumental) — Richard M. Sherman",
+    "needsReview": false
+  },
+  {
+    "id": "dz-1217249462",
+    "title": "La novicia rebelde",
+    "aliases": [
+      "The Sound of Music",
+      "Sonrisas y lágrimas"
+    ],
+    "category": "película",
+    "type": "music",
+    "difficulty": "medium",
+    "deezerTrackId": "1217249462",
+    "deezerStartSeconds": 0,
+    "youtubeId": "",
+    "startSeconds": 0,
+    "sourceTrack": "Edelweiss — Bill Lee",
+    "needsReview": false
+  },
+  {
+    "id": "dz-679087",
+    "title": "Ahora son 13",
+    "aliases": [
+      "Ocean's Thirteen",
+      "Ocean's 13",
+      "La gran estafa"
+    ],
+    "category": "película",
+    "type": "music",
+    "difficulty": "medium",
+    "deezerTrackId": "679087",
+    "deezerStartSeconds": 0,
+    "youtubeId": "",
+    "startSeconds": 0,
+    "sourceTrack": "Snake Eyes — David Holmes",
+    "needsReview": false
+  },
+  {
+    "id": "dz-3599156",
+    "title": "La gran estafa",
+    "aliases": [
+      "Ocean's Eleven",
+      "Ocean's 11"
+    ],
+    "category": "película",
+    "type": "music",
+    "difficulty": "medium",
+    "deezerTrackId": "3599156",
+    "deezerStartSeconds": 0,
+    "youtubeId": "",
+    "startSeconds": 0,
+    "sourceTrack": "$160 Million Chinese Man — David Holmes",
+    "needsReview": false
+  },
+  {
+    "id": "dz-65442206",
+    "title": "Corazón valiente",
+    "aliases": [
+      "Braveheart"
+    ],
+    "category": "película",
+    "type": "music",
+    "difficulty": "medium",
+    "deezerTrackId": "65442206",
+    "deezerStartSeconds": 0,
+    "youtubeId": "",
+    "startSeconds": 0,
+    "sourceTrack": "Wallace Courts Murron — London Symphony Orchestra",
+    "needsReview": false
+  },
+  {
+    "id": "dz-128948754",
+    "title": "Cars",
+    "aliases": [
+      "Cars: una aventura sobre ruedas"
+    ],
+    "category": "película",
+    "type": "music",
+    "difficulty": "medium",
+    "deezerTrackId": "128948754",
+    "deezerStartSeconds": 0,
+    "youtubeId": "",
+    "startSeconds": 0,
+    "sourceTrack": "Life Is a Highway — Rascal Flatts",
+    "needsReview": false
+  },
+  {
+    "id": "dz-1014555",
+    "title": "Forrest Gump",
+    "aliases": [],
+    "category": "película",
+    "type": "music",
+    "difficulty": "medium",
+    "deezerTrackId": "1014555",
+    "deezerStartSeconds": 0,
+    "youtubeId": "",
+    "startSeconds": 0,
+    "sourceTrack": "Run Forrest Run — Alan Silvestri",
+    "needsReview": false
+  },
+  {
+    "id": "dz-1383448442",
+    "title": "Lilo & Stitch",
+    "aliases": [
+      "Lilo y Stitch"
+    ],
+    "category": "película",
+    "type": "music",
+    "difficulty": "medium",
+    "deezerTrackId": "1383448442",
+    "deezerStartSeconds": 0,
+    "youtubeId": "",
+    "startSeconds": 0,
+    "sourceTrack": "He Mele No Lilo — Mark Keali'i Ho'omalu",
+    "needsReview": false
+  },
+  {
+    "id": "dz-4203611392",
+    "title": "High School Musical",
+    "aliases": [],
+    "category": "película",
+    "type": "music",
+    "difficulty": "medium",
+    "deezerTrackId": "4203611392",
+    "deezerStartSeconds": 0,
+    "youtubeId": "",
+    "startSeconds": 0,
+    "sourceTrack": "We're All In This Together — The Cast of High School Musical",
+    "needsReview": false
+  },
+  {
+    "id": "dz-988981232",
+    "title": "The Last of Us Parte II",
+    "aliases": [
+      "The Last of Us Part II",
+      "The Last of Us 2",
+      "The Last of Us"
+    ],
+    "category": "videojuego",
+    "type": "music",
+    "difficulty": "medium",
+    "deezerTrackId": "988981232",
+    "deezerStartSeconds": 0,
+    "youtubeId": "",
+    "startSeconds": 0,
+    "sourceTrack": "Unbroken — Gustavo Santaolalla",
+    "needsReview": false
+  },
+  {
+    "id": "dz-1240959992",
+    "title": "Uncharted 4: el desenlace del ladrón",
+    "aliases": [
+      "Uncharted",
+      "Uncharted 4",
+      "Uncharted 4: A Thief's End"
+    ],
+    "category": "videojuego",
+    "type": "music",
+    "difficulty": "medium",
+    "deezerTrackId": "1240959992",
+    "deezerStartSeconds": 0,
+    "youtubeId": "",
+    "startSeconds": 0,
+    "sourceTrack": "A Thief's End — Henry Jackman",
+    "needsReview": false
+  },
+  {
+    "id": "dz-1240960022",
+    "title": "Uncharted 4: el desenlace del ladrón",
+    "aliases": [
+      "Uncharted",
+      "Uncharted 4",
+      "Uncharted 4: A Thief's End"
+    ],
+    "category": "videojuego",
+    "type": "music",
+    "difficulty": "medium",
+    "deezerTrackId": "1240960022",
+    "deezerStartSeconds": 0,
+    "youtubeId": "",
+    "startSeconds": 0,
+    "sourceTrack": "Cut to the Chase — Henry Jackman",
+    "needsReview": false
+  },
+  {
+    "id": "dz-1240960222",
+    "title": "Uncharted 4: el desenlace del ladrón",
+    "aliases": [
+      "Uncharted",
+      "Uncharted 4",
+      "Uncharted 4: A Thief's End"
+    ],
+    "category": "videojuego",
+    "type": "music",
+    "difficulty": "medium",
+    "deezerTrackId": "1240960222",
+    "deezerStartSeconds": 0,
+    "youtubeId": "",
+    "startSeconds": 0,
+    "sourceTrack": "Epilogue — Henry Jackman",
+    "needsReview": false
+  },
+  {
+    "id": "dz-1097369",
+    "title": "El padrino",
+    "aliases": [
+      "The Godfather"
+    ],
+    "category": "película",
+    "type": "music",
+    "difficulty": "medium",
+    "deezerTrackId": "1097369",
+    "deezerStartSeconds": 0,
+    "youtubeId": "",
+    "startSeconds": 0,
+    "sourceTrack": "Main Title (The Godfather Waltz) — Nino Rota",
+    "needsReview": false
+  },
+  {
+    "id": "dz-3040782",
+    "title": "El padrino",
+    "aliases": [
+      "The Godfather"
+    ],
+    "category": "película",
+    "type": "music",
+    "difficulty": "medium",
+    "deezerTrackId": "3040782",
+    "deezerStartSeconds": 0,
+    "youtubeId": "",
+    "startSeconds": 0,
+    "sourceTrack": "Love Theme from \"The Godfather\" — Nino Rota",
+    "needsReview": false
+  },
+  {
+    "id": "dz-2456326",
+    "title": "Perfume de mujer",
+    "aliases": [
+      "Scent of a Woman"
+    ],
+    "category": "película",
+    "type": "music",
+    "difficulty": "medium",
+    "deezerTrackId": "2456326",
+    "deezerStartSeconds": 0,
+    "youtubeId": "",
+    "startSeconds": 0,
+    "sourceTrack": "Main Title — Thomas Newman",
+    "needsReview": false
+  },
+  {
+    "id": "dz-5167350",
+    "title": "Buscando a Nemo",
+    "aliases": [
+      "Finding Nemo",
+      "Nemo"
+    ],
+    "category": "película",
+    "type": "music",
+    "difficulty": "medium",
+    "deezerTrackId": "5167350",
+    "deezerStartSeconds": 0,
+    "youtubeId": "sKljOD5B71k",
+    "startSeconds": 0,
+    "sourceTrack": "Main Title: Nemo Egg — Thomas Newman",
+    "needsReview": false
+  },
+  {
+    "id": "dz-602439802",
+    "title": "WALL-E",
+    "aliases": [
+      "Wall E",
+      "Walle"
+    ],
+    "category": "película",
+    "type": "music",
+    "difficulty": "medium",
+    "deezerTrackId": "602439802",
+    "deezerStartSeconds": 0,
+    "youtubeId": "",
+    "startSeconds": 0,
+    "sourceTrack": "Wall-E — Thomas Newman",
+    "needsReview": false
+  },
+  {
+    "id": "dz-128948788",
+    "title": "Cars",
+    "aliases": [
+      "Cars: una aventura sobre ruedas"
+    ],
+    "category": "película",
+    "type": "music",
+    "difficulty": "medium",
+    "deezerTrackId": "128948788",
+    "deezerStartSeconds": 0,
+    "youtubeId": "",
+    "startSeconds": 0,
+    "sourceTrack": "McQueen and Sally — Randy Newman",
+    "needsReview": false
+  },
+  {
+    "id": "dz-604380052",
+    "title": "Spider-Man: un nuevo universo",
+    "aliases": [
+      "Spider-Man: Into the Spider-Verse",
+      "Into the Spider-Verse",
+      "Spider-Verse",
+      "Spider-Man"
+    ],
+    "category": "película",
+    "type": "music",
+    "difficulty": "medium",
+    "deezerTrackId": "604380052",
+    "deezerStartSeconds": 0,
+    "youtubeId": "",
+    "startSeconds": 0,
+    "sourceTrack": "Into the Spider-Verse — Daniel Pemberton",
+    "needsReview": false
+  },
+  {
+    "id": "dz-604380212",
+    "title": "Spider-Man: un nuevo universo",
+    "aliases": [
+      "Spider-Man: Into the Spider-Verse",
+      "Into the Spider-Verse",
+      "Spider-Verse",
+      "Spider-Man"
+    ],
+    "category": "película",
+    "type": "music",
+    "difficulty": "medium",
+    "deezerTrackId": "604380212",
+    "deezerStartSeconds": 0,
+    "youtubeId": "",
+    "startSeconds": 0,
+    "sourceTrack": "Cemetery Splat — Daniel Pemberton",
+    "needsReview": false
+  },
+  {
+    "id": "dz-604380222",
+    "title": "Spider-Man: un nuevo universo",
+    "aliases": [
+      "Spider-Man: Into the Spider-Verse",
+      "Into the Spider-Verse",
+      "Spider-Verse",
+      "Spider-Man"
+    ],
+    "category": "película",
+    "type": "music",
+    "difficulty": "medium",
+    "deezerTrackId": "604380222",
+    "deezerStartSeconds": 0,
+    "youtubeId": "",
+    "startSeconds": 0,
+    "sourceTrack": "Catch the S Train — Daniel Pemberton",
+    "needsReview": false
+  },
+  {
+    "id": "dz-14628831",
+    "title": "El Señor de los Anillos: la comunidad del anillo",
+    "aliases": [
+      "El Señor de los Anillos",
+      "The Lord of the Rings",
+      "The Fellowship of the Ring"
+    ],
+    "category": "película",
+    "type": "music",
+    "difficulty": "medium",
+    "deezerTrackId": "14628831",
+    "deezerStartSeconds": 0,
+    "youtubeId": "",
+    "startSeconds": 0,
+    "sourceTrack": "The Breaking of the Fellowship (feat. \"In Dreams\") — Howard Shore",
+    "needsReview": false
+  },
+  {
+    "id": "dz-14628827",
+    "title": "El Señor de los Anillos: la comunidad del anillo",
+    "aliases": [
+      "El Señor de los Anillos",
+      "The Lord of the Rings",
+      "The Fellowship of the Ring"
+    ],
+    "category": "película",
+    "type": "music",
+    "difficulty": "medium",
+    "deezerTrackId": "14628827",
+    "deezerStartSeconds": 0,
+    "youtubeId": "",
+    "startSeconds": 0,
+    "sourceTrack": "The Bridge of Khazad-dûm — Howard Shore",
+    "needsReview": false
+  },
+  {
+    "id": "dz-647231862",
+    "title": "El Hobbit: la batalla de los cinco ejércitos",
+    "aliases": [
+      "El Hobbit",
+      "The Hobbit",
+      "The Hobbit: The Battle of the Five Armies"
+    ],
+    "category": "película",
+    "type": "music",
+    "difficulty": "medium",
+    "deezerTrackId": "647231862",
+    "deezerStartSeconds": 0,
+    "youtubeId": "",
+    "startSeconds": 0,
+    "sourceTrack": "There and Back Again — Howard Shore",
+    "needsReview": false
+  },
+  {
+    "id": "dz-14628816",
+    "title": "El Señor de los Anillos: la comunidad del anillo",
+    "aliases": [
+      "El Señor de los Anillos",
+      "The Lord of the Rings",
+      "The Fellowship of the Ring"
+    ],
+    "category": "película",
+    "type": "music",
+    "difficulty": "medium",
+    "deezerTrackId": "14628816",
+    "deezerStartSeconds": 0,
+    "youtubeId": "",
+    "startSeconds": 0,
+    "sourceTrack": "Concerning Hobbits — Howard Shore",
+    "needsReview": false
+  },
+  {
+    "id": "dz-988981112",
+    "title": "The Last of Us Parte II",
+    "aliases": [
+      "The Last of Us Part II",
+      "The Last of Us 2",
+      "The Last of Us"
+    ],
+    "category": "videojuego",
+    "type": "music",
+    "difficulty": "medium",
+    "deezerTrackId": "988981112",
+    "deezerStartSeconds": 0,
+    "youtubeId": "",
+    "startSeconds": 0,
+    "sourceTrack": "The Last of Us Part II — Gustavo Santaolalla",
+    "needsReview": false
+  },
+  {
+    "id": "dz-534375642",
+    "title": "La princesa y el sapo",
+    "aliases": [
+      "The Princess and the Frog"
+    ],
+    "category": "película",
+    "type": "music",
+    "difficulty": "medium",
+    "deezerTrackId": "534375642",
+    "deezerStartSeconds": 0,
+    "youtubeId": "",
+    "startSeconds": 0,
+    "sourceTrack": "Almost There — Anika Noni Rose",
+    "needsReview": false
+  },
+  {
+    "id": "dz-128948760",
+    "title": "Cars",
+    "aliases": [
+      "Cars: una aventura sobre ruedas"
+    ],
+    "category": "película",
+    "type": "music",
+    "difficulty": "medium",
+    "deezerTrackId": "128948760",
+    "deezerStartSeconds": 0,
+    "youtubeId": "",
+    "startSeconds": 0,
+    "sourceTrack": "Our Town — James Taylor",
+    "needsReview": false
+  },
+  {
+    "id": "dz-647303222",
+    "title": "The Flash",
+    "aliases": [
+      "Flash"
+    ],
+    "category": "serie",
+    "type": "music",
+    "difficulty": "medium",
+    "deezerTrackId": "647303222",
+    "deezerStartSeconds": 0,
+    "youtubeId": "",
+    "startSeconds": 0,
+    "sourceTrack": "The Fastest Man Alive (Always Late) — Blake Neely",
+    "needsReview": false
+  },
+  {
+    "id": "dz-1590291672",
+    "title": "Cantando bajo la lluvia",
+    "aliases": [
+      "Singin' in the Rain"
+    ],
+    "category": "película",
+    "type": "music",
+    "difficulty": "medium",
+    "deezerTrackId": "1590291672",
+    "deezerStartSeconds": 0,
+    "youtubeId": "",
+    "startSeconds": 0,
+    "sourceTrack": "Singin' In the Rain — Gene Kelly",
+    "needsReview": false
+  },
+  {
+    "id": "dz-128170417",
+    "title": "Capitán Fantástico",
+    "aliases": [
+      "Captain Fantastic"
+    ],
+    "category": "película",
+    "type": "music",
+    "difficulty": "medium",
+    "deezerTrackId": "128170417",
+    "deezerStartSeconds": 0,
+    "youtubeId": "",
+    "startSeconds": 0,
+    "sourceTrack": "Sweet Child O Mine — Viggo Mortensen",
+    "needsReview": false
+  },
+  {
+    "id": "dz-1166571942",
+    "title": "The Truman Show",
+    "aliases": [
+      "El show de Truman",
+      "Truman Show"
+    ],
+    "category": "película",
+    "type": "music",
+    "difficulty": "medium",
+    "deezerTrackId": "1166571942",
+    "deezerStartSeconds": 0,
+    "youtubeId": "",
+    "startSeconds": 0,
+    "sourceTrack": "Underground — Burkhard Dallwitz",
+    "needsReview": false
+  },
+  {
+    "id": "dz-67770883",
+    "title": "The Last of Us",
+    "aliases": [],
+    "category": "videojuego",
+    "type": "music",
+    "difficulty": "medium",
+    "deezerTrackId": "67770883",
+    "deezerStartSeconds": 0,
+    "youtubeId": "",
+    "startSeconds": 0,
+    "sourceTrack": "All Gone (No Escape) — Gustavo Santaolalla",
+    "needsReview": false
+  },
+  {
+    "id": "dz-67770855",
+    "title": "The Last of Us",
+    "aliases": [],
+    "category": "videojuego",
+    "type": "music",
+    "difficulty": "medium",
+    "deezerTrackId": "67770855",
+    "deezerStartSeconds": 0,
+    "youtubeId": "",
+    "startSeconds": 0,
+    "sourceTrack": "The Choice — Gustavo Santaolalla",
+    "needsReview": false
+  },
+  {
+    "id": "dz-1166571802",
+    "title": "The Truman Show",
+    "aliases": [
+      "El show de Truman",
+      "Truman Show"
+    ],
+    "category": "película",
+    "type": "music",
+    "difficulty": "medium",
+    "deezerTrackId": "1166571802",
+    "deezerStartSeconds": 0,
+    "youtubeId": "",
+    "startSeconds": 0,
+    "sourceTrack": "It's a Life — Burkhard Dallwitz",
+    "needsReview": false
+  },
+  {
+    "id": "dz-4203611452",
+    "title": "High School Musical 2",
+    "aliases": [
+      "High School Musical"
+    ],
+    "category": "película",
+    "type": "music",
+    "difficulty": "medium",
+    "deezerTrackId": "4203611452",
+    "deezerStartSeconds": 0,
+    "youtubeId": "",
+    "startSeconds": 0,
+    "sourceTrack": "All For One — The Cast of High School Musical",
+    "needsReview": false
+  },
+  {
+    "id": "dz-3058861",
+    "title": "High School Musical 2",
+    "aliases": [
+      "High School Musical"
+    ],
+    "category": "película",
+    "type": "music",
+    "difficulty": "medium",
+    "deezerTrackId": "3058861",
+    "deezerStartSeconds": 0,
+    "youtubeId": "",
+    "startSeconds": 0,
+    "sourceTrack": "What Time Is It — Zac Efron",
+    "needsReview": false
+  },
+  {
+    "id": "dz-647248382",
+    "title": "El Hobbit: un viaje inesperado",
+    "aliases": [
+      "El Hobbit",
+      "The Hobbit",
+      "The Hobbit: An Unexpected Journey"
+    ],
+    "category": "película",
+    "type": "music",
+    "difficulty": "medium",
+    "deezerTrackId": "647248382",
+    "deezerStartSeconds": 0,
+    "youtubeId": "",
+    "startSeconds": 0,
+    "sourceTrack": "The Adventure Begins — Howard Shore",
+    "needsReview": false
+  },
+  {
+    "id": "dz-647248372",
+    "title": "El Hobbit: un viaje inesperado",
+    "aliases": [
+      "El Hobbit",
+      "The Hobbit",
+      "The Hobbit: An Unexpected Journey"
+    ],
+    "category": "película",
+    "type": "music",
+    "difficulty": "medium",
+    "deezerTrackId": "647248372",
+    "deezerStartSeconds": 0,
+    "youtubeId": "",
+    "startSeconds": 0,
+    "sourceTrack": "Misty Mountains — Richard Armitage",
+    "needsReview": false
+  },
+  {
+    "id": "dz-647248322",
+    "title": "El Hobbit: un viaje inesperado",
+    "aliases": [
+      "El Hobbit",
+      "The Hobbit",
+      "The Hobbit: An Unexpected Journey"
+    ],
+    "category": "película",
+    "type": "music",
+    "difficulty": "medium",
+    "deezerTrackId": "647248322",
+    "deezerStartSeconds": 0,
+    "youtubeId": "",
+    "startSeconds": 0,
+    "sourceTrack": "My Dear Frodo — Howard Shore",
+    "needsReview": false
+  },
+  {
+    "id": "dz-3588277",
+    "title": "El Señor de los Anillos: el retorno del rey",
+    "aliases": [
+      "El Señor de los Anillos",
+      "The Lord of the Rings",
+      "The Return of the King"
+    ],
+    "category": "película",
+    "type": "music",
+    "difficulty": "medium",
+    "deezerTrackId": "3588277",
+    "deezerStartSeconds": 0,
+    "youtubeId": "",
+    "startSeconds": 0,
+    "sourceTrack": "The Fellowship Reunited (feat. Sir James Galway, Viggo Mortensen and Renée Fleming) — Howard Shore",
+    "needsReview": false
+  },
+  {
+    "id": "dz-669424052",
+    "title": "Avengers: Endgame",
+    "aliases": [
+      "Endgame",
+      "Avengers",
+      "Vengadores: Endgame",
+      "Los Vengadores: Endgame"
+    ],
+    "category": "película",
+    "type": "music",
+    "difficulty": "medium",
+    "deezerTrackId": "669424052",
+    "deezerStartSeconds": 0,
+    "youtubeId": "",
+    "startSeconds": 0,
+    "sourceTrack": "Portals — Alan Silvestri",
+    "needsReview": false
+  },
+  {
+    "id": "dz-732092",
+    "title": "Volver al futuro",
+    "aliases": [
+      "Back to the Future"
+    ],
+    "category": "película",
+    "type": "music",
+    "difficulty": "medium",
+    "deezerTrackId": "732092",
+    "deezerStartSeconds": 0,
+    "youtubeId": "",
+    "startSeconds": 0,
+    "sourceTrack": "The Power of Love — Huey Lewis and the News",
+    "needsReview": false
+  },
+  {
+    "id": "dz-3588278",
+    "title": "El Señor de los Anillos: el retorno del rey",
+    "aliases": [
+      "El Señor de los Anillos",
+      "The Lord of the Rings",
+      "The Return of the King"
+    ],
+    "category": "película",
+    "type": "music",
+    "difficulty": "medium",
+    "deezerTrackId": "3588278",
+    "deezerStartSeconds": 0,
+    "youtubeId": "",
+    "startSeconds": 0,
+    "sourceTrack": "The Journey to the Grey Havens (feat. Sir James Galway) — Howard Shore",
+    "needsReview": false
+  },
+  {
+    "id": "dz-130581800",
+    "title": "The Fundamentals of Caring",
+    "aliases": [],
+    "category": "película",
+    "type": "music",
+    "difficulty": "medium",
+    "deezerTrackId": "130581800",
+    "deezerStartSeconds": 0,
+    "youtubeId": "",
+    "startSeconds": 0,
+    "sourceTrack": "Birth — Ryan Miller",
+    "needsReview": false
+  },
+  {
+    "id": "dz-3055961",
+    "title": "Gladiador",
+    "aliases": [
+      "Gladiator"
+    ],
+    "category": "película",
+    "type": "music",
+    "difficulty": "medium",
+    "deezerTrackId": "3055961",
+    "deezerStartSeconds": 0,
+    "youtubeId": "",
+    "startSeconds": 0,
+    "sourceTrack": "The Battle — Gavin Greenaway",
+    "needsReview": false
+  },
+  {
+    "id": "dz-491889432",
+    "title": "Avengers: Infinity War",
+    "aliases": [
+      "Infinity War",
+      "Avengers",
+      "Vengadores: Infinity War"
+    ],
+    "category": "película",
+    "type": "music",
+    "difficulty": "medium",
+    "deezerTrackId": "491889432",
+    "deezerStartSeconds": 0,
+    "youtubeId": "",
+    "startSeconds": 0,
+    "sourceTrack": "Forge — Alan Silvestri",
+    "needsReview": false
+  },
+  {
+    "id": "dz-835917872",
+    "title": "Klaus",
+    "aliases": [],
+    "category": "película",
+    "type": "music",
+    "difficulty": "medium",
+    "deezerTrackId": "835917872",
+    "deezerStartSeconds": 0,
+    "youtubeId": "",
+    "startSeconds": 0,
+    "sourceTrack": "Once a Year, I Get To See My Friend — Alfonso G. Aguilar",
+    "needsReview": false
+  },
+  {
+    "id": "dz-105213190",
+    "title": "Avengers: Endgame",
+    "aliases": [
+      "Endgame",
+      "Avengers",
+      "Vengadores: Endgame",
+      "Los Vengadores: Endgame"
+    ],
+    "category": "película",
+    "type": "music",
+    "difficulty": "medium",
+    "deezerTrackId": "105213190",
+    "deezerStartSeconds": 0,
+    "youtubeId": "",
+    "startSeconds": 0,
+    "sourceTrack": "It's Been a Long, Long Time — Harry James",
+    "needsReview": true
+  },
+  {
+    "id": "dz-137727927",
+    "title": "La La Land",
+    "aliases": [
+      "La La Land: una historia de amor"
+    ],
+    "category": "película",
+    "type": "music",
+    "difficulty": "medium",
+    "deezerTrackId": "137727927",
+    "deezerStartSeconds": 0,
+    "youtubeId": "",
+    "startSeconds": 0,
+    "sourceTrack": "City of Stars — Ryan Gosling",
+    "needsReview": false
+  },
+  {
+    "id": "dz-1762551527",
+    "title": "El planeta del tesoro",
+    "aliases": [
+      "Treasure Planet"
+    ],
+    "category": "película",
+    "type": "music",
+    "difficulty": "medium",
+    "deezerTrackId": "1762551527",
+    "deezerStartSeconds": 0,
+    "youtubeId": "",
+    "startSeconds": 0,
+    "sourceTrack": "12 Years Later — James Newton Howard",
+    "needsReview": false
+  },
+  {
+    "id": "dz-1762551657",
+    "title": "El planeta del tesoro",
+    "aliases": [
+      "Treasure Planet"
+    ],
+    "category": "película",
+    "type": "music",
+    "difficulty": "medium",
+    "deezerTrackId": "1762551657",
+    "deezerStartSeconds": 0,
+    "youtubeId": "",
+    "startSeconds": 0,
+    "sourceTrack": "Jim Saves the Crew — James Newton Howard",
+    "needsReview": false
+  },
+  {
+    "id": "dz-1173679662",
+    "title": "Soul",
+    "aliases": [],
+    "category": "película",
+    "type": "music",
+    "difficulty": "medium",
+    "deezerTrackId": "1173679662",
+    "deezerStartSeconds": 0,
+    "youtubeId": "",
+    "startSeconds": 0,
+    "sourceTrack": "Epiphany — Trent Reznor",
+    "needsReview": false
+  },
+  {
+    "id": "dz-1173679702",
+    "title": "Soul",
+    "aliases": [],
+    "category": "película",
+    "type": "music",
+    "difficulty": "medium",
+    "deezerTrackId": "1173679702",
+    "deezerStartSeconds": 0,
+    "youtubeId": "",
+    "startSeconds": 0,
+    "sourceTrack": "Earthbound — Trent Reznor",
+    "needsReview": false
+  },
+  {
+    "id": "dz-128948758",
+    "title": "Cars",
+    "aliases": [
+      "Cars: una aventura sobre ruedas"
+    ],
+    "category": "película",
+    "type": "music",
+    "difficulty": "medium",
+    "deezerTrackId": "128948758",
+    "deezerStartSeconds": 0,
+    "youtubeId": "",
+    "startSeconds": 0,
+    "sourceTrack": "Behind the Clouds — Brad Paisley",
+    "needsReview": false
+  },
+  {
+    "id": "dz-906864",
+    "title": "Río",
+    "aliases": [
+      "Rio"
+    ],
+    "category": "película",
+    "type": "music",
+    "difficulty": "medium",
+    "deezerTrackId": "906864",
+    "deezerStartSeconds": 0,
+    "youtubeId": "",
+    "startSeconds": 0,
+    "sourceTrack": "Mas Que Nada (feat. Gracinha Leporace) [2011 Rio Version] — Sérgio Mendes",
+    "needsReview": false
+  },
+  {
+    "id": "dz-2296206",
+    "title": "Jurassic Park",
+    "aliases": [
+      "Parque Jurásico"
+    ],
+    "category": "película",
+    "type": "music",
+    "difficulty": "medium",
+    "deezerTrackId": "2296206",
+    "deezerStartSeconds": 0,
+    "youtubeId": "",
+    "startSeconds": 0,
+    "sourceTrack": "End Credits — John Williams",
+    "needsReview": false
+  },
+  {
+    "id": "dz-2296192",
+    "title": "Jurassic Park",
+    "aliases": [
+      "Parque Jurásico"
+    ],
+    "category": "película",
+    "type": "music",
+    "difficulty": "medium",
+    "deezerTrackId": "2296192",
+    "deezerStartSeconds": 0,
+    "youtubeId": "",
+    "startSeconds": 0,
+    "sourceTrack": "Theme from Jurassic Park — John Williams",
+    "needsReview": false
+  },
+  {
+    "id": "dz-576431",
+    "title": "Rocky IV",
+    "aliases": [
+      "Rocky",
+      "Rocky 4"
+    ],
+    "category": "película",
+    "type": "music",
+    "difficulty": "medium",
+    "deezerTrackId": "576431",
+    "deezerStartSeconds": 0,
+    "youtubeId": "",
+    "startSeconds": 0,
+    "sourceTrack": "Eye of the Tiger — Survivor",
+    "needsReview": false
+  },
+  {
+    "id": "dz-406815322",
+    "title": "Fiebre de sábado por la noche",
+    "aliases": [
+      "Saturday Night Fever"
+    ],
+    "category": "película",
+    "type": "music",
+    "difficulty": "medium",
+    "deezerTrackId": "406815322",
+    "deezerStartSeconds": 0,
+    "youtubeId": "",
+    "startSeconds": 0,
+    "sourceTrack": "Stayin' Alive (From \"Saturday Night Fever\" Soundtrack) — Bee Gees",
+    "needsReview": false
+  },
+  {
+    "id": "dz-103121218",
+    "title": "La historia sin fin",
+    "aliases": [
+      "The NeverEnding Story",
+      "La historia interminable"
+    ],
+    "category": "película",
+    "type": "music",
+    "difficulty": "medium",
+    "deezerTrackId": "103121218",
+    "deezerStartSeconds": 0,
+    "youtubeId": "",
+    "startSeconds": 0,
+    "sourceTrack": "The NeverEnding Story (Giorgio Mix 7\") — Limahl",
+    "needsReview": false
+  },
+  {
+    "id": "dz-626417",
+    "title": "Hombres de negro",
+    "aliases": [
+      "Men in Black",
+      "MIB"
+    ],
+    "category": "película",
+    "type": "music",
+    "difficulty": "medium",
+    "deezerTrackId": "626417",
+    "deezerStartSeconds": 0,
+    "youtubeId": "",
+    "startSeconds": 0,
+    "sourceTrack": "Men In Black — Will Smith",
+    "needsReview": false
+  },
+  {
+    "id": "dz-14552280",
+    "title": "Titanic",
+    "aliases": [],
+    "category": "película",
+    "type": "music",
+    "difficulty": "medium",
+    "deezerTrackId": "14552280",
+    "deezerStartSeconds": 0,
+    "youtubeId": "",
+    "startSeconds": 0,
+    "sourceTrack": "My Heart Will Go On (Love Theme from \"Titanic\") — Céline Dion",
+    "needsReview": false
+  },
+  {
+    "id": "dz-93631702",
+    "title": "E.T. el extraterrestre",
+    "aliases": [
+      "E.T.",
+      "ET",
+      "E.T. The Extra-Terrestrial"
+    ],
+    "category": "película",
+    "type": "music",
+    "difficulty": "medium",
+    "deezerTrackId": "93631702",
+    "deezerStartSeconds": 0,
+    "youtubeId": "",
+    "startSeconds": 0,
+    "sourceTrack": "Flying — John Williams",
+    "needsReview": false
+  },
+  {
+    "id": "dz-1166571962",
+    "title": "The Truman Show",
+    "aliases": [
+      "El show de Truman",
+      "Truman Show"
+    ],
+    "category": "película",
+    "type": "music",
+    "difficulty": "medium",
+    "deezerTrackId": "1166571962",
+    "deezerStartSeconds": 0,
+    "youtubeId": "",
+    "startSeconds": 0,
+    "sourceTrack": "Father Kolbe's Preaching (by Wojciech Kilar) — Orchestre Philharmonique National de Pologne",
+    "needsReview": false
+  },
+  {
+    "id": "dz-70632893",
+    "title": "La máscara del Zorro",
+    "aliases": [
+      "The Mask of Zorro",
+      "Zorro"
+    ],
+    "category": "película",
+    "type": "music",
+    "difficulty": "medium",
+    "deezerTrackId": "70632893",
+    "deezerStartSeconds": 0,
+    "youtubeId": "",
+    "startSeconds": 0,
+    "sourceTrack": "Zorro's Theme (Instrumental) — James Horner",
+    "needsReview": false
+  },
+  {
+    "id": "dz-661779",
+    "title": "Harry Potter y la piedra filosofal",
+    "aliases": [
+      "Harry Potter",
+      "Harry Potter and the Sorcerer's Stone",
+      "Harry Potter and the Philosopher's Stone"
+    ],
+    "category": "película",
+    "type": "music",
+    "difficulty": "medium",
+    "deezerTrackId": "661779",
+    "deezerStartSeconds": 0,
+    "youtubeId": "",
+    "startSeconds": 0,
+    "sourceTrack": "Hedwig's Theme — John Williams",
+    "needsReview": false
+  },
+  {
+    "id": "dz-624844652",
+    "title": "Carros de fuego",
+    "aliases": [
+      "Chariots of Fire"
+    ],
+    "category": "película",
+    "type": "music",
+    "difficulty": "medium",
+    "deezerTrackId": "624844652",
+    "deezerStartSeconds": 0,
+    "youtubeId": "",
+    "startSeconds": 0,
+    "sourceTrack": "Chariots Of Fire (Edit) — Vangelis",
+    "needsReview": false
+  },
+  {
+    "id": "dz-4091767",
+    "title": "Batman: el caballero de la noche",
+    "aliases": [
+      "The Dark Knight",
+      "El caballero oscuro",
+      "Batman"
+    ],
+    "category": "película",
+    "type": "music",
+    "difficulty": "medium",
+    "deezerTrackId": "4091767",
+    "deezerStartSeconds": 0,
+    "youtubeId": "",
+    "startSeconds": 0,
+    "sourceTrack": "A Watchful Guardian — Hans Zimmer",
+    "needsReview": false
+  },
+  {
+    "id": "dz-590517902",
+    "title": "Valiente",
+    "aliases": [
+      "Brave"
+    ],
+    "category": "película",
+    "type": "music",
+    "difficulty": "medium",
+    "deezerTrackId": "590517902",
+    "deezerStartSeconds": 0,
+    "youtubeId": "",
+    "startSeconds": 0,
+    "sourceTrack": "Con Toda Libertad — Yuridia",
+    "needsReview": false
+  },
+  {
+    "id": "dz-35087841",
+    "title": "Valiente",
+    "aliases": [
+      "Brave"
+    ],
+    "category": "película",
+    "type": "music",
+    "difficulty": "medium",
+    "deezerTrackId": "35087841",
+    "deezerStartSeconds": 0,
+    "youtubeId": "",
+    "startSeconds": 0,
+    "sourceTrack": "Fate And Destiny (From \"Brave\"/Score) — Patrick Doyle",
+    "needsReview": false
+  },
+  {
+    "id": "dz-110148756",
+    "title": "Mi pobre angelito",
+    "aliases": [
+      "Home Alone",
+      "Solo en casa"
+    ],
+    "category": "película",
+    "type": "music",
+    "difficulty": "medium",
+    "deezerTrackId": "110148756",
+    "deezerStartSeconds": 0,
+    "youtubeId": "",
+    "startSeconds": 0,
+    "sourceTrack": "Carol of the Bells — John Williams",
+    "needsReview": false
+  },
+  {
+    "id": "dz-110148734",
+    "title": "Mi pobre angelito",
+    "aliases": [
+      "Home Alone",
+      "Solo en casa"
+    ],
+    "category": "película",
+    "type": "music",
+    "difficulty": "medium",
+    "deezerTrackId": "110148734",
+    "deezerStartSeconds": 0,
+    "youtubeId": "",
+    "startSeconds": 0,
+    "sourceTrack": "Main Title \"Somewhere in My Memory\" (From \"Home Alone\") [Voice] — John Williams",
+    "needsReview": false
+  },
+  {
+    "id": "dz-1029388",
+    "title": "Leyendas de pasión",
+    "aliases": [
+      "Legends of the Fall"
+    ],
+    "category": "película",
+    "type": "music",
+    "difficulty": "medium",
+    "deezerTrackId": "1029388",
+    "deezerStartSeconds": 0,
+    "youtubeId": "",
+    "startSeconds": 0,
+    "sourceTrack": "The Ludlows — James Horner",
+    "needsReview": false
+  },
+  {
+    "id": "dz-604380432",
+    "title": "Spider-Man: un nuevo universo",
+    "aliases": [
+      "Spider-Man: Into the Spider-Verse",
+      "Into the Spider-Verse",
+      "Spider-Verse",
+      "Spider-Man"
+    ],
+    "category": "película",
+    "type": "music",
+    "difficulty": "medium",
+    "deezerTrackId": "604380432",
+    "deezerStartSeconds": 0,
+    "youtubeId": "",
+    "startSeconds": 0,
+    "sourceTrack": "Saying Goodbye — Daniel Pemberton",
+    "needsReview": false
+  },
+  {
+    "id": "dz-604380442",
+    "title": "Spider-Man: un nuevo universo",
+    "aliases": [
+      "Spider-Man: Into the Spider-Verse",
+      "Into the Spider-Verse",
+      "Spider-Verse",
+      "Spider-Man"
+    ],
+    "category": "película",
+    "type": "music",
+    "difficulty": "medium",
+    "deezerTrackId": "604380442",
+    "deezerStartSeconds": 0,
+    "youtubeId": "",
+    "startSeconds": 0,
+    "sourceTrack": "Shut it Down — Daniel Pemberton",
+    "needsReview": false
+  },
+  {
+    "id": "dz-604380392",
+    "title": "Spider-Man: un nuevo universo",
+    "aliases": [
+      "Spider-Man: Into the Spider-Verse",
+      "Into the Spider-Verse",
+      "Spider-Verse",
+      "Spider-Man"
+    ],
+    "category": "película",
+    "type": "music",
+    "difficulty": "medium",
+    "deezerTrackId": "604380392",
+    "deezerStartSeconds": 0,
+    "youtubeId": "",
+    "startSeconds": 0,
+    "sourceTrack": "Spider-Team Mission — Daniel Pemberton",
+    "needsReview": false
+  },
+  {
+    "id": "dz-581092892",
+    "title": "Little Einsteins",
+    "aliases": [
+      "Pequeños Einsteins"
+    ],
+    "category": "serie",
+    "type": "music",
+    "difficulty": "medium",
+    "deezerTrackId": "581092892",
+    "deezerStartSeconds": 0,
+    "youtubeId": "",
+    "startSeconds": 0,
+    "sourceTrack": "Little Einsteins - Main Theme — Geek Music",
+    "needsReview": false
+  },
+  {
+    "id": "dz-68426078",
+    "title": "Teen Beach Movie",
+    "aliases": [],
+    "category": "película",
+    "type": "music",
+    "difficulty": "medium",
+    "deezerTrackId": "68426078",
+    "deezerStartSeconds": 0,
+    "youtubeId": "",
+    "startSeconds": 0,
+    "sourceTrack": "Cruisin' for a Bruisin' (From \"Teen Beach Movie\"/Soundtrack Version) — Brady",
+    "needsReview": false
+  },
+  {
+    "id": "dz-137727915",
+    "title": "La La Land",
+    "aliases": [
+      "La La Land: una historia de amor"
+    ],
+    "category": "película",
+    "type": "music",
+    "difficulty": "medium",
+    "deezerTrackId": "137727915",
+    "deezerStartSeconds": 0,
+    "youtubeId": "",
+    "startSeconds": 0,
+    "sourceTrack": "Mia & Sebastian's Theme — Justin Hurwitz",
+    "needsReview": false
+  },
+  {
+    "id": "dz-3765726682",
+    "title": "Minecraft",
+    "aliases": [],
+    "category": "videojuego",
+    "type": "music",
+    "difficulty": "medium",
+    "deezerTrackId": "3765726682",
+    "deezerStartSeconds": 0,
+    "youtubeId": "",
+    "startSeconds": 0,
+    "sourceTrack": "Mice on Venus — C418",
+    "needsReview": false
+  },
+  {
+    "id": "dz-3765727282",
+    "title": "Minecraft",
+    "aliases": [],
+    "category": "videojuego",
+    "type": "music",
+    "difficulty": "medium",
+    "deezerTrackId": "3765727282",
+    "deezerStartSeconds": 0,
+    "youtubeId": "",
+    "startSeconds": 0,
+    "sourceTrack": "Alpha — C418",
+    "needsReview": false
+  },
+  {
+    "id": "dz-128948774",
+    "title": "Maverick",
+    "aliases": [],
+    "category": "película",
+    "type": "music",
+    "difficulty": "medium",
+    "deezerTrackId": "128948774",
+    "deezerStartSeconds": 0,
+    "youtubeId": "",
+    "startSeconds": 0,
+    "sourceTrack": "Opening — Randy Newman",
+    "needsReview": false
+  },
+  {
+    "id": "dz-67304977",
+    "title": "Robin Hood: príncipe de los ladrones",
+    "aliases": [
+      "Robin Hood",
+      "Robin Hood: Prince of Thieves"
+    ],
+    "category": "película",
+    "type": "music",
+    "difficulty": "medium",
+    "deezerTrackId": "67304977",
+    "deezerStartSeconds": 0,
+    "youtubeId": "",
+    "startSeconds": 0,
+    "sourceTrack": "Robin Hood Prince of Thieves — Michael Kamen",
+    "needsReview": false
+  },
+  {
+    "id": "dz-617319032",
+    "title": "Toy Story",
+    "aliases": [],
+    "category": "película",
+    "type": "music",
+    "difficulty": "medium",
+    "deezerTrackId": "617319032",
+    "deezerStartSeconds": 0,
+    "youtubeId": "",
+    "startSeconds": 0,
+    "sourceTrack": "you've got a friend in me — Christina Perri",
+    "needsReview": true
+  },
+  {
+    "id": "dz-117729426",
+    "title": "Juego de Tronos",
+    "aliases": [
+      "Game of Thrones",
+      "GOT"
+    ],
+    "category": "serie",
+    "type": "music",
+    "difficulty": "medium",
+    "deezerTrackId": "117729426",
+    "deezerStartSeconds": 0,
+    "youtubeId": "",
+    "startSeconds": 0,
+    "sourceTrack": "Main Title — Ramin Djawadi",
+    "needsReview": false
+  },
+  {
+    "id": "dz-561875042",
+    "title": "Tarzán",
+    "aliases": [
+      "Tarzan"
+    ],
+    "category": "película",
+    "type": "music",
+    "difficulty": "medium",
+    "deezerTrackId": "561875042",
+    "deezerStartSeconds": 0,
+    "youtubeId": "",
+    "startSeconds": 0,
+    "sourceTrack": "Son of Man — Phil Collins",
+    "needsReview": false
+  },
+  {
+    "id": "dz-4308824",
+    "title": "La terminal",
+    "aliases": [
+      "The Terminal"
+    ],
+    "category": "película",
+    "type": "music",
+    "difficulty": "medium",
+    "deezerTrackId": "4308824",
+    "deezerStartSeconds": 0,
+    "youtubeId": "",
+    "startSeconds": 0,
+    "sourceTrack": "The Tale of Viktor Navorski — John Williams",
+    "needsReview": false
+  },
+  {
+    "id": "dz-128946508",
+    "title": "Monsters, Inc.",
+    "aliases": [
+      "Monsters Inc",
+      "Monstruos S.A.",
+      "Monsters"
+    ],
+    "category": "película",
+    "type": "music",
+    "difficulty": "medium",
+    "deezerTrackId": "128946508",
+    "deezerStartSeconds": 0,
+    "youtubeId": "",
+    "startSeconds": 0,
+    "sourceTrack": "Boo's Going Home — Randy Newman",
+    "needsReview": false
+  },
+  {
+    "id": "dz-17840802",
+    "title": "Los Vengadores",
+    "aliases": [
+      "The Avengers",
+      "Avengers"
+    ],
+    "category": "película",
+    "type": "music",
+    "difficulty": "medium",
+    "deezerTrackId": "17840802",
+    "deezerStartSeconds": 0,
+    "youtubeId": "",
+    "startSeconds": 0,
+    "sourceTrack": "One Way Trip — Alan Silvestri",
+    "needsReview": false
+  },
+  {
+    "id": "dz-2228680",
+    "title": "Atrápame si puedes",
+    "aliases": [
+      "Catch Me If You Can"
+    ],
+    "category": "película",
+    "type": "music",
+    "difficulty": "medium",
+    "deezerTrackId": "2228680",
+    "deezerStartSeconds": 0,
+    "youtubeId": "",
+    "startSeconds": 0,
+    "sourceTrack": "Catch Me If You Can — John Williams",
+    "needsReview": false
+  },
+  {
+    "id": "dz-123821660",
+    "title": "La era de hielo 2",
+    "aliases": [
+      "La era de hielo",
+      "La era del hielo",
+      "La era del hielo 2",
+      "Ice Age",
+      "Ice Age: The Meltdown"
+    ],
+    "category": "película",
+    "type": "music",
+    "difficulty": "medium",
+    "deezerTrackId": "123821660",
+    "deezerStartSeconds": 0,
+    "youtubeId": "",
+    "startSeconds": 0,
+    "sourceTrack": "Goodnight Sweet Possums — John Powell",
+    "needsReview": false
+  },
+  {
+    "id": "dz-123821682",
+    "title": "La era de hielo 2",
+    "aliases": [
+      "La era de hielo",
+      "La era del hielo",
+      "La era del hielo 2",
+      "Ice Age",
+      "Ice Age: The Meltdown"
+    ],
+    "category": "película",
+    "type": "music",
+    "difficulty": "medium",
+    "deezerTrackId": "123821682",
+    "deezerStartSeconds": 0,
+    "youtubeId": "",
+    "startSeconds": 0,
+    "sourceTrack": "Mammoths — John Powell",
+    "needsReview": false
+  },
+  {
+    "id": "dz-128946476",
+    "title": "Monsters, Inc.",
+    "aliases": [
+      "Monsters Inc",
+      "Monstruos S.A.",
+      "Monsters"
+    ],
+    "category": "película",
+    "type": "music",
+    "difficulty": "medium",
+    "deezerTrackId": "128946476",
+    "deezerStartSeconds": 0,
+    "youtubeId": "",
+    "startSeconds": 0,
+    "sourceTrack": "Enter the Heroes — Randy Newman",
+    "needsReview": false
+  },
+  {
+    "id": "dz-112662184",
+    "title": "Guardianes de la Galaxia Vol. 2",
+    "aliases": [
+      "Guardianes de la Galaxia",
+      "Guardians of the Galaxy Vol. 2",
+      "Guardians of the Galaxy"
+    ],
+    "category": "película",
+    "type": "music",
+    "difficulty": "medium",
+    "deezerTrackId": "112662184",
+    "deezerStartSeconds": 0,
+    "youtubeId": "",
+    "startSeconds": 0,
+    "sourceTrack": "Mr. Blue Sky — Electric Light Orchestra",
+    "needsReview": false
+  },
+  {
+    "id": "dz-413935242",
+    "title": "Undertale",
+    "aliases": [],
+    "category": "videojuego",
+    "type": "music",
+    "difficulty": "medium",
+    "deezerTrackId": "413935242",
+    "deezerStartSeconds": 0,
+    "youtubeId": "",
+    "startSeconds": 0,
+    "sourceTrack": "Megalovania — Toby Fox",
+    "needsReview": false
+  },
+  {
+    "id": "dz-2958424",
+    "title": "Los Backyardigans",
+    "aliases": [
+      "The Backyardigans",
+      "Backyardigans"
+    ],
+    "category": "serie",
+    "type": "music",
+    "difficulty": "medium",
+    "deezerTrackId": "2958424",
+    "deezerStartSeconds": 0,
+    "youtubeId": "",
+    "startSeconds": 0,
+    "sourceTrack": "Castaways — The Backyardigans",
+    "needsReview": false
+  },
+  {
+    "id": "dz-2958435",
+    "title": "Los Backyardigans",
+    "aliases": [
+      "The Backyardigans",
+      "Backyardigans"
+    ],
+    "category": "serie",
+    "type": "music",
+    "difficulty": "medium",
+    "deezerTrackId": "2958435",
+    "deezerStartSeconds": 0,
+    "youtubeId": "",
+    "startSeconds": 0,
+    "sourceTrack": "Into the Thick of It! — The Backyardigans",
+    "needsReview": false
+  },
+  {
+    "id": "dz-1402006422",
+    "title": "Luca",
+    "aliases": [],
+    "category": "película",
+    "type": "music",
+    "difficulty": "medium",
+    "deezerTrackId": "1402006422",
+    "deezerStartSeconds": 0,
+    "youtubeId": "",
+    "startSeconds": 0,
+    "sourceTrack": "Vespa è Libertà — Dan Romer",
+    "needsReview": false
+  },
+  {
+    "id": "dz-369139991",
+    "title": "Baby Driver",
+    "aliases": [
+      "Baby: el aprendiz del crimen"
+    ],
+    "category": "película",
+    "type": "music",
+    "difficulty": "medium",
+    "deezerTrackId": "369139991",
+    "deezerStartSeconds": 0,
+    "youtubeId": "",
+    "startSeconds": 0,
+    "sourceTrack": "\"Was He Slow?\" (Music From the Motion Picture Baby Driver) — Kid Koala",
+    "needsReview": false
+  },
+  {
+    "id": "dz-13174770",
+    "title": "Baby Driver",
+    "aliases": [
+      "Baby: el aprendiz del crimen"
+    ],
+    "category": "película",
+    "type": "music",
+    "difficulty": "medium",
+    "deezerTrackId": "13174770",
+    "deezerStartSeconds": 0,
+    "youtubeId": "",
+    "startSeconds": 0,
+    "sourceTrack": "Baby Driver — Simon",
+    "needsReview": false
+  },
+  {
+    "id": "dz-77450610",
+    "title": "El sorprendente Hombre Araña 2",
+    "aliases": [
+      "The Amazing Spider-Man 2",
+      "The Amazing Spider-Man",
+      "Spider-Man"
+    ],
+    "category": "película",
+    "type": "music",
+    "difficulty": "medium",
+    "deezerTrackId": "77450610",
+    "deezerStartSeconds": 0,
+    "youtubeId": "",
+    "startSeconds": 0,
+    "sourceTrack": "I'm Spider-Man — Hans Zimmer",
+    "needsReview": false
+  },
+  {
+    "id": "dz-102453212",
+    "title": "Caillou",
+    "aliases": [],
+    "category": "serie",
+    "type": "music",
+    "difficulty": "medium",
+    "deezerTrackId": "102453212",
+    "deezerStartSeconds": 0,
+    "youtubeId": "",
+    "startSeconds": 0,
+    "sourceTrack": "Caillou Theme — Caillou",
+    "needsReview": false
+  },
+  {
+    "id": "dz-81105432",
+    "title": "El Rey León",
+    "aliases": [
+      "The Lion King",
+      "Rey León"
+    ],
+    "category": "película",
+    "type": "music",
+    "difficulty": "medium",
+    "deezerTrackId": "81105432",
+    "deezerStartSeconds": 0,
+    "youtubeId": "",
+    "startSeconds": 0,
+    "sourceTrack": "Remember — Hans Zimmer",
+    "needsReview": false
+  },
+  {
+    "id": "dz-561875132",
+    "title": "Tarzán",
+    "aliases": [
+      "Tarzan"
+    ],
+    "category": "película",
+    "type": "music",
+    "difficulty": "medium",
+    "deezerTrackId": "561875132",
+    "deezerStartSeconds": 0,
+    "youtubeId": "",
+    "startSeconds": 0,
+    "sourceTrack": "You'll Be In My Heart — Phil Collins",
+    "needsReview": false
+  },
+  {
+    "id": "dz-783563",
+    "title": "El Señor de los Anillos: las dos torres",
+    "aliases": [
+      "El Señor de los Anillos",
+      "The Lord of the Rings",
+      "The Two Towers"
+    ],
+    "category": "película",
+    "type": "music",
+    "difficulty": "medium",
+    "deezerTrackId": "783563",
+    "deezerStartSeconds": 0,
+    "youtubeId": "",
+    "startSeconds": 0,
+    "sourceTrack": "The King of the Golden Hall — Howard Shore",
+    "needsReview": false
+  },
+  {
+    "id": "dz-1397984092",
+    "title": "Subway Surfers",
+    "aliases": [],
+    "category": "videojuego",
+    "type": "music",
+    "difficulty": "medium",
+    "deezerTrackId": "1397984092",
+    "deezerStartSeconds": 0,
+    "youtubeId": "",
+    "startSeconds": 0,
+    "sourceTrack": "Subway Surfers (Main Theme) — Subway Surfers",
+    "needsReview": false
+  },
+  {
+    "id": "dz-647938362",
+    "title": "La sospecha",
+    "aliases": [
+      "Prisoners"
+    ],
+    "category": "película",
+    "type": "music",
+    "difficulty": "medium",
+    "deezerTrackId": "647938362",
+    "deezerStartSeconds": 0,
+    "youtubeId": "",
+    "startSeconds": 0,
+    "sourceTrack": "Escape — Jóhann Jóhannsson",
+    "needsReview": false
+  },
+  {
+    "id": "dz-119438480",
+    "title": "Kung Fu Panda 2",
+    "aliases": [
+      "Kung Fu Panda"
+    ],
+    "category": "película",
+    "type": "music",
+    "difficulty": "medium",
+    "deezerTrackId": "119438480",
+    "deezerStartSeconds": 0,
+    "youtubeId": "",
+    "startSeconds": 0,
+    "sourceTrack": "More Cannons! — John Powell",
+    "needsReview": false
+  },
+  {
+    "id": "dz-1575418882",
+    "title": "Spider-Man: sin camino a casa",
+    "aliases": [
+      "Spider-Man: No Way Home",
+      "No Way Home",
+      "Spider-Man"
+    ],
+    "category": "película",
+    "type": "music",
+    "difficulty": "medium",
+    "deezerTrackId": "1575418882",
+    "deezerStartSeconds": 0,
+    "youtubeId": "",
+    "startSeconds": 0,
+    "sourceTrack": "Arachnoverture (from \"Spider-Man: No Way Home\" Soundtrack) — Michael Giacchino",
+    "needsReview": false
+  },
+  {
+    "id": "dz-77450613",
+    "title": "El sorprendente Hombre Araña 2",
+    "aliases": [
+      "The Amazing Spider-Man 2",
+      "The Amazing Spider-Man",
+      "Spider-Man"
+    ],
+    "category": "película",
+    "type": "music",
+    "difficulty": "medium",
+    "deezerTrackId": "77450613",
+    "deezerStartSeconds": 0,
+    "youtubeId": "",
+    "startSeconds": 0,
+    "sourceTrack": "Look at Me — Hans Zimmer",
+    "needsReview": false
+  },
+  {
+    "id": "dz-1240960012",
+    "title": "Uncharted 4: el desenlace del ladrón",
+    "aliases": [
+      "Uncharted",
+      "Uncharted 4",
+      "Uncharted 4: A Thief's End"
+    ],
+    "category": "videojuego",
+    "type": "music",
+    "difficulty": "medium",
+    "deezerTrackId": "1240960012",
+    "deezerStartSeconds": 0,
+    "youtubeId": "",
+    "startSeconds": 0,
+    "sourceTrack": "Lure of Adventure — Henry Jackman",
+    "needsReview": false
+  },
+  {
+    "id": "dz-2239671257",
+    "title": "Halo 3",
+    "aliases": [
+      "Halo"
+    ],
+    "category": "videojuego",
+    "type": "music",
+    "difficulty": "medium",
+    "deezerTrackId": "2239671257",
+    "deezerStartSeconds": 0,
+    "youtubeId": "",
+    "startSeconds": 0,
+    "sourceTrack": "Tribute — Martin O'Donnell",
+    "needsReview": false
+  },
+  {
+    "id": "dz-1240960172",
+    "title": "Uncharted 4: el desenlace del ladrón",
+    "aliases": [
+      "Uncharted",
+      "Uncharted 4",
+      "Uncharted 4: A Thief's End"
+    ],
+    "category": "videojuego",
+    "type": "music",
+    "difficulty": "medium",
+    "deezerTrackId": "1240960172",
+    "deezerStartSeconds": 0,
+    "youtubeId": "",
+    "startSeconds": 0,
+    "sourceTrack": "New Devon — Henry Jackman",
+    "needsReview": false
+  },
+  {
+    "id": "dz-3375977741",
+    "title": "The Last of Us Parte II",
+    "aliases": [
+      "The Last of Us Part II",
+      "The Last of Us 2",
+      "The Last of Us"
+    ],
+    "category": "videojuego",
+    "type": "music",
+    "difficulty": "medium",
+    "deezerTrackId": "3375977741",
+    "deezerStartSeconds": 0,
+    "youtubeId": "",
+    "startSeconds": 0,
+    "sourceTrack": "Through the Valley — Ashley Johnson",
+    "needsReview": false
+  },
+  {
+    "id": "dz-7675055",
+    "title": "Top Gun",
+    "aliases": [
+      "Top Gun: pasión y gloria"
+    ],
+    "category": "película",
+    "type": "music",
+    "difficulty": "medium",
+    "deezerTrackId": "7675055",
+    "deezerStartSeconds": 0,
+    "youtubeId": "",
+    "startSeconds": 0,
+    "sourceTrack": "Take My Breath Away (as heard in Top Gun) (Re-Recorded / Remastered) — Berlin",
+    "needsReview": false
+  },
+  {
+    "id": "dz-1676658747",
+    "title": "The Batman",
+    "aliases": [
+      "Batman"
+    ],
+    "category": "película",
+    "type": "music",
+    "difficulty": "medium",
+    "deezerTrackId": "1676658747",
+    "deezerStartSeconds": 0,
+    "youtubeId": "",
+    "startSeconds": 0,
+    "sourceTrack": "The Batman — Michael Giacchino",
+    "needsReview": false
+  },
+  {
+    "id": "dz-913656202",
+    "title": "Futurama",
+    "aliases": [],
+    "category": "serie",
+    "type": "music",
+    "difficulty": "medium",
+    "deezerTrackId": "913656202",
+    "deezerStartSeconds": 0,
+    "youtubeId": "",
+    "startSeconds": 0,
+    "sourceTrack": "Futurama Main Theme (From \"Futurama\"/TV Version) — Christopher Tyng",
+    "needsReview": false
+  },
+  {
+    "id": "dz-3627500332",
+    "title": "The Elder Scrolls V: Skyrim",
+    "aliases": [
+      "Skyrim"
+    ],
+    "category": "videojuego",
+    "type": "music",
+    "difficulty": "medium",
+    "deezerTrackId": "3627500332",
+    "deezerStartSeconds": 0,
+    "youtubeId": "",
+    "startSeconds": 0,
+    "sourceTrack": "Dragonborn — Jeremy Soule",
+    "needsReview": false
+  },
+  {
+    "id": "dz-454297012",
+    "title": "This Is Us",
+    "aliases": [
+      "Esto somos"
+    ],
+    "category": "serie",
+    "type": "music",
+    "difficulty": "medium",
+    "deezerTrackId": "454297012",
+    "deezerStartSeconds": 0,
+    "youtubeId": "",
+    "startSeconds": 0,
+    "sourceTrack": "Jack’s Theme (Three Sentences) — Siddhartha Khosla",
+    "needsReview": false
+  },
+  {
+    "id": "dz-104910462",
+    "title": "Vecinos invasores",
+    "aliases": [
+      "Over the Hedge"
+    ],
+    "category": "película",
+    "type": "music",
+    "difficulty": "medium",
+    "deezerTrackId": "104910462",
+    "deezerStartSeconds": 0,
+    "youtubeId": "",
+    "startSeconds": 0,
+    "sourceTrack": "Family of Me — Ben Folds",
+    "needsReview": false
+  },
+  {
+    "id": "dz-67770836",
+    "title": "The Last of Us",
+    "aliases": [],
+    "category": "videojuego",
+    "type": "music",
+    "difficulty": "medium",
+    "deezerTrackId": "67770836",
+    "deezerStartSeconds": 0,
+    "youtubeId": "",
+    "startSeconds": 0,
+    "sourceTrack": "Vanishing Grace — Gustavo Santaolalla",
+    "needsReview": false
+  },
+  {
+    "id": "dz-122039622",
+    "title": "Peter Punk",
+    "aliases": [],
+    "category": "serie",
+    "type": "music",
+    "difficulty": "medium",
+    "deezerTrackId": "122039622",
+    "deezerStartSeconds": 0,
+    "youtubeId": "",
+    "startSeconds": 0,
+    "sourceTrack": "Familia Punk — Juan Ciancio",
+    "needsReview": false
+  },
+  {
+    "id": "dz-121596138",
+    "title": "Gigantes de acero",
+    "aliases": [
+      "Real Steel"
+    ],
+    "category": "película",
+    "type": "music",
+    "difficulty": "medium",
+    "deezerTrackId": "121596138",
+    "deezerStartSeconds": 0,
+    "youtubeId": "",
+    "startSeconds": 0,
+    "sourceTrack": "Final Round — Danny Elfman",
+    "needsReview": false
+  },
+  {
+    "id": "dz-454297002",
+    "title": "This Is Us",
+    "aliases": [
+      "Esto somos"
+    ],
+    "category": "serie",
+    "type": "music",
+    "difficulty": "medium",
+    "deezerTrackId": "454297002",
+    "deezerStartSeconds": 0,
+    "youtubeId": "",
+    "startSeconds": 0,
+    "sourceTrack": "Opening Theme (This Is Us) — Siddhartha Khosla",
+    "needsReview": false
+  },
+  {
+    "id": "dz-688442482",
+    "title": "Red Dead Redemption 2",
+    "aliases": [
+      "Red Dead Redemption",
+      "RDR2"
+    ],
+    "category": "videojuego",
+    "type": "music",
+    "difficulty": "medium",
+    "deezerTrackId": "688442482",
+    "deezerStartSeconds": 0,
+    "youtubeId": "",
+    "startSeconds": 0,
+    "sourceTrack": "Unshaken — D'Angelo",
+    "needsReview": false
+  },
+  {
+    "id": "dz-988981172",
+    "title": "The Last of Us Parte II",
+    "aliases": [
+      "The Last of Us Part II",
+      "The Last of Us 2",
+      "The Last of Us"
+    ],
+    "category": "videojuego",
+    "type": "music",
+    "difficulty": "medium",
+    "deezerTrackId": "988981172",
+    "deezerStartSeconds": 0,
+    "youtubeId": "",
+    "startSeconds": 0,
+    "sourceTrack": "Reclaimed Memories — Gustavo Santaolalla",
+    "needsReview": false
+  },
+  {
+    "id": "dz-1762557427",
+    "title": "Piratas del Caribe",
+    "aliases": [
+      "Pirates of the Caribbean"
+    ],
+    "category": "película",
+    "type": "music",
+    "difficulty": "medium",
+    "deezerTrackId": "1762557427",
+    "deezerStartSeconds": 0,
+    "youtubeId": "JZeNYaTmVP4",
+    "startSeconds": 0,
+    "sourceTrack": "Jack Sparrow — Hans Zimmer",
+    "needsReview": false
+  },
+  {
+    "id": "dz-82715364",
+    "title": "Skyfall",
+    "aliases": [
+      "007 Skyfall",
+      "Operación Skyfall"
+    ],
+    "category": "película",
+    "type": "music",
+    "difficulty": "medium",
+    "deezerTrackId": "82715364",
+    "deezerStartSeconds": 0,
+    "youtubeId": "DeumyOzKqgI",
+    "startSeconds": 0,
+    "sourceTrack": "Skyfall — Adele",
+    "needsReview": false
+  },
+  {
+    "id": "dz-4116763501",
+    "title": "Marty Supreme",
+    "aliases": [],
+    "category": "película",
+    "type": "music",
+    "difficulty": "medium",
+    "deezerTrackId": "4116763501",
+    "deezerStartSeconds": 0,
+    "youtubeId": "hFrmzMBlCAg",
+    "startSeconds": 0,
+    "sourceTrack": "The Call — Daniel Lopatin",
+    "needsReview": false
+  },
+  {
+    "id": "dz-2364462315",
+    "title": "Oppenheimer",
+    "aliases": [],
+    "category": "película",
+    "type": "music",
+    "difficulty": "medium",
+    "deezerTrackId": "2364462315",
+    "deezerStartSeconds": 0,
+    "youtubeId": "4JZ-o3iAJv4",
+    "startSeconds": 0,
+    "sourceTrack": "Can You Hear The Music — Ludwig Göransson",
+    "needsReview": false
+  },
+  {
+    "id": "dz-3343699461",
+    "title": "F1",
+    "aliases": [
+      "F1 la película",
+      "F1 The Movie",
+      "Formula 1"
+    ],
+    "category": "película",
+    "type": "music",
+    "difficulty": "medium",
+    "deezerTrackId": "3343699461",
+    "deezerStartSeconds": 0,
+    "youtubeId": "WWEs82u37Mw",
+    "startSeconds": 0,
+    "sourceTrack": "Lose My Mind — Don Toliver",
+    "needsReview": false
+  }
+]
