@@ -59,7 +59,7 @@ export default function AnswerForm({ options = [], onSubmit, onNextClue, canNext
           onChange={handleChange}
           onKeyDown={handleKeyDown}
           onBlur={() => setOpen(false)}
-          placeholder="Empezá a escribir y elegí de la lista"
+          placeholder="Escribí y elegí de la lista"
           autoComplete="off"
           role="combobox"
           aria-expanded={suggestions.length > 0}

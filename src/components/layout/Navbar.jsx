@@ -13,7 +13,7 @@ export default function Navbar() {
     <header className="navbar">
       <div className="navbar-inner">
         <NavLink to="/" className="brand">
-          🎵 Adiviná la música
+          Adiviná la música
         </NavLink>
         <nav className="nav-links" aria-label="Navegación principal">
           {links.map(({ to, label }) => (

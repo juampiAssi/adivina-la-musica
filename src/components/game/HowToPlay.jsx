@@ -4,7 +4,8 @@ import { CLUES } from '../../utils/scoring.js'
 export default function HowToPlay({ total, onStart }) {
   return (
     <div className="card">
-      <h2>Cómo se juega</h2>
+      <p className="eyebrow">Cómo se juega</p>
+      <h2>Escuchá, adiviná, sumá</h2>
       <ol className="steps">
         <li>Tocá <strong>Escuchar</strong> y prestá atención al fragmento de música.</li>
         <li>
@@ -18,13 +19,12 @@ export default function HowToPlay({ total, onStart }) {
         <li>
           Si no tenés idea, <strong>Saltear canción</strong> te muestra la respuesta, pero no suma puntos.
         </li>
-        <li>Cuanto antes aciertes, más puntos ganás:</li>
       </ol>
-      <ul className="clue-points">
+      <ul className="tiles">
         {CLUES.map(({ seconds, points }) => (
-          <li key={seconds}>
+          <li key={seconds} className="tile">
+            <strong>{points}</strong>
             <span>{seconds} segundos</span>
-            <strong>{points} pts</strong>
           </li>
         ))}
       </ul>

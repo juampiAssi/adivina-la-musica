@@ -1,14 +1,35 @@
-/* Estilos globales provisorios (V1). Se rediseñan en V2/V3. */
+/* =========================================================
+   Diseño "Vice": inspirado en la estética de atardecer de
+   Miami (neón, violetas y rosas). Paleta y fuentes propias.
+   ========================================================= */
 :root {
-  --bg: #0f1115;
-  --surface: #1a1d24;
-  --border: #2a2e38;
-  --text: #e8eaf0;
-  --muted: #9aa0ae;
-  --accent: #7c5cff;
-  --success: #2ecc71;
-  --error: #ff5a5f;
-  font-family: system-ui, sans-serif;
+  /* Fondos */
+  --bg: #0c0d1b;
+  --surface: #17183a;
+  --surface-2: #232450;
+  --border: rgb(255 255 255 / 0.09);
+  /* Texto */
+  --text: #f3eefa;
+  --muted: #a7a3c2;
+  --cream: #fff1d6;
+  /* Atardecer */
+  --pink: #ffb0c4;
+  --pink-ink: #2e2b4f;
+  --violet: #4b2f54;
+  --blue: #2c3868;
+  --peach: #ffd3a8;
+  /* Estados */
+  --success: #9ef0c5;
+  --error: #ff8a9a;
+  --accent: var(--pink);
+
+  --sunset: linear-gradient(180deg, #2c3868 0%, #4b2f54 38%, #b5628f 68%, #ffb0c4 86%, #ffd3a8 100%);
+  --radius: 20px;
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+
+  --font-display: 'Bebas Neue', 'Arial Narrow', sans-serif;
+  --font-body: 'Montserrat', system-ui, sans-serif;
+  font-family: var(--font-body);
 }
 
 * {
@@ -17,42 +38,178 @@
 
 body {
   margin: 0;
-  background: var(--bg);
   color: var(--text);
-  line-height: 1.5;
+  line-height: 1.55;
+  /* Brillo violeta sutil arriba, como el resplandor de un atardecer */
+  background:
+    radial-gradient(120% 60% at 50% -10%, rgb(75 47 84 / 0.55), transparent 60%),
+    var(--bg);
+  background-attachment: fixed;
+  min-height: 100vh;
+}
+
+h1,
+h2,
+.display {
+  font-family: var(--font-display);
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  line-height: 0.95;
+  color: var(--cream);
+  text-transform: uppercase;
+  margin: 0;
 }
 
 h1 {
-  margin-top: 0;
+  font-size: clamp(2.6rem, 8vw, 4rem);
+}
+
+h2 {
+  font-size: clamp(2rem, 6vw, 2.8rem);
+}
+
+p {
+  margin: 0;
+}
+
+/* Texto chico en mayúsculas y espaciado ("VER AHORA") */
+.eyebrow {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--pink);
+}
+
+.muted {
+  color: var(--muted);
 }
 
 .container {
-  max-width: 720px;
+  max-width: 760px;
   margin: 0 auto;
-  padding: 1.5rem 1rem;
+  padding: 2rem 1rem 4rem;
 }
 
-/* ---- Barra de navegación ---- */
+/* =========== Transiciones de entrada =========== */
+
+/* "Desde la oscuridad": baja el brillo y sube de a poco */
+@keyframes from-dark {
+  from {
+    opacity: 0;
+    filter: brightness(0.2);
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    filter: brightness(1);
+    transform: none;
+  }
+}
+
+/* Entrada de cada canción: sube desde abajo con un leve zoom */
+@keyframes rise-in {
+  from {
+    opacity: 0;
+    transform: translateY(28px) scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* Revelación: arranca un poco agrandada y se acomoda */
+@keyframes settle {
+  from {
+    opacity: 0;
+    transform: scale(1.06);
+    filter: brightness(0.4);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+    filter: brightness(1);
+  }
+}
+
+/* "Pop" del título de la respuesta */
+@keyframes pop {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  60% {
+    opacity: 1;
+    transform: scale(1.06);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.screen {
+  animation: from-dark 0.9s var(--ease-out) both;
+}
+
+.song-enter {
+  animation: rise-in 0.6s var(--ease-out) both;
+}
+
+.reveal-enter {
+  animation: settle 0.9s var(--ease-out) both;
+}
+
+.pop {
+  animation: pop 0.55s var(--ease-out) both;
+}
+
+/* =========== Barra de anuncio y navegación =========== */
+.announce {
+  position: relative;
+  overflow: hidden;
+  padding: 0.55rem 1rem;
+  text-align: center;
+  background: linear-gradient(90deg, #ffb0c4, #ffd3a8 50%, #c9a4e8);
+  color: var(--pink-ink);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+}
+
 .navbar {
-  background: var(--surface);
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  /* Vidrio esmerilado: se ve borroso lo que pasa por detrás */
+  background: rgb(12 13 27 / 0.6);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
   border-bottom: 1px solid var(--border);
 }
 
 .navbar-inner {
-  max-width: 720px;
+  max-width: 760px;
   margin: 0 auto;
-  padding: 0.75rem 1rem;
+  padding: 0.7rem 1rem;
   display: flex;
-  flex-wrap: wrap; /* en celular los enlaces bajan a una segunda fila */
+  flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
   gap: 0.5rem 1rem;
 }
 
 .brand {
-  color: var(--text);
-  font-weight: 700;
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  line-height: 1;
+  color: var(--cream);
   text-decoration: none;
+  /* Brillo rosa tipo neón */
+  text-shadow:
+    0 0 2px rgb(255 176 196 / 0.6),
+    0 0 18px rgb(255 176 196 / 0.35);
 }
 
 .nav-links {
@@ -61,10 +218,17 @@ h1 {
 }
 
 .nav-links a {
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
   color: var(--muted);
   text-decoration: none;
-  padding: 0.4rem 0.75rem;
-  border-radius: 6px;
+  padding: 0.5rem 0.8rem;
+  border-radius: 999px;
+  transition:
+    color 0.2s ease-in-out,
+    background-color 0.2s ease-in-out;
 }
 
 .nav-links a:hover {
@@ -72,111 +236,348 @@ h1 {
 }
 
 .nav-links a.active {
-  color: var(--text);
-  background: var(--accent);
+  color: var(--pink-ink);
+  background: var(--pink);
 }
 
-/* ---- Componentes generales ---- */
-.muted {
-  color: var(--muted);
-}
-
-.card {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  padding: 1rem;
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-}
-
+/* =========== Botones (píldoras con brillo) =========== */
 .btn {
   font: inherit;
-  color: var(--text);
-  background: var(--border);
-  border: 0;
-  border-radius: 8px;
-  padding: 0.65rem 1rem;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--pink-ink);
+  background: var(--cream);
+  border: 1px solid transparent;
+  border-radius: 999px;
+  padding: 0.85rem 1.4rem;
   cursor: pointer;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  transition:
+    transform 0.25s var(--ease-out),
+    box-shadow 0.4s ease-out,
+    background-color 0.2s ease-in-out;
+}
+
+.btn:hover:not(:disabled) {
+  transform: translateY(-2px);
 }
 
 .btn:disabled {
-  opacity: 0.5;
+  opacity: 0.45;
   cursor: not-allowed;
 }
 
 .btn-primary {
-  background: var(--accent);
+  background: var(--pink);
+  box-shadow: 0 2px 40px rgb(255 176 196 / 0.35);
+}
+
+.btn-primary:hover:not(:disabled) {
+  box-shadow: 0 2px 64px rgb(255 176 196 / 0.6);
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--muted);
+  border-color: var(--border);
+}
+
+.btn-ghost:hover:not(:disabled) {
+  color: var(--text);
+  border-color: var(--muted);
+}
+
+.btn:focus-visible,
+input:focus-visible {
+  outline: 2px solid var(--pink);
+  outline-offset: 3px;
+}
+
+/* =========== Tarjetas y formularios =========== */
+.card {
+  position: relative;
+  background: linear-gradient(160deg, var(--surface-2), var(--surface));
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
 }
 
 input[type='text'] {
   font: inherit;
   width: 100%;
   color: var(--text);
-  background: var(--bg);
+  background: rgb(12 13 27 / 0.7);
   border: 1px solid var(--border);
-  border-radius: 8px;
-  padding: 0.65rem 0.75rem;
+  border-radius: 14px;
+  padding: 0.85rem 1rem;
+  transition:
+    border-color 0.2s,
+    box-shadow 0.3s;
+}
+
+input[type='text']:focus {
+  border-color: var(--pink);
+  box-shadow: 0 0 24px rgb(255 176 196 / 0.2);
+  outline: none;
+}
+
+label {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted);
 }
 
 .row {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.5rem;
+  gap: 0.6rem;
 }
 
 .alert {
-  margin: 0;
-  padding: 0.65rem 0.85rem;
-  border-radius: 8px;
+  padding: 0.75rem 1rem;
+  border-radius: 14px;
   border: 1px solid;
+  font-size: 0.9rem;
 }
 
 .alert-error {
   color: var(--error);
-  border-color: var(--error);
+  border-color: rgb(255 138 154 / 0.5);
+  background: rgb(255 138 154 / 0.08);
 }
 
 .alert-success {
   color: var(--success);
-  border-color: var(--success);
+  border-color: rgb(158 240 197 / 0.5);
+  background: rgb(158 240 197 / 0.08);
 }
 
 .alert-info {
-  color: var(--text);
-  border-color: var(--accent);
+  color: var(--cream);
+  border-color: rgb(255 176 196 / 0.4);
+  background: rgb(255 176 196 / 0.08);
 }
 
-/* ---- Juego ---- */
+/* =========== Atardecer con palmeras =========== */
+.sunset {
+  position: relative;
+  overflow: hidden;
+  background: var(--sunset);
+  border-radius: var(--radius);
+  isolation: isolate;
+}
+
+/* Sol: un círculo con degradado detrás de las palmeras */
+.sunset::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: -18%;
+  width: 46%;
+  aspect-ratio: 1;
+  translate: -50% 0;
+  border-radius: 50%;
+  background: radial-gradient(circle, #fff3d1 0%, #ffd3a8 45%, rgb(255 176 196 / 0) 70%);
+  z-index: -1;
+}
+
+/* Palmeras: silueta propia (public/palm.svg) usada como máscara */
+.palms::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: rgb(28 18 52 / 0.7);
+  -webkit-mask:
+    url('/palm.svg') no-repeat left -6% bottom -8% / auto 92%,
+    url('/palm.svg') no-repeat right -10% bottom -14% / auto 70%;
+  mask:
+    url('/palm.svg') no-repeat left -6% bottom -8% / auto 92%,
+    url('/palm.svg') no-repeat right -10% bottom -14% / auto 70%;
+}
+
+/* Viñeta: oscurece las esquinas para que se lea el texto */
+.vignette {
+  background-image:
+    radial-gradient(120% 90% at 50% 40%, transparent 55%, rgb(0 0 0 / 0.45)),
+    var(--sunset);
+}
+
+/* =========== Juego =========== */
+.play-header {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.score-pill {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  color: var(--pink-ink);
+  background: var(--cream);
+  border-radius: 999px;
+  padding: 0.2rem 0.9rem;
+  white-space: nowrap;
+}
+
+.progress {
+  height: 4px;
+  border-radius: 999px;
+  background: var(--border);
+  overflow: hidden;
+  margin-bottom: 1.25rem;
+}
+
+.progress span {
+  display: block;
+  height: 100%;
+  background: linear-gradient(90deg, var(--pink), var(--peach));
+  transition: width 0.6s var(--ease-out);
+}
+
+/* Las 3 pistas: la actual resaltada */
+.clue-steps {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.4rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.clue-steps li {
+  text-align: center;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  padding: 0.45rem 0.25rem;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  transition: all 0.3s ease-out;
+}
+
+.clue-steps li.is-used {
+  opacity: 0.4;
+  text-decoration: line-through;
+}
+
+.clue-steps li.is-current {
+  color: var(--pink-ink);
+  background: var(--pink);
+  border-color: var(--pink);
+}
+
 .clue,
 .answer-form,
 .result {
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
+  gap: 0.8rem;
 }
 
-/* Recuadro que acompaña al audio mientras suena (no muestra nada de la respuesta). */
 .audio-visual {
-  display: grid;
-  place-items: center;
-  height: 140px;
-  font-size: 2rem;
-  border-radius: 8px;
-  background: linear-gradient(135deg, #241b4d, var(--bg));
-  border: 1px solid var(--border);
+  height: 190px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.9rem;
+  transition: box-shadow 0.6s ease-out;
 }
 
+/* En el recuadro del audio el sol va más abajo, para no tapar el ecualizador */
+.audio-visual::before {
+  width: 34%;
+  bottom: -42%;
+}
+
+.audio-visual .eyebrow {
+  color: var(--cream);
+  padding: 0.3rem 0.8rem;
+  border-radius: 999px;
+  background: rgb(12 13 27 / 0.45);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+
+/* Mientras suena: el recuadro "late" como un neón */
 .audio-visual.is-playing {
-  border-color: var(--accent);
+  animation: neon 1.2s ease-in-out infinite alternate;
 }
 
-/* Video de YouTube que se muestra al terminar la ronda. */
+@keyframes neon {
+  from {
+    box-shadow: 0 0 18px rgb(255 176 196 / 0.25);
+  }
+  to {
+    box-shadow: 0 0 60px rgb(255 176 196 / 0.6);
+  }
+}
+
+/* Ecualizador: barras que suben y bajan solo mientras suena */
+.eq {
+  display: flex;
+  align-items: end;
+  gap: 6px;
+  height: 56px;
+}
+
+.eq span {
+  width: 8px;
+  height: 100%;
+  border-radius: 4px;
+  background: var(--cream);
+  box-shadow:
+    0 0 12px rgb(255 241 214 / 0.7),
+    0 0 0 1px rgb(46 43 79 / 0.25);
+  transform-origin: bottom;
+  transform: scaleY(0.15);
+  animation: eq 0.8s ease-in-out infinite alternate;
+  animation-delay: calc(var(--i) * -0.13s);
+  animation-play-state: paused;
+}
+
+.is-playing .eq span {
+  animation-play-state: running;
+}
+
+@keyframes eq {
+  from {
+    transform: scaleY(0.15);
+  }
+  to {
+    transform: scaleY(1);
+  }
+}
+
+.result {
+  align-items: flex-start;
+}
+
+.answer-title {
+  font-size: clamp(2.2rem, 7vw, 3.2rem);
+  text-shadow: 0 0 24px rgb(255 176 196 / 0.35);
+}
+
 .reveal-frame {
   aspect-ratio: 16 / 9;
   width: 100%;
-  border-radius: 8px;
+  border-radius: 14px;
   overflow: hidden;
   background: #000;
 }
@@ -187,96 +588,250 @@ input[type='text'] {
   border: 0;
 }
 
-/* ---- Instrucciones y resumen ---- */
-.card h2 {
-  margin: 0;
-}
-
-.steps {
-  margin: 0;
-  padding-left: 1.25rem;
-  display: flex;
-  flex-direction: column;
-  gap: 0.4rem;
-}
-
-.clue-points {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 0.5rem;
-}
-
-.clue-points li {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 0.5rem;
-  border-radius: 8px;
-  background: var(--bg);
-  border: 1px solid var(--border);
-}
-
-.summary {
-  text-align: center;
-  align-items: center;
-}
-
-/* Revelación sin video: portada + tema. */
 .track-reveal {
   display: flex;
   align-items: center;
   gap: 1rem;
+  padding: 0.75rem;
+  border-radius: 16px;
+  background: rgb(12 13 27 / 0.5);
 }
 
 .track-reveal img {
-  border-radius: 8px;
+  border-radius: 10px;
   flex-shrink: 0;
-}
-
-.track-reveal p {
-  margin: 0;
+  box-shadow: 0 8px 30px rgb(0 0 0 / 0.5);
 }
 
 .track-title {
   font-weight: 700;
 }
 
-/* ---- Autocompletado de la respuesta ---- */
+/* Autocompletado */
 .autocomplete {
   position: relative;
 }
 
 .suggestions {
   position: absolute;
-  top: calc(100% + 4px);
+  top: calc(100% + 6px);
   left: 0;
   right: 0;
   z-index: 10;
   margin: 0;
-  padding: 0.25rem;
+  padding: 0.35rem;
   list-style: none;
-  background: var(--surface);
+  background: rgb(23 24 58 / 0.92);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   border: 1px solid var(--border);
-  border-radius: 8px;
-  box-shadow: 0 8px 24px rgb(0 0 0 / 0.4);
+  border-radius: 16px;
+  box-shadow: 0 16px 40px rgb(0 0 0 / 0.5);
+  animation: rise-in 0.25s var(--ease-out) both;
 }
 
 .suggestions li {
-  padding: 0.55rem 0.65rem;
-  border-radius: 6px;
+  padding: 0.6rem 0.8rem;
+  border-radius: 10px;
   cursor: pointer;
 }
 
 .suggestions li:hover,
 .suggestions li.is-highlighted {
-  background: var(--accent);
+  background: var(--pink);
+  color: var(--pink-ink);
 }
 
-.btn-ghost {
-  background: transparent;
-  border: 1px solid var(--border);
-  color: var(--muted);
+/* =========== Instrucciones y resumen =========== */
+.steps {
+  margin: 0;
+  padding-left: 1.2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+}
+
+.steps li::marker {
+  color: var(--pink);
+  font-weight: 700;
+}
+
+.tiles {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.6rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.tile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.15rem;
+  padding: 1rem 0.5rem;
+  border-radius: 16px;
+  text-align: center;
+  transition:
+    transform 0.5s var(--ease-out),
+    box-shadow 0.5s ease-out;
+}
+
+.tile:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 40px rgb(0 0 0 / 0.4);
+}
+
+.tile strong {
+  font-family: var(--font-display);
+  font-size: 2.2rem;
+  font-weight: 400;
+  line-height: 1;
+  color: var(--cream);
+}
+
+.tile span {
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--text);
+  opacity: 0.85;
+}
+
+.tile:nth-child(1) {
+  background: var(--violet);
+}
+
+.tile:nth-child(2) {
+  background: var(--blue);
+}
+
+.tile:nth-child(3) {
+  background: #2a2245;
+}
+
+.summary {
+  text-align: center;
+  align-items: center;
+  padding: 2.2rem 1.4rem;
+}
+
+/* =========== Inicio =========== */
+.hero {
+  min-height: calc(100vh - 140px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+.hero-poster {
+  min-height: 460px;
+  padding: 2rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.hero-poster h1 {
+  font-size: clamp(3.6rem, 14vw, 6.5rem);
+  text-shadow: 0 4px 30px rgb(46 43 79 / 0.6);
+}
+
+.hero-poster p:not(.eyebrow) {
+  max-width: 22rem;
+  font-weight: 500;
+  color: var(--cream);
+}
+
+.hero-poster .eyebrow {
+  color: var(--cream);
+}
+
+.scroll-cue {
+  align-self: center;
+  width: 14px;
+  height: 14px;
+  border-right: 2px solid var(--pink);
+  border-bottom: 2px solid var(--pink);
+  rotate: 45deg;
+  animation: bounce 1s ease-in-out infinite alternate;
+}
+
+@keyframes bounce {
+  to {
+    translate: 0 8px;
+  }
+}
+
+.home-section {
+  padding: 4rem 0 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.cta-card {
+  align-items: flex-start;
+  padding: 2rem 1.5rem;
+}
+
+/* Efectos atados al scroll (CSS scroll-driven animations).
+   Si el navegador no los soporta, todo se ve igual pero quieto. */
+@supports (animation-timeline: scroll()) {
+  /* El afiche se achica, se oscurece y se funde al bajar */
+  .hero-poster {
+    animation: hero-out linear both;
+    animation-timeline: scroll(root);
+    animation-range: 0 80vh;
+  }
+
+  /* Los bloques aparecen desde la oscuridad cuando entran en pantalla */
+  .on-scroll {
+    animation: from-dark linear both;
+    animation-timeline: view();
+    animation-range: entry 0% cover 30%;
+  }
+}
+
+@keyframes hero-out {
+  from {
+    transform: scale(1.03);
+  }
+  to {
+    transform: scale(0.9);
+    opacity: 0.25;
+    filter: brightness(0.35);
+  }
+}
+
+/* Celular */
+@media (max-width: 520px) {
+  /* "Responder" ocupa todo el ancho; las otras dos opciones van lado a lado */
+  .answer-form .row .btn {
+    flex: 1 1 40%;
+    padding-inline: 0.8rem;
+  }
+
+  .answer-form .row .btn-primary {
+    flex-basis: 100%;
+  }
+
+  .tile strong {
+    font-size: 1.8rem;
+  }
+}
+
+/* Si la persona pidió menos movimiento en su sistema, sacamos las animaciones */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
 }

@@ -59,14 +59,21 @@ export default function Play() {
 
   return (
     <section>
-      <h1>Jugar</h1>
-      {phase === 'intro' && <HowToPlay total={questions.length} onStart={() => setPhase('playing')} />}
-      {phase === 'playing' && (
+      {phase === 'playing' ? (
         <>
-          <p className="muted">
-            Canción {index + 1} de {questions.length} · {points} puntos
-          </p>
-          {/* key: al cambiar de pregunta se reinicia todo el estado del tablero */}
+          <div className="play-header">
+            <div>
+              <p className="eyebrow">
+                Canción {index + 1} de {questions.length}
+              </p>
+              <h1>Jugar</h1>
+            </div>
+            <span className="score-pill">{points} pts</span>
+          </div>
+          <div className="progress" aria-hidden="true">
+            <span style={{ width: `${(index / questions.length) * 100}%` }} />
+          </div>
+          {/* key: al cambiar de pregunta se reinicia todo el estado del tablero (y su animación de entrada) */}
           <GameBoard
             key={current.id}
             question={current}
@@ -76,8 +83,13 @@ export default function Play() {
             isLast={index === questions.length - 1}
           />
         </>
+      ) : (
+        // key: cada cambio de fase repite la entrada "desde la oscuridad"
+        <div key={phase} className="screen">
+          {phase === 'intro' && <HowToPlay total={questions.length} onStart={() => setPhase('playing')} />}
+          {phase === 'done' && <GameSummary results={results} onRestart={handleRestart} />}
+        </div>
       )}
-      {phase === 'done' && <GameSummary results={results} onRestart={handleRestart} />}
     </section>
   )
 }

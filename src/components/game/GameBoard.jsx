@@ -54,17 +54,23 @@ export default function GameBoard({ question, answerOptions, onFinish, onNext, i
   }
 
   return (
-    <div className="card">
+    <div className="card song-enter">
       {!result && (
-        <p className="muted">
-          Pista {level + 1} de {CLUES.length} · vale {CLUES[level].points} puntos
-        </p>
+        <ol className="clue-steps" aria-label="Pistas">
+          {CLUES.map(({ seconds, points }, i) => (
+            <li key={seconds} className={i === level ? 'is-current' : i < level ? 'is-used' : ''}>
+              {seconds} seg · {points}
+            </li>
+          ))}
+        </ol>
       )}
       <Clue question={question} level={level} finished={Boolean(result)} />
       {message && !result && <p className="alert alert-info">{message}</p>}
 
       {result ? (
         <div className="result">
+          <p className="eyebrow">La respuesta era</p>
+          <h2 className="answer-title pop">{question.title}</h2>
           <p
             className={`alert ${result.correct ? 'alert-success' : result.skipped ? 'alert-info' : 'alert-error'}`}
             role="status"
@@ -73,8 +79,7 @@ export default function GameBoard({ question, answerOptions, onFinish, onNext, i
               ? `¡Correcto! Ganaste ${result.points} puntos.`
               : result.skipped
                 ? 'Salteaste esta canción.'
-                : 'Se acabaron las pistas.'}{' '}
-            La respuesta era <strong>{question.title}</strong>.
+                : 'Se acabaron las pistas.'}
           </p>
           <button type="button" className="btn btn-primary" onClick={onNext}>
             {isLast ? 'Ver resultado' : 'Siguiente canción'}
