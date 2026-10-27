@@ -85,7 +85,11 @@
   overflow: hidden;
   padding: 6px 0;
   border-radius: 2px;
-  background: var(--label-cream);
+  /* Papel gastado: bordes apenas amarillentos + ruido fino */
+  background:
+    radial-gradient(ellipse at center, transparent 55%, rgb(140 100 40 / 0.18)),
+    var(--paper-wear),
+    var(--label-cream);
 }
 
 /* Título rotado: se lee de abajo hacia arriba, como los lomos en castellano */
@@ -154,7 +158,10 @@
   flex-direction: column;
   gap: 6px;
   border-radius: 2px;
-  background: var(--label-cream);
+  background:
+    radial-gradient(ellipse at center, transparent 60%, rgb(140 100 40 / 0.16)),
+    var(--paper-wear),
+    var(--label-cream);
   color: var(--label-ink);
 }
 
@@ -189,12 +196,20 @@
   visibility: hidden;
 }
 
+/* Carátula sin grabar: etiqueta apagada, igual que en el lomo */
+.vhs.is-blank.vhs-cover .vhs-cover__label {
+  background: rgb(255 255 255 / 0.06);
+  color: rgb(255 255 255 / 0.55);
+}
+
 /* ========================== Mueble ========================== */
 .mueble {
   padding: 12px;
   border-radius: 6px;
-  /* Madera: degradado simple (la textura llega en la iteración C) */
-  background: linear-gradient(90deg, var(--wood-dark), var(--wood) 6%, var(--wood-light) 50%, var(--wood) 94%, var(--wood-dark));
+  /* Madera: veta (ruido SVG) sobre un degradado que oscurece los costados */
+  background:
+    var(--wood-grain) 0 0 / 480px 140px,
+    linear-gradient(90deg, var(--wood-dark), var(--wood) 6%, var(--wood-light) 50%, var(--wood) 94%, var(--wood-dark));
   box-shadow: var(--shadow-2), inset 0 0 0 2px var(--wood-edge);
   display: flex;
   flex-direction: column;
@@ -205,9 +220,12 @@
 }
 
 .shelf-row {
-  /* Fondo del hueco: madera oscura, con sombra arriba como si fuera profundo */
+  /* Fondo del hueco: luz de la habitación (cambia con el tema), sombra arriba
+     como si fuera profundo, y madera oscura con veta */
   background:
-    linear-gradient(rgb(0 0 0 / 0.45), transparent 30%),
+    var(--shelf-light),
+    linear-gradient(var(--shelf-shade), transparent 30%),
+    var(--wood-grain) 0 0 / 480px 140px,
     linear-gradient(90deg, var(--wood-edge), var(--wood-dark) 10% 90%, var(--wood-edge));
   border-radius: 2px;
 }
@@ -234,7 +252,10 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background: linear-gradient(var(--wood-light), var(--wood) 60%, var(--wood-dark));
+  background:
+    linear-gradient(rgb(255 255 255 / 0.14), transparent 2px),
+    var(--wood-grain) 0 0 / 480px 140px,
+    linear-gradient(var(--wood-light), var(--wood) 60%, var(--wood-dark));
   box-shadow: 0 4px 6px rgb(0 0 0 / 0.35);
 }
 
@@ -245,17 +266,17 @@
   font-weight: 500;
   letter-spacing: 0.1em;
   color: var(--label-ink);
-  background: var(--label-cream);
+  background: var(--paper-wear), var(--label-cream);
   padding: 1px 6px;
   border-radius: 1px;
   box-shadow: 0 1px 1px rgb(0 0 0 / 0.3);
+  rotate: -1.5deg; /* pegada a mano */
 }
 
 .shelf-count {
   font-family: var(--font-mono);
   font-size: 0.66rem;
-  color: var(--label-cream);
-  opacity: 0.85;
+  color: var(--label-cream); /* sin opacidad: sobre la madera más clara da 4,7:1 */
 }
 
 /* Días futuros: un hueco cerrado, sin cintas */

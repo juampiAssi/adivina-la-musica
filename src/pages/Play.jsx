@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import answerNames from '../data/answer-names.json'
 import GameBoard from '../components/game/GameBoard.jsx'
 import HowToPlay from '../components/game/HowToPlay.jsx'
+import StatusMessage from '../components/ui/StatusMessage.jsx'
 import { useAuth } from '../hooks/useAuth.js'
 import { getGameConfig } from '../services/configService.js'
 import { getMyGuesses, saveGuess } from '../services/guessesService.js'
@@ -110,8 +111,14 @@ export default function Play() {
     setFinished(null)
   }
 
-  if (error) return <p className="alert alert-error" role="alert">{error}</p>
-  if (today !== null && today < 1) return <p className="muted">El juego todavía no empezó. ¡Volvé pronto!</p>
+  if (error)
+    return (
+      <StatusMessage kind="error" title="No se pudo cargar el juego">
+        {error}
+      </StatusMessage>
+    )
+  if (today !== null && today < 1)
+    return <StatusMessage kind="empty" title="El juego todavía no empezó">¡Volvé pronto!</StatusMessage>
 
   const days = today ? Array.from({ length: today }, (_, i) => today - i) : []
 
@@ -140,9 +147,9 @@ export default function Play() {
       {saveError && <p className="alert alert-error" role="alert">{saveError}</p>}
 
       {loading ? (
-        <p className="muted">Cargando canciones…</p>
+        <StatusMessage kind="loading" title="Cargando canciones…" />
       ) : !titles.length ? (
-        <p className="muted">No hay canciones para este día.</p>
+        <StatusMessage kind="empty" title="No hay canciones para este día" />
       ) : !shown ? (
         <div className="card summary screen">
           <p className="eyebrow">Día completo</p>

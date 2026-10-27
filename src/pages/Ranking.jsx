@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
+import StatusMessage from '../components/ui/StatusMessage.jsx'
 import { useAuth } from '../hooks/useAuth.js'
 import { getTopScores, TOP_SIZE } from '../services/leaderboardService.js'
 import { toUserMessage } from '../utils/firebaseErrors.js'
@@ -25,13 +26,23 @@ export default function Ranking() {
       <p className="eyebrow">Top {TOP_SIZE}</p>
       <h1>Ranking</h1>
       {loading ? (
-        <p className="muted">Cargando ranking…</p>
+        <StatusMessage kind="loading" title="Cargando ranking…" />
       ) : error ? (
-        <p className="alert alert-error" role="alert">
+        <StatusMessage kind="error" title="No se pudo cargar el ranking">
           {error}
-        </p>
+        </StatusMessage>
       ) : !rows.length ? (
-        <p className="muted">Todavía nadie entró al ranking. ¡Sé el primero!</p>
+        <StatusMessage
+          kind="empty"
+          title="Todavía nadie entró al ranking"
+          action={
+            <Link to="/perfil" className="btn">
+              Elegir mi apodo
+            </Link>
+          }
+        >
+          ¡Sé el primero!
+        </StatusMessage>
       ) : (
         <ol className="ranking">
           {rows.map((r, i) => (

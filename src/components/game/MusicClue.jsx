@@ -26,14 +26,18 @@ export default function MusicClue({ question, level, finished }) {
 
   return (
     <div className="clue">
-      {/* Recuadro de atardecer: no muestra nada de la respuesta, solo acompaña al audio */}
-      <div className={`audio-visual sunset palms ${playing ? 'is-playing' : ''}`} aria-hidden="true">
-        <div className="eq">
-          {Array.from({ length: EQ_BARS }, (_, i) => (
-            <span key={i} style={{ '--i': i }} />
-          ))}
+      {/* Casetera (VCR): no muestra nada de la respuesta, solo acompaña al audio */}
+      <div className={`vcr ${playing ? 'is-playing' : ''}`} aria-hidden="true">
+        <div className="vcr__screen">
+          <span className="vcr__status">{playing ? '▶ PLAY' : '■ STOP'}</span>
+          <div className="vcr__eq">
+            {Array.from({ length: EQ_BARS }, (_, i) => (
+              <span key={i} style={{ '--i': i }} />
+            ))}
+          </div>
+          <span className="vcr__counter">0:{String(seconds).padStart(2, '0')}</span>
         </div>
-        <p className="eyebrow">{playing ? 'Sonando' : `Pista de ${seconds} segundos`}</p>
+        <div className="vcr__slot" />
       </div>
       {error ? (
         <p className="alert alert-error" role="alert">

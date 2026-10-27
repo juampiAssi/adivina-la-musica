@@ -238,3 +238,35 @@ Concepto: el perfil es un mueble de madera con estantes llenos de cintas VHS vis
 **Pruebas**: 320, 375, 768 y 1280 px sin scroll horizontal (lomos de 47, 58, 52 y 52 px); mouse, Tab + Enter, Esc, click en el fondo, toque en celular; "Sacar del estante" borra en Firestore y sigue borrado al recargar.
 
 **Capturas:** `docs/capturas/v2b-*`.
+
+### Iteración C — Pulido, consistencia y auditoría
+
+**Qué cambió**
+- **Madera y luz**: el mueble tiene veta (ruido SVG con `feTurbulence`, generado por código, sin imágenes) y una luz que cambia con el tema: lámpara cálida desde arriba en oscuro, luz de ventana en diagonal en claro.
+- **Micro-detalles**: etiquetas de papel con bordes apenas amarillentos y grano fino; etiqueta del día "pegada a mano" (levemente torcida). La carátula sin grabar quedó igual de apagada que el lomo.
+- **Mismo sistema en todas las pantallas**: se reescribió el CSS general sin los restos del diseño anterior (atardecer, palmeras, neón).
+  - Inicio: tarjeta sobria con una fila de cintas decorativas con textos genéricos ("3 segundos", "Banda sonora", "¿De qué es?") que no adelantan respuestas.
+  - Jugar: el recuadro del audio es ahora una **casetera (VCR)** con display ámbar "▶ PLAY / ■ STOP", ecualizador y contador del fragmento.
+  - Fichas de puntos como etiquetas de cinta con franjas de color; el podio del ranking lleva la franja de color de una cinta.
+- **Estados de carga, vacío y error** con un componente común (`StatusMessage`): un cassette chico cuyas bobinas giran mientras carga; el error se anuncia a lectores de pantalla (`role="alert"`). Se usa en todas las pantallas.
+
+**Auditoría de accesibilidad**
+- Se escribió un script propio que recorre los textos visibles y calcula el contraste real con los colores computados (fórmula WCAG). Resultado: todos los textos pasan AA en las 5 pantallas y en los 2 temas. Los textos sobre degradados (etiquetas, madera) se calcularon aparte: el más justo es el contador "2/10" sobre la madera más clara (4,7:1); por eso se le sacó la opacidad que tenía.
+- Todo lo interactivo tiene nombre accesible, las imágenes tienen `alt`, los títulos siguen un orden (h1 > h2) y hay foco visible de 3 px en links, botones, campos y lomos. Los botones y áreas táctiles miden al menos 44 px.
+- `prefers-reduced-motion`: sin animaciones, sin transiciones y sin inclinaciones.
+
+**Auditoría de rendimiento**
+- Prueba del peor caso: 270 cintas (27 días × 10). Insertarlas y calcular el layout tarda unos 20 ms una sola vez, y "asomar" una cinta cuesta 0,09 ms. **No hizo falta virtualizar ni `content-visibility`**; además `content-visibility` recortaría los carteles que suben por encima de cada fila.
+- No se agregaron lecturas a Firestore en esta iteración. El paquete de JavaScript (270 KB comprimido) es casi todo Firebase y React; se verificó que no incluya datos del juego (respuestas, ids de Deezer).
+
+**Alternativas descartadas**
+- **axe-core** para la auditoría: la herramienta del navegador de pruebas no permite cargar código externo en la página; se reemplazó por un script propio que mide lo mismo para contraste, nombres accesibles, `alt` y títulos.
+- **Imágenes de textura de madera**: se prefirió ruido SVG generado por código (pesa unos bytes y se adapta a cualquier tamaño).
+- **Separar el panel admin en otro archivo** (carga diferida): ahorraba pocos KB frente a Firebase; no justificaba la complejidad.
+
+**Dificultades**
+- El primer chequeo de contraste del tema claro "falló" en la barra de navegación: el navegador devuelve los colores de `color-mix()` en formato `color(srgb …)` con valores de 0 a 1, y el script los leía como 0–255. Se corrigió el script, no el diseño.
+- Al reemplazar el recuadro del audio quedó un `<div>` mal cerrado y el build falló; se corrigió antes de seguir.
+- La captura del ranking mostraba el apodo de un jugador real: no se guardó en el repositorio.
+
+**Capturas:** `docs/capturas/v2c-*`.

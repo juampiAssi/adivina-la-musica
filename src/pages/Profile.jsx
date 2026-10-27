@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react'
 import daySizes from '../data/day-sizes.json'
 import Shelf from '../components/vhs/Shelf.jsx'
 import TapeDialog from '../components/vhs/TapeDialog.jsx'
+import StatusMessage from '../components/ui/StatusMessage.jsx'
 import VhsTape from '../components/vhs/VhsTape.jsx'
 import { useAuth } from '../hooks/useAuth.js'
 import { getGameConfig } from '../services/configService.js'
@@ -105,8 +106,13 @@ export default function Profile() {
     triggerRef.current?.focus() // el foco vuelve al lomo que abrió el popup
   }
 
-  if (loading) return <p className="muted">Cargando tu perfil…</p>
-  if (error) return <p className="alert alert-error" role="alert">{error}</p>
+  if (loading) return <StatusMessage kind="loading" title="Cargando tu videoteca…" />
+  if (error)
+    return (
+      <StatusMessage kind="error" title="No se pudo cargar tu perfil">
+        {error}
+      </StatusMessage>
+    )
 
   const shelf = guesses.filter((g) => g.solved).sort((a, b) => (b.createdAt?.seconds ?? 0) - (a.createdAt?.seconds ?? 0))
   const { totalPoints } = totalsFrom(guesses)
@@ -161,7 +167,9 @@ export default function Profile() {
             onOpen={openTape}
           />
         ) : (
-          <p className="muted">El calendario todavía no empezó.</p>
+          <StatusMessage kind="empty" title="El calendario todavía no empezó">
+            Cuando se abra el primer día vas a ver tu estante acá.
+          </StatusMessage>
         )}
       </div>
 

@@ -1,23 +1,47 @@
 import { Link } from 'react-router-dom'
+import VhsTape from '../components/vhs/VhsTape.jsx'
 import { CLUES } from '../utils/scoring.js'
 
-// Pantalla de inicio tipo "afiche". Los efectos de scroll están en index.css
-// (.hero-poster y .on-scroll).
+// Cintas decorativas del inicio: textos genéricos (no son títulos reales, no adelantan nada).
+const HERO_TAPES = [
+  { title: '3 segundos', scheme: 0 },
+  { title: 'Banda sonora', scheme: 1 },
+  { title: '6 segundos', scheme: 2 },
+  { blank: true },
+  { title: '10 segundos', scheme: 3 },
+  { title: '¿De qué es?', scheme: 4 },
+  { blank: true },
+]
+
+// Pantalla de inicio. Los efectos de scroll están en index.css (.hero-card y .on-scroll).
 export default function Home() {
   return (
     <>
       <section className="hero">
-        <div className="hero-poster sunset palms vignette">
-          <p className="eyebrow">Escuchá · Adiviná · Sumá</p>
-          <h1>
-            Adiviná
-            <br />
-            la música
-          </h1>
-          <p>Unos segundos de una canción. ¿De qué película, serie o videojuego es?</p>
-          <Link to="/jugar" className="btn btn-primary">
-            Jugar ahora
-          </Link>
+        <div className="hero-card">
+          <div className="hero-copy">
+            <p className="eyebrow">Videoclub de bandas sonoras</p>
+            <h1>
+              Adiviná
+              <br />
+              la música
+            </h1>
+            <p>Unos segundos de una canción. ¿De qué película, serie o videojuego es?</p>
+            <Link to="/jugar" className="btn btn-primary">
+              Jugar ahora
+            </Link>
+          </div>
+          <div className="hero-tapes" aria-hidden="true">
+            {HERO_TAPES.map((t, i) => (
+              <VhsTape
+                key={i}
+                id={`hero-${i}`}
+                title={t.title}
+                state={t.blank ? 'blank' : 'recorded'}
+                colorScheme={t.blank ? undefined : t.scheme}
+              />
+            ))}
+          </div>
         </div>
         <div className="scroll-cue" aria-hidden="true" />
       </section>

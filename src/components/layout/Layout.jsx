@@ -1,5 +1,6 @@
 import { Outlet, useLocation } from 'react-router-dom'
 import { useAuth } from '../../hooks/useAuth.js'
+import StatusMessage from '../ui/StatusMessage.jsx'
 import Navbar from './Navbar.jsx'
 
 // Estructura común a todas las pantallas: barra de anuncio, navegación y contenido.
@@ -15,11 +16,11 @@ export default function Layout() {
       <main key={pathname} className="container screen">
         {/* Hasta que no hay sesión no se puede leer Firestore: esperamos o mostramos el error. */}
         {error ? (
-          <p className="alert alert-error" role="alert">
+          <StatusMessage kind="error" title="No se pudo conectar">
             {error}
-          </p>
+          </StatusMessage>
         ) : loading ? (
-          <p className="muted">Conectando…</p>
+          <StatusMessage kind="loading" title="Conectando…" />
         ) : (
           <Outlet />
         )}
