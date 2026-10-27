@@ -39,7 +39,14 @@ Un juego diario estilo Wordle para fanáticos de las bandas sonoras: suena un fr
 - Paleta azul noche / violeta / rosa, tipografías Bebas Neue y Montserrat, palmeras propias en SVG, ecualizador animado, entradas "desde la oscuridad" y efectos atados al scroll, todo con CSS.
 - **Por qué:** el juego es de música y cine; un clima de "noche de cine/neón" acompaña mejor que la interfaz genérica inicial. El diseño final se va a seguir iterando (V2/V3).
 
-> **Capturas pendientes:** agregar una captura de cada prototipo (YouTube con blur, Deezer, diseño Vice).
+**Capturas** (`docs/capturas/`):
+
+| Prototipo 1 — YouTube | Prototipo 2 — Deezer | Prototipo 3 — Vice |
+|---|---|---|
+| ![Título visible](docs/capturas/p1-01-youtube-titulo-visible.jpg) | ![Deezer jugando](docs/capturas/p2-01-deezer-jugando.jpg) | ![Inicio Vice](docs/capturas/p3-01-vice-inicio.jpg) |
+| El título del video revela la respuesta | Audio de Deezer sin pistas visuales | Primera iteración de diseño |
+| ![Capa borrosa](docs/capturas/p1-02-youtube-capa-borrosa.jpg) | ![Autocompletado](docs/capturas/p2-04-autocompletado.jpg) | ![Jugando Vice](docs/capturas/p3-02-vice-jugando.jpg) |
+| Capa borrosa (descartada por las políticas de YouTube) | Autocompletado de respuestas | Recuadro de atardecer y ecualizador |
 
 ---
 
@@ -106,9 +113,22 @@ Commits: `277c637` (Firebase) y `80bb9ea` (Vercel).
 | Errores | Formularios vacíos, apodo inválido, credenciales incorrectas y falta de índice muestran el error real | ✔ | — |
 | Admin | Login, fecha de inicio e importación de 138 títulos | ✔ | ✔ (login) |
 
-> **Pendiente de verificar:** prueba en pantalla de celular en la URL publicada y una jugada atrasada ("ponte al día") con una fecha de inicio anterior.
->
-> **Capturas pendientes:** consola de Firestore con los datos, reglas publicadas, despliegue en Vercel, la app en compu y celular.
+**Celular** (URL publicada, pantalla de 375 × 812): sin scroll horizontal; el audio suena, la lista de sugerencias se usa con el dedo, el acierto se guarda y el perfil, el estante y el ranking se ven bien. ✔
+
+**"Ponte al día"** (URL publicada): con la fecha de inicio movida un día atrás desde el panel admin, el día 1 pasó a ser un día pasado. Las pistas mostraron 50 / 30 / 15, el acierto dio **"Ganaste 50 puntos"** y el estante lo marcó como **(atrasada)**. Además, contra las reglas: mandar una jugada atrasada como "a tiempo" o con 100 puntos se **rechaza**; con 50 puntos se acepta. ✔
+
+**Actualización y despliegue:** cada push a `main` generó un despliegue nuevo en Vercel que terminó en estado *Ready*; los cambios (por ejemplo, el logo de TMDB) aparecieron en la URL publicada. Listado en `docs/evidencias/vercel-despliegues.txt`; la configuración de la base, en `docs/evidencias/firestore-base.txt`.
+
+**Capturas de V1** (`docs/capturas/`):
+
+| Compu | Celular | Celular |
+|---|---|---|
+| ![Inicio](docs/capturas/v1-01-inicio-escritorio.jpg) | ![Sonando](docs/capturas/v1-04-celular-sonando.jpg) | ![Acierto](docs/capturas/v1-06-celular-acierto.jpg) |
+| Inicio | Fragmento sonando | Acierto con revelación |
+| ![Admin](docs/capturas/v1-02-admin-ingreso.jpg) | ![Estante](docs/capturas/v1-08-celular-estante.jpg) | ![Ranking](docs/capturas/v1-09-celular-ranking.jpg) |
+| Ingreso al panel admin | Estante | Ranking |
+| ![Atrasada](docs/capturas/v1-10-estante-con-jugada-atrasada.jpg) | ![Autocompletado](docs/capturas/v1-05-celular-autocompletado.jpg) | ![Perfil](docs/capturas/v1-07-celular-perfil-apodo.jpg) |
+| Jugada atrasada (mitad de puntos) | Autocompletado | Apodo guardado |
 
 ### Dificultades y cómo se resolvieron
 
@@ -124,6 +144,8 @@ Commits: `277c637` (Firebase) y `80bb9ea` (Vercel).
 | **La CLI de Vercel iba a subir `.env` y el token de TMDB** | Prueba en seco (`vercel deploy --dry`) | Agregar `.vercelignore` |
 | Vercel agregó una regla `.env*` al `.gitignore` que anulaba la excepción de `.env.example` | Revisión del diff | Quitar esa regla |
 | Vercel no podía conectar el repo privado | Mensajes de `vercel git connect` | Conectar GitHub al login de Vercel e instalar la app de Vercel solo para este repositorio |
+| Las instrucciones de un día pasado mostraban los puntos completos | Prueba de "ponte al día" en la URL publicada | Pasarle a las instrucciones si el día es atrasado |
+| Las capturas salían oscuras | Se revisaron los estilos de la página: estaban bien | La animación de entrada todavía no había terminado; se esperó antes de capturar |
 
 ### Decisiones sobre datos y terceros
 
@@ -146,9 +168,11 @@ Ejemplos representativos de instrucciones dadas a la IA:
 - *"No quiero retener datos de usuarios ni mails; nada de cosas ilegales."* (de acá salió el login genérico para el admin)
 - *"Nunca imprimas valores de claves. Antes de cada commit mostrame los archivos."*
 
+También se agregó el **logo oficial de TMDB** en el pie de página, como piden sus términos.
+
 ### Pendientes para V2
 
 - Rediseño a partir de bocetos propios en Figma (estante tipo VHS, pantalla de juego).
-- Logo de TMDB en el pie de página (lo exigen sus términos).
-- Capturas de pantalla de cada versión para esta bitácora.
+- Capturas de las consolas de Firebase y Vercel (requieren iniciar sesión).
 - Revisar el título dudoso (*Cuenta conmigo*) y ajustar el segundo de inicio de los fragmentos poco reconocibles.
+- Mostrar los puntos del día recién al guardar la jugada (hoy se actualizan al pasar a la siguiente canción).

@@ -1,0 +1,12 @@
+# Base Firestore (salida de: npx firebase-tools firestore:databases:get) — 2026-10-27 11:00
+│ Field                        │ Value                                             │
+│ Name                         │ projects/adivina-la-musica/databases/(default)    │
+│ Create Time                  │ 2026-10-27T03:54:18.454412Z                       │
+│ Last Update Time             │ 2026-10-27T03:54:18.454412Z                       │
+│ Type                         │ FIRESTORE_NATIVE                                  │
+│ Edition                      │ STANDARD                                          │
+│ Location                     │ southamerica-east1                                │
+│ Delete Protection State      │ DELETE_PROTECTION_DISABLED                        │
+│ Point In Time Recovery       │ POINT_IN_TIME_RECOVERY_DISABLED                   │
+│ Earliest Version Time        │ 2026-10-27T13:00:38.967971Z                       │
+│ Version Retention Period     │ 3600s                                             │

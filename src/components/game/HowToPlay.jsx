@@ -1,7 +1,8 @@
-import { CLUES } from '../../utils/scoring.js'
+import { CLUES, pointsFor } from '../../utils/scoring.js'
 
 // Instrucciones que se muestran antes de empezar a jugar.
-export default function HowToPlay({ total, onStart }) {
+// late: día pasado ("ponte al día"), los puntos valen la mitad.
+export default function HowToPlay({ total, late = false, onStart }) {
   return (
     <div className="card">
       <p className="eyebrow">Cómo se juega</p>
@@ -21,14 +22,17 @@ export default function HowToPlay({ total, onStart }) {
         </li>
       </ol>
       <ul className="tiles">
-        {CLUES.map(({ seconds, points }) => (
+        {CLUES.map(({ seconds }, i) => (
           <li key={seconds} className="tile">
-            <strong>{points}</strong>
+            <strong>{pointsFor(i + 1, late)}</strong>
             <span>{seconds} segundos</span>
           </li>
         ))}
       </ul>
-      <p className="muted">Esta partida tiene {total} canciones. ¡Suerte!</p>
+      <p className="muted">
+        {late && 'Es un día pasado: los puntos valen la mitad. '}
+        {total === 1 ? 'Te queda 1 canción.' : `Te quedan ${total} canciones.`} ¡Suerte!
+      </p>
       <button type="button" className="btn btn-primary" onClick={onStart}>
         Empezar
       </button>

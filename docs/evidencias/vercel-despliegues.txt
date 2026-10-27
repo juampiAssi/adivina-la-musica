@@ -1,0 +1,8 @@
+# Despliegues en Vercel (salida de: npx vercel list adivina-la-musica) — 2026-10-27 11:00
+  Age     Project                             Deployment                                                       Status      Environment     Duration     Username          
+  4m      jassirio-4607/adivina-la-musica     https://adivina-la-musica-76logp045-jassirio-4607.vercel.app     ● Ready     Production      4s           jassirio-4607     
+  19m     jassirio-4607/adivina-la-musica     https://adivina-la-musica-fdnvu7zmk-jassirio-4607.vercel.app     ● Ready     Production      4s           jassirio-4607     
+  29m     jassirio-4607/adivina-la-musica     https://adivina-la-musica-p4kje5vdz-jassirio-4607.vercel.app     ● Ready     Production      8s           jassirio-4607     
+https://adivina-la-musica-76logp045-jassirio-4607.vercel.app
+https://adivina-la-musica-fdnvu7zmk-jassirio-4607.vercel.app
+https://adivina-la-musica-p4kje5vdz-jassirio-4607.vercel.app

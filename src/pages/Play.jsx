@@ -154,7 +154,7 @@ export default function Play() {
         </div>
       ) : !started ? (
         <div className="screen">
-          <HowToPlay total={pending.length} onStart={() => setStarted(true)} />
+          <HowToPlay total={pending.length} late={late} onStart={() => setStarted(true)} />
         </div>
       ) : (
         <>
