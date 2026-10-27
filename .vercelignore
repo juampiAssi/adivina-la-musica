@@ -1,0 +1,7 @@
+# Archivos que la CLI de Vercel NUNCA debe subir (claves y datos locales).
+.env
+.env.*
+!.env.example
+.vercel
+node_modules
+dist
