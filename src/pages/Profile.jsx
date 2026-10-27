@@ -1,7 +1,12 @@
 import { useEffect, useState } from 'react'
+import daySizes from '../data/day-sizes.json'
+import Shelf from '../components/vhs/Shelf.jsx'
+import VhsTape from '../components/vhs/VhsTape.jsx'
 import { useAuth } from '../hooks/useAuth.js'
+import { getGameConfig } from '../services/configService.js'
 import { deleteGuess, getMyGuesses } from '../services/guessesService.js'
 import { deleteMyEntry, getMyEntry, saveMyEntry, totalsFrom } from '../services/leaderboardService.js'
+import { currentDay } from '../utils/calendar.js'
 import { toUserMessage } from '../utils/firebaseErrors.js'
 import { validateNickname } from '../utils/nickname.js'
 
@@ -11,6 +16,7 @@ export default function Profile() {
   const { user } = useAuth()
   const [guesses, setGuesses] = useState([])
   const [entry, setEntry] = useState(null)
+  const [today, setToday] = useState(0) // número de día actual del calendario
   const [nickname, setNickname] = useState('')
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState('')
@@ -18,9 +24,10 @@ export default function Profile() {
   const [busy, setBusy] = useState(false)
 
   useEffect(() => {
-    Promise.all([getMyGuesses(user.uid), getMyEntry(user.uid)])
-      .then(([myGuesses, myEntry]) => {
+    Promise.all([getMyGuesses(user.uid), getMyEntry(user.uid), getGameConfig().catch(() => null)])
+      .then(([myGuesses, myEntry, config]) => {
         setGuesses(myGuesses)
+        setToday(config ? currentDay(config.startDate.toDate()) : 0)
         setEntry(myEntry)
         setNickname(myEntry?.nickname ?? '')
       })
@@ -89,6 +96,13 @@ export default function Profile() {
   const shelf = guesses.filter((g) => g.solved).sort((a, b) => (b.createdAt?.seconds ?? 0) - (a.createdAt?.seconds ?? 0))
   const { totalPoints } = totalsFrom(guesses)
 
+  // Datos del estante: días desbloqueados y aciertos agrupados por día.
+  const totalDays = Object.keys(daySizes).length
+  const openDays = Array.from({ length: Math.min(Math.max(today, 0), totalDays) }, (_, i) => i + 1)
+  const recordedByDay = {}
+  for (const g of [...shelf].reverse()) (recordedByDay[g.day] ??= []).push(g) // del más viejo al más nuevo
+  const last = shelf[0]
+
   return (
     <section className="profile">
       <div className="play-header">
@@ -104,6 +118,36 @@ export default function Profile() {
           {notice.text}
         </p>
       )}
+
+      <div className="home-section">
+        <div className="last-recording">
+          {last ? (
+            <VhsTape id={last.titleId} title={last.title} year={last.year} state="recorded" view="cover" />
+          ) : (
+            <VhsTape id="vacia" state="blank" view="cover" />
+          )}
+          <div>
+            <p className="eyebrow">Mi videoteca</p>
+            <h2>
+              {shelf.length} {shelf.length === 1 ? 'cinta grabada' : 'cintas grabadas'}
+            </h2>
+            <p className="muted">
+              {last ? `Última grabación: ${last.title}.` : 'Cada canción que adivinás graba una cinta en tu estante.'}
+            </p>
+          </div>
+        </div>
+        {openDays.length > 0 ? (
+          <Shelf
+            days={openDays}
+            daySizes={daySizes}
+            recordedByDay={recordedByDay}
+            lockedFrom={openDays.length + 1}
+            lockedTo={totalDays}
+          />
+        ) : (
+          <p className="muted">El calendario todavía no empezó.</p>
+        )}
+      </div>
 
       <form className="card answer-form" onSubmit={handleSaveNickname} noValidate>
         <label htmlFor="nickname">Apodo para el ranking</label>
@@ -130,7 +174,7 @@ export default function Profile() {
       </form>
 
       <div className="home-section">
-        <p className="eyebrow">Tu estante</p>
+        <p className="eyebrow">Tus aciertos</p>
         <h2>{shelf.length ? `${shelf.length} ${shelf.length === 1 ? 'película adivinada' : 'adivinadas'}` : 'Todavía vacío'}</h2>
         {!shelf.length && <p className="muted">Cada canción que adivinás se guarda acá.</p>}
         <ul className="shelf">

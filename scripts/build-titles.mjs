@@ -210,6 +210,11 @@ writeFileSync('seed/titles.json', JSON.stringify(titles, null, 2) + '\n')
 // días ni temas, así el navegador no tiene que leer todos los títulos de Firestore.
 const answerNames = titles.map((t) => ({ title: t.title, aliases: t.aliases })).sort((a, b) => a.title.localeCompare(b.title, 'es'))
 writeFileSync('src/data/answer-names.json', JSON.stringify(answerNames, null, 2) + '\n')
+// Cantidad de títulos por día (sin nombres): el estante la usa para dibujar
+// las cintas sin grabar sin tener que leer los títulos de Firestore.
+const daySizes = {}
+for (const t of titles) daySizes[t.day] = (daySizes[t.day] ?? 0) + 1
+writeFileSync('src/data/day-sizes.json', JSON.stringify(daySizes) + '\n')
 const csvCell = (v) => `"${String(v ?? '').replace(/"/g, '""')}"`
 const cols = ['day', 'order', 'id', 'title', 'category', 'year', 'director', 'genre', 'needsReview', 'tmdbId', 'synopsis']
 writeFileSync('seed/titles-revision.csv', '﻿' + [cols.join(','), ...titles.map((t) => cols.map((c) => csvCell(t[c])).join(','))].join('\n') + '\n')

@@ -1,0 +1,273 @@
+/* =========================================================
+   Cintas VHS y mueble ("Mi videoteca"). Todo con CSS, sin imágenes.
+   ========================================================= */
+
+/* ---- Las 5 combinaciones de colores ----
+   --body: plástico/etiqueta del lomo · --s1..s3: franjas · --on-body: texto sobre el cuerpo */
+.vhs--s0 { --body: var(--tape-black); --s1: var(--tape-red); --s2: var(--tape-orange); --s3: var(--tape-yellow); --on-body: var(--label-cream); }
+.vhs--s1 { --body: var(--tape-blue); --s1: var(--label-cream); --s2: var(--tape-yellow); --s3: var(--tape-red); --on-body: var(--label-cream); }
+.vhs--s2 { --body: var(--tape-yellow); --s1: var(--tape-black); --s2: var(--tape-red); --s3: var(--tape-orange); --on-body: var(--label-ink); }
+.vhs--s3 { --body: var(--tape-green); --s1: var(--label-cream); --s2: var(--tape-orange); --s3: var(--tape-yellow); --on-body: var(--label-cream); }
+.vhs--s4 { --body: var(--tape-orange); --s1: var(--tape-black); --s2: var(--tape-blue); --s3: var(--label-cream); --on-body: var(--label-ink); }
+
+/* Sin grabar: negra lisa, sin franjas ni texto */
+.vhs.is-blank { --body: var(--tape-black); --on-body: rgb(255 255 255 / 0.22); }
+
+/* Texto técnico chico (T-120, HIGH QUALITY TAPE...) */
+.vhs-tech {
+  margin: 0;
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* Logo genérico propio: "VHS" en una cajita */
+.vhs-logo {
+  font-family: var(--font-title);
+  font-stretch: 100%;
+  font-weight: 900;
+  font-style: italic;
+  font-size: 0.6rem;
+  line-height: 1;
+  letter-spacing: 0.04em;
+  color: var(--label-ink);
+  background: var(--label-cream);
+  padding: 2px 4px;
+  border-radius: 2px;
+}
+
+/* =========================== Lomo =========================== */
+.vhs-spine {
+  /* Medidas base + variaciones deterministas (ver utils/tapeLook.js) */
+  --tape-w: 54px;
+  --tape-h: 200px;
+  width: calc(var(--tape-w) + var(--w-step, 0) * 2px);
+  height: calc(var(--tape-h) + var(--h-step, 0) * 4px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 5px 8px;
+  border-radius: 3px 3px 2px 2px;
+  background: var(--body);
+  /* Volumen: brillo en un borde, sombra en el otro */
+  box-shadow:
+    inset 2px 0 0 rgb(255 255 255 / 0.1),
+    inset -3px 0 0 rgb(0 0 0 / 0.3),
+    0 1px 1px rgb(0 0 0 / 0.5);
+  transform: rotate(var(--tilt, 0deg));
+  transform-origin: bottom center;
+}
+
+.vhs-spine__tech {
+  font-family: var(--font-mono);
+  font-size: 0.5rem;
+  letter-spacing: 0.06em;
+  color: var(--on-body);
+  opacity: 0.85;
+}
+
+.vhs-spine__stripes {
+  width: 100%;
+  height: 24px;
+  border-radius: 1px;
+  background: linear-gradient(var(--s1) 0 34%, var(--s2) 34% 67%, var(--s3) 67%);
+}
+
+.vhs-spine__label {
+  flex: 1;
+  width: 100%;
+  min-height: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  padding: 6px 0;
+  border-radius: 2px;
+  background: var(--label-cream);
+}
+
+/* Título rotado: se lee de abajo hacia arriba, como los lomos en castellano */
+.vhs-spine__title {
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  max-height: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  font-family: var(--font-title);
+  font-stretch: 62%;
+  font-weight: 800;
+  font-size: 0.82rem;
+  line-height: 1;
+  text-transform: uppercase;
+  color: var(--label-ink);
+}
+
+.vhs.is-blank .vhs-spine__stripes {
+  visibility: hidden;
+}
+
+.vhs.is-blank .vhs-spine__label {
+  background: rgb(255 255 255 / 0.06); /* etiqueta vacía, apenas visible */
+}
+
+.vhs.is-blank .vhs-logo {
+  background: rgb(255 255 255 / 0.12);
+  color: rgb(255 255 255 / 0.35);
+}
+
+/* ========================= Carátula ========================= */
+.vhs-cover {
+  position: relative;
+  width: 100%;
+  max-width: 240px;
+  aspect-ratio: 104 / 187; /* proporción de una caja VHS */
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border-radius: 4px;
+  background: var(--body);
+  color: var(--on-body);
+  box-shadow: var(--shadow-2);
+  container-type: inline-size; /* permite medir textos en "cqi" = % del ancho de la carátula */
+}
+
+/* Franjas diagonales en la parte de arriba */
+.vhs-cover__stripes {
+  height: 34%;
+  background: linear-gradient(
+    160deg,
+    transparent 0 30%,
+    var(--s1) 30% 45%,
+    var(--s2) 45% 60%,
+    var(--s3) 60% 75%,
+    transparent 75%
+  );
+}
+
+.vhs-cover__label {
+  margin: 0 10%;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  border-radius: 2px;
+  background: var(--label-cream);
+  color: var(--label-ink);
+}
+
+.vhs-cover__title {
+  margin: 0;
+  font-family: var(--font-title);
+  font-stretch: 62%;
+  font-weight: 800;
+  font-size: clamp(0.95rem, 12cqi, 1.7rem); /* crece con la carátula */
+  line-height: 0.95;
+  text-transform: uppercase;
+  overflow-wrap: break-word; /* corta solo si una palabra sola no entra */
+  hyphens: auto;
+}
+
+.vhs-cover__empty {
+  margin: 0;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  opacity: 0.6;
+}
+
+.vhs-cover__foot {
+  margin-top: auto;
+  padding: 10px 10%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.vhs.is-blank.vhs-cover .vhs-cover__stripes {
+  visibility: hidden;
+}
+
+/* ========================== Mueble ========================== */
+.mueble {
+  padding: 12px;
+  border-radius: 6px;
+  /* Madera: degradado simple (la textura llega en la iteración C) */
+  background: linear-gradient(90deg, var(--wood-dark), var(--wood) 6%, var(--wood-light) 50%, var(--wood) 94%, var(--wood-dark));
+  box-shadow: var(--shadow-2), inset 0 0 0 2px var(--wood-edge);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.shelf-row {
+  /* Fondo del hueco: madera oscura, con sombra arriba como si fuera profundo */
+  background:
+    linear-gradient(rgb(0 0 0 / 0.45), transparent 30%),
+    linear-gradient(90deg, var(--wood-edge), var(--wood-dark) 10% 90%, var(--wood-edge));
+  border-radius: 2px;
+}
+
+.shelf-tapes {
+  display: flex;
+  flex-wrap: wrap; /* provisorio: el responsive del estante se resuelve en la iteración B */
+  align-items: flex-end;
+  gap: 2px;
+  padding: 16px 10px 0;
+  min-height: 228px;
+}
+
+.shelf-plank {
+  height: 22px;
+  padding: 0 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: linear-gradient(var(--wood-light), var(--wood) 60%, var(--wood-dark));
+  box-shadow: 0 4px 6px rgb(0 0 0 / 0.35);
+}
+
+/* Etiqueta del día pegada al estante */
+.shelf-day {
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  color: var(--label-ink);
+  background: var(--label-cream);
+  padding: 1px 6px;
+  border-radius: 1px;
+  box-shadow: 0 1px 1px rgb(0 0 0 / 0.3);
+}
+
+.shelf-count {
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  color: var(--label-cream);
+  opacity: 0.85;
+}
+
+/* Días futuros: un hueco cerrado, sin cintas */
+.shelf-locked {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding: 18px 12px;
+  border-radius: 2px;
+  text-align: center;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  color: var(--label-cream);
+  background: repeating-linear-gradient(90deg, var(--wood-dark) 0 46px, var(--wood-edge) 46px 48px);
+}
+
+/* Perfil: carátula de la última grabación al lado del título */
+.last-recording {
+  display: grid;
+  grid-template-columns: minmax(140px, 180px) 1fr;
+  gap: var(--space-5);
+  align-items: center;
+}

@@ -1,0 +1,115 @@
+/* =========================================================
+   Sistema de diseño "Mi videoteca" — variables (tokens)
+   - Todo color, radio, sombra, espaciado y tipografía sale de acá.
+   - El tema se elige con data-theme="light" | "dark" en <html>
+     (lo pone el script de index.html antes de que cargue React).
+   - La interfaz es sobria; el color vive en los objetos (las cintas)
+     y en los estados de acierto/error.
+   ========================================================= */
+
+:root {
+  /* ---- Tipografía ---- */
+  --font-title: 'Archivo', 'Arial Narrow', sans-serif; /* se usa condensada (font-stretch) */
+  --font-body: 'Archivo', system-ui, sans-serif;
+  --font-mono: 'IBM Plex Mono', ui-monospace, 'SFMono-Regular', monospace;
+  --stretch-title: 72%; /* ancho de la fuente variable para títulos */
+
+  /* ---- Espaciado (escala de 4 px) ---- */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+  --space-7: 3rem;
+
+  /* ---- Radios ---- */
+  --radius-sm: 4px;
+  --radius: 10px;
+  --radius-lg: 16px;
+  --radius-pill: 999px;
+
+  /* ---- Movimiento ---- */
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --dur-fast: 150ms;
+  --dur: 300ms;
+
+  /* ---- Objetos: son iguales en los dos temas ---- */
+  /* Colores de las cintas (los únicos acentos fuertes de la app) */
+  --tape-red: #c8372d;
+  --tape-orange: #e0761c;
+  --tape-yellow: #e8b524;
+  --tape-green: #2f6e3b; /* crema encima: 4.9:1 */
+  --tape-blue: #2b5ba3;
+  --tape-black: #161616;
+  --tape-shell: #1d1d1d;
+  --label-cream: #efe6cf;
+  --label-ink: #1c1a17;
+
+  /* Madera del mueble */
+  --wood-light: #8a5a33;
+  --wood: #6b4324;
+  --wood-dark: #47290f;
+  --wood-edge: #2f1a08;
+}
+
+/* ---- Tema oscuro (por defecto): habitación de noche ---- */
+:root,
+[data-theme='dark'] {
+  color-scheme: dark;
+  --bg: #131211; /* grafito */
+  --room-light: rgb(255 214 150 / 0.07); /* luz cálida de lámpara */
+  --surface: #1c1b19;
+  --surface-2: #262420;
+  --border: rgb(255 255 255 / 0.1);
+  --text: #eee8db; /* contraste sobre --bg ≈ 15:1 */
+  --text-strong: #fffaf0;
+  --muted: #a8a194; /* contraste sobre --bg ≈ 7:1 */
+  --primary: #eee8db; /* botones principales: claros sobre oscuro */
+  --primary-ink: #131211;
+  --success: #7fcf8b;
+  --error: #ff8f7f;
+  --focus: #e8b524;
+  --shadow-1: 0 1px 2px rgb(0 0 0 / 0.5);
+  --shadow-2: 0 10px 30px rgb(0 0 0 / 0.55);
+}
+
+/* ---- Tema claro: habitación de día ---- */
+[data-theme='light'] {
+  color-scheme: light;
+  --bg: #f1eadb; /* crema */
+  --room-light: rgb(255 255 255 / 0.55); /* luz de ventana */
+  --surface: #faf5eb;
+  --surface-2: #ebe2cf;
+  --border: rgb(28 26 23 / 0.14);
+  --text: #1f1d1a; /* contraste sobre --bg ≈ 14:1 */
+  --text-strong: #0f0e0c;
+  --muted: #5c5549; /* contraste sobre --bg ≈ 6.3:1 */
+  --primary: #1f1d1a;
+  --primary-ink: #faf5eb;
+  --success: #2e6e3a;
+  --error: #b03224;
+  --focus: #2b5ba3;
+  --shadow-1: 0 1px 2px rgb(60 40 20 / 0.18);
+  --shadow-2: 0 10px 30px rgb(60 40 20 / 0.22);
+}
+
+/* Si no hay JavaScript, igual respetamos la preferencia del sistema. */
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme]) {
+    color-scheme: light;
+    --bg: #f1eadb;
+    --room-light: rgb(255 255 255 / 0.55);
+    --surface: #faf5eb;
+    --surface-2: #ebe2cf;
+    --border: rgb(28 26 23 / 0.14);
+    --text: #1f1d1a;
+    --text-strong: #0f0e0c;
+    --muted: #5c5549;
+    --primary: #1f1d1a;
+    --primary-ink: #faf5eb;
+    --success: #2e6e3a;
+    --error: #b03224;
+    --focus: #2b5ba3;
+  }
+}

@@ -176,3 +176,35 @@ También se agregó el **logo oficial de TMDB** en el pie de página, como piden
 - Capturas de las consolas de Firebase y Vercel (requieren iniciar sesión).
 - Revisar el título dudoso (*Cuenta conmigo*) y ajustar el segundo de inicio de los fragmentos poco reconocibles.
 - Mostrar los puntos del día recién al guardar la jugada (hoy se actualizan al pasar a la siguiente canción).
+
+---
+
+## V2 — Diseño "Mi videoteca"
+
+Concepto: el perfil es un mueble de madera con estantes llenos de cintas VHS vistas de lomo. Cada estante es un día (10 cintas). Adivinar un título "graba" su cinta; las no adivinadas son cintas negras lisas, sin ningún dato que adelante la respuesta. Esta etapa es solo diseño y front: no cambian las reglas de Firestore, el modelo de datos ni la lógica del juego. Se trabaja en tres iteraciones (A, B y C).
+
+### Iteración A — Sistema base
+
+**Qué cambió**
+- **Variables de diseño** en `src/styles/tokens.css`: colores, radios, sombras, espaciados y tipografías. La interfaz pasa a ser sobria (grafito en oscuro, crema en claro); el color fuerte queda solo en las cintas y en los estados de acierto/error.
+- **Tema claro y oscuro** con botón en la barra de navegación. El valor inicial sale de la preferencia del sistema (`prefers-color-scheme`) o de la última elección guardada en `localStorage` (solo esa preferencia de interfaz, nunca datos del juego). Un script chico en `index.html` aplica el tema antes de que cargue React, para que la página no "parpadee". El mueble es igual en los dos temas; cambia la "habitación" (fondo y luz).
+- **Tipografías**: Archivo (variable, con eje de ancho: condensada para títulos y lomos, normal para el texto) e IBM Plex Mono para los datos técnicos ("T-120", "DÍA 1"). Se cargan desde Google Fonts con `font-display: swap`.
+- **Componente `<VhsTape />`** dibujado solo con CSS, con dos vistas: lomo (estante) y carátula. Cinco combinaciones de colores y franjas; cada título recibe siempre la misma, calculada con un hash de su id (`utils/tapeLook.js`). Del mismo hash salen pequeñas variaciones de alto, ancho e inclinación, para que el estante no parezca una grilla perfecta.
+- **Estante** en el perfil, con datos reales: un estante por día desbloqueado, las cintas grabadas primero y el resto negras; los días futuros aparecen como un hueco cerrado. Arriba, la carátula de la última grabación.
+
+**Por qué**
+- Variables primero: todas las pantallas cambian juntas y el tema claro/oscuro es solo cambiar valores.
+- Archivo tiene eje de ancho: con una sola familia salen el título condensado del lomo y el texto normal (menos archivos para descargar).
+- Hash determinista y no azar: si fuera al azar, cada recarga cambiaría los colores de la misma película.
+
+**Alternativas descartadas**
+- Tipografías: Oswald + Space Mono (Space Mono es muy ancha para datos chicos en el lomo) y Barlow Condensed + JetBrains Mono (bien, pero son dos familias más y Barlow no tiene eje de ancho). Bebas Neue (V1) solo tiene mayúsculas y un peso.
+- Reescribir todo el CSS anterior de una vez: se optó por que los nombres de variables viejos apunten a los nuevos y limpiar en la iteración C, para avanzar en pasos chicos.
+- Leer los títulos de cada día para dibujar las cintas negras: habría gastado lecturas y revelado qué títulos hay en cada día. Se usa un archivo con la cantidad de títulos por día (`src/data/day-sizes.json`, sin nombres).
+
+**Dificultades**
+- El texto crema sobre la cinta verde no llegaba al contraste mínimo (3,4:1): se oscureció el verde hasta 4,9:1. Se midió el contraste de todas las combinaciones de texto en los dos temas.
+- En la carátula angosta el título se cortaba en medio de una palabra: se usó un tamaño relativo al ancho de la carátula (container queries) y corte solo entre palabras.
+- Varios colores del diseño anterior estaban escritos a mano (no en variables) y rompían el tema claro: se pasaron a variables.
+
+**Capturas:** `docs/capturas/v2a-*` (perfil y estante en los dos temas, pantalla de juego).

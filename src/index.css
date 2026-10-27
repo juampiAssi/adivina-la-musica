@@ -1,34 +1,20 @@
 /* =========================================================
-   Diseño "Vice": inspirado en la estética de atardecer de
-   Miami (neón, violetas y rosas). Paleta y fuentes propias.
+   Estilos de la app. Las variables están en src/styles/tokens.css.
    ========================================================= */
 :root {
-  /* Fondos */
-  --bg: #0c0d1b;
-  --surface: #17183a;
-  --surface-2: #232450;
-  --border: rgb(255 255 255 / 0.09);
-  /* Texto */
-  --text: #f3eefa;
-  --muted: #a7a3c2;
-  --cream: #fff1d6;
-  /* Atardecer */
-  --pink: #ffb0c4;
-  --pink-ink: #2e2b4f;
-  --violet: #4b2f54;
-  --blue: #2c3868;
-  --peach: #ffd3a8;
-  /* Estados */
-  --success: #9ef0c5;
-  --error: #ff8a9a;
-  --accent: var(--pink);
-
-  --sunset: linear-gradient(180deg, #2c3868 0%, #4b2f54 38%, #b5628f 68%, #ffb0c4 86%, #ffd3a8 100%);
-  --radius: 20px;
-  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
-
-  --font-display: 'Bebas Neue', 'Arial Narrow', sans-serif;
-  --font-body: 'Montserrat', system-ui, sans-serif;
+  /* ITERACIÓN A: los nombres del diseño anterior ("Vice") apuntan a los tokens
+     nuevos de src/styles/tokens.css, así todas las pantallas toman el sistema
+     nuevo sin reescribir todo el CSS. En la iteración C se reemplazan. */
+  --pink: var(--primary);
+  --pink-ink: var(--primary-ink);
+  --cream: var(--text-strong);
+  --accent: var(--primary);
+  --violet: var(--surface-2);
+  --blue: var(--surface-2);
+  --peach: var(--surface-2);
+  --radius: var(--radius-lg);
+  --font-display: var(--font-title);
+  --sunset: linear-gradient(180deg, var(--surface-2), var(--surface));
   font-family: var(--font-body);
 }
 
@@ -40,9 +26,9 @@ body {
   margin: 0;
   color: var(--text);
   line-height: 1.55;
-  /* Brillo violeta sutil arriba, como el resplandor de un atardecer */
+  /* La "habitación": color de pared y una luz suave arriba (cambia con el tema) */
   background:
-    radial-gradient(120% 60% at 50% -10%, rgb(75 47 84 / 0.55), transparent 60%),
+    radial-gradient(120% 60% at 50% -10%, var(--room-light), transparent 60%),
     var(--bg);
   background-attachment: fixed;
   min-height: 100vh;
@@ -51,9 +37,10 @@ body {
 h1,
 h2,
 .display {
-  font-family: var(--font-display);
-  font-weight: 400;
-  letter-spacing: 0.02em;
+  font-family: var(--font-title);
+  font-weight: 800;
+  font-stretch: var(--stretch-title); /* eje de ancho de la fuente variable Archivo */
+  letter-spacing: 0;
   line-height: 0.95;
   color: var(--cream);
   text-transform: uppercase;
@@ -74,11 +61,12 @@ p {
 
 /* Texto chico en mayúsculas y espaciado ("VER AHORA") */
 .eyebrow {
+  font-family: var(--font-mono);
   font-size: 0.72rem;
   font-weight: 600;
   letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: var(--pink);
+  color: var(--muted);
 }
 
 .muted {
@@ -168,13 +156,14 @@ p {
 .announce {
   position: relative;
   overflow: hidden;
-  padding: 0.55rem 1rem;
+  padding: 0.45rem 1rem;
   text-align: center;
-  background: linear-gradient(90deg, #ffb0c4, #ffd3a8 50%, #c9a4e8);
-  color: var(--pink-ink);
+  background: var(--surface-2);
+  color: var(--muted);
+  font-family: var(--font-mono);
   font-size: 0.68rem;
-  font-weight: 700;
-  letter-spacing: 0.24em;
+  font-weight: 500;
+  letter-spacing: 0.2em;
   text-transform: uppercase;
 }
 
@@ -183,7 +172,7 @@ p {
   top: 0;
   z-index: 20;
   /* Vidrio esmerilado: se ve borroso lo que pasa por detrás */
-  background: rgb(12 13 27 / 0.6);
+  background: color-mix(in srgb, var(--bg) 82%, transparent);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
   border-bottom: 1px solid var(--border);
@@ -201,15 +190,14 @@ p {
 }
 
 .brand {
-  font-family: var(--font-display);
-  font-size: 1.6rem;
+  font-family: var(--font-title);
+  font-stretch: var(--stretch-title);
+  font-weight: 800;
+  font-size: 1.5rem;
   line-height: 1;
-  color: var(--cream);
+  text-transform: uppercase;
+  color: var(--text-strong);
   text-decoration: none;
-  /* Brillo rosa tipo neón */
-  text-shadow:
-    0 0 2px rgb(255 176 196 / 0.6),
-    0 0 18px rgb(255 176 196 / 0.35);
 }
 
 .nav-links {
@@ -275,11 +263,11 @@ p {
 
 .btn-primary {
   background: var(--pink);
-  box-shadow: 0 2px 40px rgb(255 176 196 / 0.35);
+  box-shadow: var(--shadow-1);
 }
 
 .btn-primary:hover:not(:disabled) {
-  box-shadow: 0 2px 64px rgb(255 176 196 / 0.6);
+  box-shadow: var(--shadow-2);
 }
 
 .btn-ghost {
@@ -316,7 +304,7 @@ input[type='password'] {
   font: inherit;
   width: 100%;
   color: var(--text);
-  background: rgb(12 13 27 / 0.7);
+  background: var(--surface);
   border: 1px solid var(--border);
   border-radius: 14px;
   padding: 0.85rem 1rem;
@@ -328,7 +316,7 @@ input[type='password'] {
 input[type='text']:focus,
 input[type='password']:focus {
   border-color: var(--pink);
-  box-shadow: 0 0 24px rgb(255 176 196 / 0.2);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--focus) 30%, transparent);
   outline: none;
 }
 
@@ -355,20 +343,20 @@ label {
 
 .alert-error {
   color: var(--error);
-  border-color: rgb(255 138 154 / 0.5);
-  background: rgb(255 138 154 / 0.08);
+  border-color: color-mix(in srgb, var(--error) 55%, transparent);
+  background: color-mix(in srgb, var(--error) 10%, transparent);
 }
 
 .alert-success {
   color: var(--success);
-  border-color: rgb(158 240 197 / 0.5);
-  background: rgb(158 240 197 / 0.08);
+  border-color: color-mix(in srgb, var(--success) 55%, transparent);
+  background: color-mix(in srgb, var(--success) 10%, transparent);
 }
 
 .alert-info {
   color: var(--cream);
-  border-color: rgb(255 176 196 / 0.4);
-  background: rgb(255 176 196 / 0.08);
+  border-color: var(--border);
+  background: var(--surface-2);
 }
 
 /* =========== Atardecer con palmeras =========== */
@@ -512,7 +500,7 @@ label {
   color: var(--cream);
   padding: 0.3rem 0.8rem;
   border-radius: 999px;
-  background: rgb(12 13 27 / 0.45);
+  background: color-mix(in srgb, var(--bg) 55%, transparent);
   backdrop-filter: blur(6px);
   -webkit-backdrop-filter: blur(6px);
 }
@@ -573,7 +561,7 @@ label {
 
 .answer-title {
   font-size: clamp(2.2rem, 7vw, 3.2rem);
-  text-shadow: 0 0 24px rgb(255 176 196 / 0.35);
+  text-shadow: none;
 }
 
 .reveal-frame {
@@ -596,7 +584,7 @@ label {
   gap: 1rem;
   padding: 0.75rem;
   border-radius: 16px;
-  background: rgb(12 13 27 / 0.5);
+  background: var(--surface-2);
 }
 
 .track-reveal img {
@@ -623,7 +611,7 @@ label {
   margin: 0;
   padding: 0.35rem;
   list-style: none;
-  background: rgb(23 24 58 / 0.92);
+  background: color-mix(in srgb, var(--surface) 94%, transparent);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border: 1px solid var(--border);
@@ -711,7 +699,7 @@ label {
 }
 
 .tile:nth-child(3) {
-  background: #2a2245;
+  background: var(--surface-2);
 }
 
 .summary {
@@ -979,9 +967,34 @@ input[type='date'],
 input[type='file'] {
   font: inherit;
   color: var(--text);
-  background: rgb(12 13 27 / 0.7);
+  background: var(--surface);
   border: 1px solid var(--border);
   border-radius: 14px;
   padding: 0.75rem 1rem;
   color-scheme: dark;
+}
+
+/* Botón de tema claro/oscuro */
+.theme-toggle {
+  display: inline-grid;
+  place-items: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  margin-left: var(--space-1);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-pill);
+  background: transparent;
+  color: var(--text);
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color var(--dur-fast);
+}
+
+.theme-toggle:hover {
+  background: var(--surface-2);
+}
+
+.theme-toggle:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 2px;
 }
