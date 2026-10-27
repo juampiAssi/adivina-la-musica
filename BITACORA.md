@@ -208,3 +208,33 @@ Concepto: el perfil es un mueble de madera con estantes llenos de cintas VHS vis
 - Varios colores del diseño anterior estaban escritos a mano (no en variables) y rompían el tema claro: se pasaron a variables.
 
 **Capturas:** `docs/capturas/v2a-*` (perfil y estante en los dos temas, pantalla de juego).
+
+### Iteración B — Interacción
+
+**Qué cambió**
+- **Cada lomo es un `<button>`**: se usa con mouse, dedo o teclado y tiene un nombre accesible ("El Rey León (1994). Ver detalles" o "Cinta sin grabar del día 2").
+- **"Asomar" la cinta**: con el mouse encima (solo en dispositivos con `hover: hover`) o con Tab, la cinta sube 12 px, se inclina 4° desde la base, queda por encima de las vecinas y muestra un cartel con el título y el año. Si no está grabada, el cartel dice solo "Sin grabar".
+- **Popup con `<dialog>` modal** (`showModal()`): póster grande, título, año, dirección, género, sinopsis corta (máx. 6 renglones), en qué pista se adivinó (3, 6 o 10 s), el día y los puntos (con "atrasada" si fue de un día pasado). Se cierra con Esc, con el botón o tocando el fondo oscuro; el foco vuelve al lomo que lo abrió.
+- **Cinta sin grabar**: el popup es más chico, no muestra ningún dato y ofrece "Ir a jugar".
+- **Borrar un acierto** pasó al popup ("Sacar del estante"); se sacó la lista de aciertos que había debajo del estante.
+- **Transición**: el popup sale desde la posición del lomo, achicado y transparente, y viaja hasta el centro (340 ms); al cerrar se desvanece (160 ms).
+- **Responsive**: debajo de 640 px cada día se parte en dos estantes de 5 cintas.
+
+**Por qué**
+- `<dialog>` con `showModal()` ya resuelve Esc, fondo oscuro y foco atrapado (el resto de la página queda inerte), sin librerías.
+- 5 + 5 en vez de scroll horizontal: con 10 cintas en 320 px cada lomo quedaba de unos 25 px; partido en dos mide 47 px (más que los 44 px mínimos para tocar) y se ven todas las cintas sin un scroll escondido. La contra: en celular cada día ocupa dos estantes y el mueble es más alto.
+- En pantallas táctiles no hay "asomar": el toque abre el popup directo (el efecto queda dentro de `@media (hover: hover)`).
+
+**Alternativas descartadas**
+- **View Transitions API** para animar del lomo al popup: según los datos de compatibilidad de MDN la tienen Chrome 111+, Safari 18+ y Firefox 144+ (muy reciente). Se eligió una animación CSS propia que funciona en todos y se deja View Transitions como posible mejora.
+- **Scroll horizontal por fila** en celular: esconde cintas y compite con el scroll de la página.
+- **Guardar dirección y sinopsis en cada jugada** para no leerlas: cambiaba el modelo de datos y las reglas. En su lugar, el popup pide el detalle del título **solo al abrir una cinta grabada** (1 lectura, que queda en memoria si se vuelve a abrir).
+
+**Dificultades**
+- Con el botón de tema agregado en A, la barra de navegación no entraba en 320 px y la página quedaba más ancha que la pantalla: el botón pasó al lado de la marca y los links bajan a una segunda línea.
+- Los carteles invisibles de las cintas del borde ensanchaban la página: el mueble recorta solo hacia los costados (`overflow-x: clip`) y en pantallas táctiles los carteles no se dibujan.
+- En la carátula chica del celular el texto técnico ocupaba 4 renglones: se oculta cuando la carátula mide menos de 150 px (container query).
+
+**Pruebas**: 320, 375, 768 y 1280 px sin scroll horizontal (lomos de 47, 58, 52 y 52 px); mouse, Tab + Enter, Esc, click en el fondo, toque en celular; "Sacar del estante" borra en Firestore y sigue borrado al recargar.
+
+**Capturas:** `docs/capturas/v2b-*`.

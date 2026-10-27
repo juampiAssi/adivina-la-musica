@@ -22,8 +22,8 @@ export default function Navbar() {
               {label}
             </NavLink>
           ))}
-          <ThemeToggle />
         </nav>
+        <ThemeToggle />
       </div>
     </header>
   )

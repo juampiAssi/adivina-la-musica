@@ -17,7 +17,9 @@ export default function VhsTape({ id, title = '', year, state = 'blank', view = 
       <div className={`${classes} vhs-cover`}>
         <div className="vhs-cover__stripes" aria-hidden="true" />
         <div className="vhs-cover__label">
-          <p className="vhs-tech">HIGH QUALITY TAPE · T-120</p>
+          <p className="vhs-tech">
+            HIGH QUALITY TAPE · <span className="nowrap">T-120</span>
+          </p>
           {recorded ? (
             <>
               <p className="vhs-cover__title">{title}</p>

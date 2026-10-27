@@ -974,13 +974,13 @@ input[type='file'] {
   color-scheme: dark;
 }
 
-/* Botón de tema claro/oscuro */
+/* Botón de tema claro/oscuro: queda en la primera línea, al lado de la marca */
 .theme-toggle {
+  order: 2;
   display: inline-grid;
   place-items: center;
   width: 2.25rem;
   height: 2.25rem;
-  margin-left: var(--space-1);
   border: 1px solid var(--border);
   border-radius: var(--radius-pill);
   background: transparent;
@@ -997,4 +997,36 @@ input[type='file'] {
 .theme-toggle:focus-visible {
   outline: 2px solid var(--focus);
   outline-offset: 2px;
+}
+
+.nav-links {
+  order: 3;
+}
+
+.brand {
+  order: 1;
+}
+
+/* En pantallas angostas los links bajan a su propia línea, debajo de la marca y el tema */
+@media (max-width: 560px) {
+  .nav-links {
+    flex-basis: 100%;
+    justify-content: space-between;
+  }
+
+  .nav-links a {
+    padding: 0.5rem 0.6rem;
+  }
+}
+
+@media (min-width: 561px) {
+  /* En pantallas anchas: marca a la izquierda, links y tema a la derecha */
+  .nav-links {
+    order: 2;
+    margin-left: auto;
+  }
+
+  .theme-toggle {
+    order: 3;
+  }
 }

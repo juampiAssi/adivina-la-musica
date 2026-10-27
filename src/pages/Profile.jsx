@@ -1,6 +1,7 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import daySizes from '../data/day-sizes.json'
 import Shelf from '../components/vhs/Shelf.jsx'
+import TapeDialog from '../components/vhs/TapeDialog.jsx'
 import VhsTape from '../components/vhs/VhsTape.jsx'
 import { useAuth } from '../hooks/useAuth.js'
 import { getGameConfig } from '../services/configService.js'
@@ -22,6 +23,8 @@ export default function Profile() {
   const [error, setError] = useState('')
   const [notice, setNotice] = useState(null) // { type: 'success' | 'error', text }
   const [busy, setBusy] = useState(false)
+  const [opened, setOpened] = useState(null) // { tape, origin } de la cinta abierta en el popup
+  const triggerRef = useRef(null) // el lomo que abrió el popup, para devolverle el foco
 
   useEffect(() => {
     Promise.all([getMyGuesses(user.uid), getMyEntry(user.uid), getGameConfig().catch(() => null)])
@@ -70,8 +73,8 @@ export default function Profile() {
     }
   }
 
+  // Borra un acierto (desde el popup). Devuelve true si salió bien.
   async function handleDeleteGuess(guess) {
-    if (!window.confirm(`¿Borrar "${guess.title}" de tu estante? Se descuentan sus puntos.`)) return
     setBusy(true)
     try {
       await deleteGuess(guess.id)
@@ -82,12 +85,24 @@ export default function Profile() {
         await saveMyEntry(user.uid, data)
         setEntry(data)
       }
-      setNotice({ type: 'success', text: `Se borró "${guess.title}".` })
+      setNotice({ type: 'success', text: `Se sacó "${guess.title}" del estante.` })
+      return true
     } catch (err) {
       setNotice({ type: 'error', text: toUserMessage(err, 'No se pudo borrar.') })
+      return false
     } finally {
       setBusy(false)
     }
+  }
+
+  function openTape(tape, button) {
+    triggerRef.current = button
+    setOpened({ tape, origin: button.getBoundingClientRect() })
+  }
+
+  function closeTape() {
+    setOpened(null)
+    triggerRef.current?.focus() // el foco vuelve al lomo que abrió el popup
   }
 
   if (loading) return <p className="muted">Cargando tu perfil…</p>
@@ -143,6 +158,7 @@ export default function Profile() {
             recordedByDay={recordedByDay}
             lockedFrom={openDays.length + 1}
             lockedTo={totalDays}
+            onOpen={openTape}
           />
         ) : (
           <p className="muted">El calendario todavía no empezó.</p>
@@ -173,27 +189,9 @@ export default function Profile() {
         </div>
       </form>
 
-      <div className="home-section">
-        <p className="eyebrow">Tus aciertos</p>
-        <h2>{shelf.length ? `${shelf.length} ${shelf.length === 1 ? 'película adivinada' : 'adivinadas'}` : 'Todavía vacío'}</h2>
-        {!shelf.length && <p className="muted">Cada canción que adivinás se guarda acá.</p>}
-        <ul className="shelf">
-          {shelf.map((g) => (
-            <li key={g.id} className="shelf-item">
-              {g.posterUrl ? <img src={g.posterUrl} alt="" loading="lazy" /> : <div className="shelf-blank" />}
-              <div>
-                <p className="track-title">{g.title}</p>
-                <p className="muted">
-                  {g.year ? `${g.year} · ` : ''}Día {g.day} · {g.points} pts{g.late ? ' (atrasada)' : ''}
-                </p>
-              </div>
-              <button type="button" className="btn btn-ghost" onClick={() => handleDeleteGuess(g)} disabled={busy}>
-                Borrar
-              </button>
-            </li>
-          ))}
-        </ul>
-      </div>
+      {opened && (
+        <TapeDialog tape={opened.tape} origin={opened.origin} onClose={closeTape} onDelete={handleDeleteGuess} />
+      )}
     </section>
   )
 }
