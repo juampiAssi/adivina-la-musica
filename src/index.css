@@ -935,6 +935,18 @@ label {
   margin: 0;
 }
 
+/* Logo de TMDB: más chico que la marca propia, como piden sus términos */
+.site-footer {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.tmdb-logo {
+  display: inline-flex;
+  width: fit-content;
+}
+
 /* =========== Panel admin =========== */
 .import-errors {
   margin: 0;

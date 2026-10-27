@@ -26,6 +26,9 @@ export default function Layout() {
       </main>
       {/* Atribución obligatoria: TMDB (datos y pósters) y Deezer (audio). */}
       <footer className="site-footer">
+        <a href="https://www.themoviedb.org/" target="_blank" rel="noreferrer" className="tmdb-logo">
+          <img src="/tmdb-logo.svg" alt="TMDB" width="110" height="14" />
+        </a>
         <p>
           Audio: fragmentos de 30 s de Deezer. Datos y pósters de películas y series: TMDB. Este producto usa la API de
           TMDB pero no está avalado ni certificado por TMDB.
