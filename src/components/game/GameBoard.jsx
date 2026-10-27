@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { isCorrectAnswer } from '../../utils/answers.js'
-import { CLUES, MAX_LEVEL } from '../../utils/scoring.js'
+import { CLUES, MAX_LEVEL, pointsFor } from '../../utils/scoring.js'
 import AnswerForm from './AnswerForm.jsx'
 import MusicClue from './MusicClue.jsx'
 
@@ -9,8 +9,9 @@ import MusicClue from './MusicClue.jsx'
 const clueByType = { music: MusicClue }
 
 // Lógica del juego, independiente del tipo de pista: nivel actual, intentos y puntos.
-// Cuando termina la ronda avisa con onFinish({ points, attempts, correct, skipped }).
-export default function GameBoard({ question, answerOptions, onFinish, onNext, isLast }) {
+// Cuando termina la ronda avisa con onFinish({ points, cluesUsed, attempts, correct, skipped }).
+// late: si es un día pasado ("ponte al día"), los puntos valen la mitad.
+export default function GameBoard({ question, answerOptions, late = false, onFinish, onNext, isLast }) {
   const [level, setLevel] = useState(0)
   const [attempts, setAttempts] = useState(0)
   const [result, setResult] = useState(null) // null mientras se juega
@@ -19,8 +20,9 @@ export default function GameBoard({ question, answerOptions, onFinish, onNext, i
   const Clue = clueByType[question.type]
 
   function finish(correct, skipped = false) {
-    const points = correct ? CLUES[level].points : 0
-    const outcome = { points, attempts: attempts + (correct ? 1 : 0), correct, skipped }
+    const cluesUsed = level + 1
+    const points = correct ? pointsFor(cluesUsed, late) : 0
+    const outcome = { points, cluesUsed, attempts: attempts + (correct ? 1 : 0), correct, skipped }
     setResult(outcome)
     onFinish?.(outcome)
   }
@@ -57,9 +59,9 @@ export default function GameBoard({ question, answerOptions, onFinish, onNext, i
     <div className="card song-enter">
       {!result && (
         <ol className="clue-steps" aria-label="Pistas">
-          {CLUES.map(({ seconds, points }, i) => (
+          {CLUES.map(({ seconds }, i) => (
             <li key={seconds} className={i === level ? 'is-current' : i < level ? 'is-used' : ''}>
-              {seconds} seg · {points}
+              {seconds} seg · {pointsFor(i + 1, late)}
             </li>
           ))}
         </ol>

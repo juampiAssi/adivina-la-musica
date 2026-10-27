@@ -1,0 +1,862 @@
+[
+  {
+    "title": "1917",
+    "aliases": []
+  },
+  {
+    "title": "Ahora son 13",
+    "aliases": [
+      "Ocean's Thirteen",
+      "Ocean's 13",
+      "La gran estafa"
+    ]
+  },
+  {
+    "title": "Atrápame si puedes",
+    "aliases": [
+      "Catch Me If You Can"
+    ]
+  },
+  {
+    "title": "Avengers: Endgame",
+    "aliases": [
+      "Endgame",
+      "Avengers",
+      "Vengadores: Endgame",
+      "Los Vengadores: Endgame"
+    ]
+  },
+  {
+    "title": "Avengers: Infinity War",
+    "aliases": [
+      "Infinity War",
+      "Avengers",
+      "Vengadores: Infinity War"
+    ]
+  },
+  {
+    "title": "Baby Driver",
+    "aliases": [
+      "Baby: el aprendiz del crimen"
+    ]
+  },
+  {
+    "title": "Batman: el caballero de la noche",
+    "aliases": [
+      "The Dark Knight",
+      "El caballero oscuro",
+      "Batman"
+    ]
+  },
+  {
+    "title": "Breaking Bad",
+    "aliases": []
+  },
+  {
+    "title": "Buscando a Nemo",
+    "aliases": [
+      "Finding Nemo",
+      "Nemo"
+    ]
+  },
+  {
+    "title": "Caillou",
+    "aliases": []
+  },
+  {
+    "title": "Cantando bajo la lluvia",
+    "aliases": [
+      "Singin' in the Rain"
+    ]
+  },
+  {
+    "title": "Capitán América: el primer vengador",
+    "aliases": [
+      "Capitán América",
+      "Captain America",
+      "Captain America: The First Avenger"
+    ]
+  },
+  {
+    "title": "Capitán Fantástico",
+    "aliases": [
+      "Captain Fantastic"
+    ]
+  },
+  {
+    "title": "Carros de fuego",
+    "aliases": [
+      "Chariots of Fire"
+    ]
+  },
+  {
+    "title": "Cars",
+    "aliases": [
+      "Cars: una aventura sobre ruedas"
+    ]
+  },
+  {
+    "title": "Coco",
+    "aliases": []
+  },
+  {
+    "title": "Cómo entrenar a tu dragón",
+    "aliases": [
+      "How to Train Your Dragon"
+    ]
+  },
+  {
+    "title": "Cómo entrenar a tu dragón 2",
+    "aliases": [
+      "Cómo entrenar a tu dragón",
+      "How to Train Your Dragon 2",
+      "How to Train Your Dragon"
+    ]
+  },
+  {
+    "title": "Cómo entrenar a tu dragón 3",
+    "aliases": [
+      "Cómo entrenar a tu dragón",
+      "Cómo entrenar a tu dragón: el mundo oculto",
+      "How to Train Your Dragon: The Hidden World",
+      "How to Train Your Dragon"
+    ]
+  },
+  {
+    "title": "Corazón valiente",
+    "aliases": [
+      "Braveheart"
+    ]
+  },
+  {
+    "title": "Cuenta conmigo",
+    "aliases": [
+      "Stand by Me"
+    ]
+  },
+  {
+    "title": "Diarios de motocicleta",
+    "aliases": [
+      "The Motorcycle Diaries"
+    ]
+  },
+  {
+    "title": "E.T. el extraterrestre",
+    "aliases": [
+      "E.T.",
+      "ET",
+      "E.T. The Extra-Terrestrial"
+    ]
+  },
+  {
+    "title": "El gran showman",
+    "aliases": [
+      "The Greatest Showman"
+    ]
+  },
+  {
+    "title": "El Hobbit: la batalla de los cinco ejércitos",
+    "aliases": [
+      "El Hobbit",
+      "The Hobbit",
+      "The Hobbit: The Battle of the Five Armies"
+    ]
+  },
+  {
+    "title": "El Hobbit: un viaje inesperado",
+    "aliases": [
+      "El Hobbit",
+      "The Hobbit",
+      "The Hobbit: An Unexpected Journey"
+    ]
+  },
+  {
+    "title": "El padrino",
+    "aliases": [
+      "The Godfather"
+    ]
+  },
+  {
+    "title": "El planeta del tesoro",
+    "aliases": [
+      "Treasure Planet"
+    ]
+  },
+  {
+    "title": "El Rey León",
+    "aliases": [
+      "The Lion King",
+      "Rey León"
+    ]
+  },
+  {
+    "title": "El Señor de los Anillos: el retorno del rey",
+    "aliases": [
+      "El Señor de los Anillos",
+      "The Lord of the Rings",
+      "The Return of the King"
+    ]
+  },
+  {
+    "title": "El Señor de los Anillos: la comunidad del anillo",
+    "aliases": [
+      "El Señor de los Anillos",
+      "The Lord of the Rings",
+      "The Fellowship of the Ring"
+    ]
+  },
+  {
+    "title": "El Señor de los Anillos: las dos torres",
+    "aliases": [
+      "El Señor de los Anillos",
+      "The Lord of the Rings",
+      "The Two Towers"
+    ]
+  },
+  {
+    "title": "El sorprendente Hombre Araña 2",
+    "aliases": [
+      "The Amazing Spider-Man 2",
+      "The Amazing Spider-Man",
+      "Spider-Man"
+    ]
+  },
+  {
+    "title": "Enredados",
+    "aliases": [
+      "Tangled",
+      "Rapunzel"
+    ]
+  },
+  {
+    "title": "F1",
+    "aliases": [
+      "F1 la película",
+      "F1 The Movie",
+      "Formula 1"
+    ]
+  },
+  {
+    "title": "Fiebre de sábado por la noche",
+    "aliases": [
+      "Saturday Night Fever"
+    ]
+  },
+  {
+    "title": "Forrest Gump",
+    "aliases": []
+  },
+  {
+    "title": "Friends",
+    "aliases": []
+  },
+  {
+    "title": "Frozen",
+    "aliases": [
+      "Frozen: una aventura congelada"
+    ]
+  },
+  {
+    "title": "Frozen 2",
+    "aliases": [
+      "Frozen II",
+      "Frozen"
+    ]
+  },
+  {
+    "title": "Futurama",
+    "aliases": []
+  },
+  {
+    "title": "Gigantes de acero",
+    "aliases": [
+      "Real Steel"
+    ]
+  },
+  {
+    "title": "Gladiador",
+    "aliases": [
+      "Gladiator"
+    ]
+  },
+  {
+    "title": "Gravity Falls",
+    "aliases": [
+      "Gravity Falls: un verano de misterios"
+    ]
+  },
+  {
+    "title": "Guardianes de la Galaxia Vol. 2",
+    "aliases": [
+      "Guardianes de la Galaxia",
+      "Guardians of the Galaxy Vol. 2",
+      "Guardians of the Galaxy"
+    ]
+  },
+  {
+    "title": "Halo 3",
+    "aliases": [
+      "Halo"
+    ]
+  },
+  {
+    "title": "Harry Potter y la piedra filosofal",
+    "aliases": [
+      "Harry Potter",
+      "Harry Potter and the Sorcerer's Stone",
+      "Harry Potter and the Philosopher's Stone"
+    ]
+  },
+  {
+    "title": "High School Musical",
+    "aliases": []
+  },
+  {
+    "title": "High School Musical 2",
+    "aliases": [
+      "High School Musical"
+    ]
+  },
+  {
+    "title": "Hombres de negro",
+    "aliases": [
+      "Men in Black",
+      "MIB"
+    ]
+  },
+  {
+    "title": "Home: no hay lugar como el hogar",
+    "aliases": [
+      "Home"
+    ]
+  },
+  {
+    "title": "Hora de Aventura",
+    "aliases": [
+      "Adventure Time"
+    ]
+  },
+  {
+    "title": "Indiana Jones: cazadores del arca perdida",
+    "aliases": [
+      "Indiana Jones",
+      "Raiders of the Lost Ark",
+      "Los cazadores del arca perdida"
+    ]
+  },
+  {
+    "title": "Intensamente",
+    "aliases": [
+      "Inside Out",
+      "Del revés"
+    ]
+  },
+  {
+    "title": "Joker",
+    "aliases": [
+      "Guasón",
+      "El Guasón"
+    ]
+  },
+  {
+    "title": "Juego de Tronos",
+    "aliases": [
+      "Game of Thrones",
+      "GOT"
+    ]
+  },
+  {
+    "title": "Jurassic Park",
+    "aliases": [
+      "Parque Jurásico"
+    ]
+  },
+  {
+    "title": "Jurassic World",
+    "aliases": [
+      "Mundo Jurásico"
+    ]
+  },
+  {
+    "title": "Klaus",
+    "aliases": []
+  },
+  {
+    "title": "Kung Fu Panda 2",
+    "aliases": [
+      "Kung Fu Panda"
+    ]
+  },
+  {
+    "title": "La era de hielo",
+    "aliases": [
+      "La era del hielo",
+      "Ice Age"
+    ]
+  },
+  {
+    "title": "La era de hielo 2",
+    "aliases": [
+      "La era de hielo",
+      "La era del hielo",
+      "La era del hielo 2",
+      "Ice Age",
+      "Ice Age: The Meltdown"
+    ]
+  },
+  {
+    "title": "La gran estafa",
+    "aliases": [
+      "Ocean's Eleven",
+      "Ocean's 11"
+    ]
+  },
+  {
+    "title": "La historia sin fin",
+    "aliases": [
+      "The NeverEnding Story",
+      "La historia interminable"
+    ]
+  },
+  {
+    "title": "La La Land",
+    "aliases": [
+      "La La Land: una historia de amor"
+    ]
+  },
+  {
+    "title": "La máscara del Zorro",
+    "aliases": [
+      "The Mask of Zorro",
+      "Zorro"
+    ]
+  },
+  {
+    "title": "La novicia rebelde",
+    "aliases": [
+      "The Sound of Music",
+      "Sonrisas y lágrimas"
+    ]
+  },
+  {
+    "title": "La Pantera Rosa",
+    "aliases": [
+      "The Pink Panther",
+      "Pantera Rosa"
+    ]
+  },
+  {
+    "title": "La princesa y el sapo",
+    "aliases": [
+      "The Princess and the Frog"
+    ]
+  },
+  {
+    "title": "La Sirenita",
+    "aliases": [
+      "The Little Mermaid"
+    ]
+  },
+  {
+    "title": "La sospecha",
+    "aliases": [
+      "Prisoners"
+    ]
+  },
+  {
+    "title": "La terminal",
+    "aliases": [
+      "The Terminal"
+    ]
+  },
+  {
+    "title": "Leyendas de pasión",
+    "aliases": [
+      "Legends of the Fall"
+    ]
+  },
+  {
+    "title": "Lilo & Stitch",
+    "aliases": [
+      "Lilo y Stitch"
+    ]
+  },
+  {
+    "title": "Little Einsteins",
+    "aliases": [
+      "Pequeños Einsteins"
+    ]
+  },
+  {
+    "title": "Los Backyardigans",
+    "aliases": [
+      "The Backyardigans",
+      "Backyardigans"
+    ]
+  },
+  {
+    "title": "Los Vengadores",
+    "aliases": [
+      "The Avengers",
+      "Avengers"
+    ]
+  },
+  {
+    "title": "Luca",
+    "aliases": []
+  },
+  {
+    "title": "Marty Supreme",
+    "aliases": []
+  },
+  {
+    "title": "Mary Poppins",
+    "aliases": []
+  },
+  {
+    "title": "Maverick",
+    "aliases": []
+  },
+  {
+    "title": "Mi pobre angelito",
+    "aliases": [
+      "Home Alone",
+      "Solo en casa"
+    ]
+  },
+  {
+    "title": "Mi villano favorito 2",
+    "aliases": [
+      "Mi villano favorito",
+      "Despicable Me 2",
+      "Despicable Me"
+    ]
+  },
+  {
+    "title": "Minecraft",
+    "aliases": []
+  },
+  {
+    "title": "Monsters, Inc.",
+    "aliases": [
+      "Monsters Inc",
+      "Monstruos S.A.",
+      "Monsters"
+    ]
+  },
+  {
+    "title": "Náufrago",
+    "aliases": [
+      "Cast Away"
+    ]
+  },
+  {
+    "title": "Oppenheimer",
+    "aliases": []
+  },
+  {
+    "title": "Peaky Blinders",
+    "aliases": []
+  },
+  {
+    "title": "Perfume de mujer",
+    "aliases": [
+      "Scent of a Woman"
+    ]
+  },
+  {
+    "title": "Peter Punk",
+    "aliases": []
+  },
+  {
+    "title": "Piratas del Caribe: el cofre de la muerte",
+    "aliases": [
+      "Piratas del Caribe",
+      "Pirates of the Caribbean: Dead Man's Chest",
+      "Pirates of the Caribbean"
+    ]
+  },
+  {
+    "title": "Piratas del Caribe: la maldición del Perla Negra",
+    "aliases": [
+      "Piratas del Caribe",
+      "Pirates of the Caribbean: The Curse of the Black Pearl",
+      "Pirates of the Caribbean"
+    ]
+  },
+  {
+    "title": "Piratas del Caribe: navegando aguas misteriosas",
+    "aliases": [
+      "Piratas del Caribe",
+      "Pirates of the Caribbean: On Stranger Tides",
+      "Pirates of the Caribbean"
+    ]
+  },
+  {
+    "title": "Ralph, el demoledor",
+    "aliases": [
+      "Wreck-It Ralph",
+      "Ralph"
+    ]
+  },
+  {
+    "title": "Ratatouille",
+    "aliases": []
+  },
+  {
+    "title": "Red Dead Redemption 2",
+    "aliases": [
+      "Red Dead Redemption",
+      "RDR2"
+    ]
+  },
+  {
+    "title": "Rick and Morty",
+    "aliases": [
+      "Rick y Morty"
+    ]
+  },
+  {
+    "title": "Río",
+    "aliases": [
+      "Rio"
+    ]
+  },
+  {
+    "title": "Robin Hood",
+    "aliases": []
+  },
+  {
+    "title": "Robin Hood: príncipe de los ladrones",
+    "aliases": [
+      "Robin Hood",
+      "Robin Hood: Prince of Thieves"
+    ]
+  },
+  {
+    "title": "Rocky IV",
+    "aliases": [
+      "Rocky",
+      "Rocky 4"
+    ]
+  },
+  {
+    "title": "Shrek",
+    "aliases": []
+  },
+  {
+    "title": "Shrek 2",
+    "aliases": [
+      "Shrek"
+    ]
+  },
+  {
+    "title": "Simbad: la leyenda de los siete mares",
+    "aliases": [
+      "Simbad",
+      "Sinbad",
+      "Sinbad: Legend of the Seven Seas"
+    ]
+  },
+  {
+    "title": "Skyfall",
+    "aliases": [
+      "007 Skyfall",
+      "Operación Skyfall"
+    ]
+  },
+  {
+    "title": "Soul",
+    "aliases": []
+  },
+  {
+    "title": "Spider-Man: de regreso a casa",
+    "aliases": [
+      "Spider-Man",
+      "Spider-Man: Homecoming",
+      "Hombre Araña"
+    ]
+  },
+  {
+    "title": "Spider-Man: sin camino a casa",
+    "aliases": [
+      "Spider-Man: No Way Home",
+      "No Way Home",
+      "Spider-Man"
+    ]
+  },
+  {
+    "title": "Spider-Man: un nuevo universo",
+    "aliases": [
+      "Spider-Man: Into the Spider-Verse",
+      "Into the Spider-Verse",
+      "Spider-Verse",
+      "Spider-Man"
+    ]
+  },
+  {
+    "title": "Stranger Things",
+    "aliases": []
+  },
+  {
+    "title": "Subway Surfers",
+    "aliases": []
+  },
+  {
+    "title": "Tarzán",
+    "aliases": [
+      "Tarzan"
+    ]
+  },
+  {
+    "title": "Teen Beach Movie",
+    "aliases": []
+  },
+  {
+    "title": "The Batman",
+    "aliases": [
+      "Batman"
+    ]
+  },
+  {
+    "title": "The Elder Scrolls V: Skyrim",
+    "aliases": [
+      "Skyrim"
+    ]
+  },
+  {
+    "title": "The Flash",
+    "aliases": [
+      "Flash"
+    ]
+  },
+  {
+    "title": "The Fundamentals of Caring",
+    "aliases": []
+  },
+  {
+    "title": "The Last of Us",
+    "aliases": []
+  },
+  {
+    "title": "The Last of Us Parte II",
+    "aliases": [
+      "The Last of Us Part II",
+      "The Last of Us 2",
+      "The Last of Us"
+    ]
+  },
+  {
+    "title": "The Truman Show",
+    "aliases": [
+      "El show de Truman",
+      "Truman Show"
+    ]
+  },
+  {
+    "title": "The Walking Dead",
+    "aliases": []
+  },
+  {
+    "title": "This Is Us",
+    "aliases": [
+      "Esto somos"
+    ]
+  },
+  {
+    "title": "Thomas y sus amigos",
+    "aliases": [
+      "Thomas & Friends",
+      "Thomas el tren",
+      "Thomas"
+    ]
+  },
+  {
+    "title": "Tierra de osos",
+    "aliases": [
+      "Brother Bear"
+    ]
+  },
+  {
+    "title": "Titanic",
+    "aliases": []
+  },
+  {
+    "title": "Top Gun",
+    "aliases": [
+      "Top Gun: pasión y gloria"
+    ]
+  },
+  {
+    "title": "Toy Story",
+    "aliases": []
+  },
+  {
+    "title": "Toy Story 2",
+    "aliases": [
+      "Toy Story"
+    ]
+  },
+  {
+    "title": "Toy Story 3",
+    "aliases": [
+      "Toy Story"
+    ]
+  },
+  {
+    "title": "Transformers",
+    "aliases": []
+  },
+  {
+    "title": "Uncharted 4: el desenlace del ladrón",
+    "aliases": [
+      "Uncharted",
+      "Uncharted 4",
+      "Uncharted 4: A Thief's End"
+    ]
+  },
+  {
+    "title": "Undertale",
+    "aliases": []
+  },
+  {
+    "title": "Up: una aventura de altura",
+    "aliases": [
+      "Up"
+    ]
+  },
+  {
+    "title": "Valiente",
+    "aliases": [
+      "Brave"
+    ]
+  },
+  {
+    "title": "Vecinos invasores",
+    "aliases": [
+      "Over the Hedge"
+    ]
+  },
+  {
+    "title": "Volver al futuro",
+    "aliases": [
+      "Back to the Future"
+    ]
+  },
+  {
+    "title": "Volver al futuro III",
+    "aliases": [
+      "Volver al futuro",
+      "Volver al futuro 3",
+      "Back to the Future",
+      "Back to the Future Part III"
+    ]
+  },
+  {
+    "title": "WALL-E",
+    "aliases": [
+      "Wall E",
+      "Walle"
+    ]
+  }
+]

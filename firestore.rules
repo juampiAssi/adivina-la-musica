@@ -1,0 +1,100 @@
+rules_version = '2';
+
+// Reglas de seguridad de Cloud Firestore para "Adiviná la música".
+// Se publican en Firebase con:  npx firebase-tools deploy --only firestore:rules
+// (desplegar en Vercel NO las actualiza). Todo lo que no está permitido acá, está denegado.
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // ---------- Funciones de ayuda ----------
+
+    // Hay sesión (anónima o de admin).
+    function signedIn() {
+      return request.auth != null;
+    }
+
+    // El usuario logueado es el dueño del dato.
+    function isOwner(uid) {
+      return signedIn() && request.auth.uid == uid;
+    }
+
+    // Es admin si existe admins/{uid} (lo crea el dueño del proyecto a mano en la consola).
+    function isAdmin() {
+      return signedIn() && exists(/databases/$(database)/documents/admins/$(request.auth.uid));
+    }
+
+    // ---------- config/game: fecha de inicio del calendario ----------
+    match /config/{docId} {
+      allow read: if signedIn();
+      allow write: if isAdmin();
+    }
+
+    // ---------- titles: películas, series y juegos ----------
+    // Un jugador solo puede leer un título ya desbloqueado. request.time es la hora
+    // del SERVIDOR, así que cambiar el reloj de la compu no sirve para adelantarse.
+    match /titles/{titleId} {
+      allow read: if signedIn() && (resource.data.unlockAt <= request.time || isAdmin());
+      allow write: if isAdmin();
+    }
+
+    // ---------- guesses: jugadas de cada jugador ----------
+    // El id es "uid_titleId": así no se puede jugar dos veces el mismo título.
+    match /guesses/{guessId} {
+      allow read, delete: if isOwner(resource.data.uid);
+      allow create: if isOwner(request.resource.data.uid)
+        && guessId == request.auth.uid + '_' + request.resource.data.titleId
+        && validGuess(request.resource.data);
+      allow update: if false; // una jugada no se edita: se borra o queda como está
+
+      // Valida una jugada contra el título real (se lee con get).
+      function validGuess(g) {
+        let title = get(/databases/$(database)/documents/titles/$(g.titleId)).data;
+        // "Ponte al día": si pasó más de un día desde que se desbloqueó, es atrasada.
+        let late = request.time >= title.unlockAt + duration.value(1, 'd');
+        let base = g.cluesUsed == 1 ? 100 : (g.cluesUsed == 2 ? 60 : 30);
+        let expected = g.solved ? (late ? base / 2 : base) : 0;
+        return g.keys().hasOnly(['uid', 'titleId', 'cluesUsed', 'points', 'late', 'solved',
+                                 'createdAt', 'title', 'year', 'posterUrl', 'day'])
+          && g.keys().hasAll(['uid', 'titleId', 'cluesUsed', 'points', 'late', 'solved', 'createdAt'])
+          && title.unlockAt <= request.time      // el título tiene que estar desbloqueado
+          && g.cluesUsed in [1, 2, 3]
+          && g.solved is bool
+          && g.late == late                      // el navegador no puede mentir sobre el atraso
+          && g.points == expected                // ni sobre los puntos
+          && g.createdAt == request.time         // fecha del servidor (serverTimestamp)
+          // La copia mínima para el estante tiene que coincidir con el título.
+          && g.title == title.title
+          && g.day == title.day
+          && g.year == title.get('year', null)
+          && g.posterUrl == title.get('posterUrl', '');
+      }
+    }
+
+    // ---------- leaderboard: ranking (sin email ni nombre real) ----------
+    // Limitación conocida: totalPoints lo calcula el navegador. Sin un backend
+    // propio no se puede verificar que coincida con la suma de las jugadas.
+    match /leaderboard/{uid} {
+      allow read: if signedIn();
+      allow create, update: if isOwner(uid) && validEntry(request.resource.data);
+      allow delete: if isOwner(uid);
+
+      function validEntry(e) {
+        return e.keys().hasOnly(['nickname', 'totalPoints', 'guessesCount', 'updatedAt'])
+          && e.keys().hasAll(['nickname', 'totalPoints', 'guessesCount', 'updatedAt'])
+          // Apodo de 3 a 20 caracteres: letras, números, espacio, punto, guion y guion bajo.
+          && e.nickname is string
+          && e.nickname.matches('^[A-Za-zÁÉÍÓÚÜÑáéíóúüñ0-9 ._-]{3,20}$')
+          && e.totalPoints is int && e.totalPoints >= 0 && e.totalPoints <= 50000
+          && e.guessesCount is int && e.guessesCount >= 0 && e.guessesCount <= 5000
+          && e.updatedAt == request.time;
+      }
+    }
+
+    // ---------- admins: quién es administrador ----------
+    // Cada uno puede leer solo su propio documento. Nadie puede escribir desde la app.
+    match /admins/{uid} {
+      allow read: if isOwner(uid);
+      allow write: if false;
+    }
+  }
+}

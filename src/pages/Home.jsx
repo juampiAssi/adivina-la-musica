@@ -36,8 +36,8 @@ export default function Home() {
           ))}
         </ul>
         <p className="muted on-scroll">
-          Cada partida tiene 10 canciones elegidas al azar. Si no la reconocés, pedí una pista más larga o
-          salteala para ver la respuesta.
+          Cada día hay 10 canciones nuevas. Si te perdiste algún día, lo podés jugar después por la mitad de
+          puntos.
         </p>
       </section>
 

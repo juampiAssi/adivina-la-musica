@@ -7,3 +7,14 @@ export const CLUES = [
 ]
 
 export const MAX_LEVEL = CLUES.length - 1
+
+// "Ponte al día": jugar un día que ya pasó vale la mitad (100/60/30 → 50/30/15).
+// La misma cuenta está en firestore.rules, así que no se puede hacer trampa
+// mandando más puntos desde el navegador.
+export const LATE_FACTOR = 0.5
+
+// cluesUsed va de 1 a 3 (cuántas pistas se escucharon hasta acertar).
+export function pointsFor(cluesUsed, late) {
+  const base = CLUES[cluesUsed - 1].points
+  return late ? base * LATE_FACTOR : base
+}
