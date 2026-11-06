@@ -333,7 +333,7 @@ Se marcó cada versión con un tag de Git:
 | `v1` | `0991e43` | Primera versión funcional publicada |
 | `v2` | `7c37241` | Diseño "Mi videoteca" (iteraciones A, B y C) |
 | `v3` | `6ce3fdc` | Arreglos del reloj y de los días, informe y documentación |
-| `v3.1` | ver abajo | Optimización de la velocidad de carga |
+| `v3.1` | `718250e` y su registro | Optimización de la velocidad de carga |
 
 La optimización quedó fuera de `v3` a propósito: cambiaba cómo se guarda todo en la base real, y antes había que probar las escrituras.
 
@@ -383,3 +383,23 @@ Medido en una sola compu y conexión, contra la base real: "antes", en la URL pu
 - El servidor de desarrollo no respondía si se abría desde la herramienta de la IA; arrancó desde una terminal normal.
 
 **Prueba manual antes de publicar** (el autor, en local, contra la base real): guardar una jugada y recargar, elegir y cambiar el apodo, sacar la cinta, salir del ranking y abrir `/admin`.
+
+**Publicación y verificación en producción:** `main` avanzó hasta `718250e` sin merge ni reescribir el historial, y Vercel lo publicó. En la URL pública:
+
+| Prueba | Resultado |
+|---|---|
+| El sitio sirve el código nuevo | Sí, el mismo archivo que la compilación local |
+| JavaScript comprimido que se descarga | 161 KB (276 KB antes, en la misma medición) |
+| Caché de `/assets` | `public, max-age=31536000, immutable` |
+| Caché de las páginas | `max-age=0`: cada visita recibe la versión vigente |
+| Datos del perfil, desde la respuesta de la sesión | Unos 160 ms |
+| Abrir una pantalla por primera vez | 93–116 ms |
+| Volver a una pantalla ya abierta | 12–13 ms |
+| Reloj adelantado 5 segundos o 1 minuto | Jugar carga |
+| Audio | La casetera pasa a PLAY al tocar Escuchar |
+| Lectura de `titles` sin sesión | Rechazada (403) |
+| Errores en la consola | Ninguno |
+
+En la URL pública no se escribieron datos de prueba: guardar y borrar se probó a mano en local, contra la misma base y con el mismo código.
+
+**Pendiente de esta entrega:** hacer público el repositorio o sumar al profesor, grabar el mini video y completar en `INFORME.md` lo marcado con [completar]. Siguen abiertos de V1 el título dudoso (*Cuenta conmigo*) y el ajuste de los fragmentos poco reconocibles.
