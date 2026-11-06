@@ -270,3 +270,52 @@ Concepto: el perfil es un mueble de madera con estantes llenos de cintas VHS vis
 - La captura del ranking mostraba el apodo de un jugador real: no se guardó en el repositorio.
 
 **Capturas:** `docs/capturas/v2c-*`.
+
+### Publicación y verificación de V2 (27/10)
+
+`diseno-videoteca` pasó a `main` sin reescribir el historial (commit `7c37241`). El push generó un despliegue de producción que terminó en *Ready*. Se abrió la URL pública sin iniciar sesión y mostró el diseño nuevo. La V1 sigue guardada en el tag `v1`.
+
+**Dificultad con las vistas previas:** una compañera no pudo abrir el link de la vista previa porque Vercel las protege con inicio de sesión. Se decidió publicar en producción, que ya era pública, en lugar de quitar esa protección.
+
+**Dificultad con el despliegue:** Vercel bloqueó las vistas previas porque los commits A y B tenían un correo de autor sin cuenta asociada. Se configuró el correo correcto y se agregó un commit nuevo, sin *force push*.
+
+---
+
+## V3 — Versión final
+
+Partió de una prueba real y de revisar la app contra la consigna del TP y del final.
+
+### Correcciones
+
+**1. "No tenés permiso" al abrir Jugar (4/11)**
+- **Cómo apareció:** un compañero mandó una captura del error; en mi compu el juego andaba bien.
+- **Cómo se investigó:** se simuló el reloj del navegador en la URL publicada. Con el reloj 1 minuto atrasado o en hora, cargaba; con 5 segundos o 1 minuto adelantado, aparecía el mismo mensaje. Queda como causa más probable; falta confirmar la hora de su compu.
+- **Causa:** la consulta pedía títulos "desbloqueados hasta ahora" según la compu, y la regla no permite pedir nada posterior a la hora del servidor. Si el reloj está adelantado, Firestore rechaza toda la consulta. La regla estaba bien; el error estaba en la consulta y venía desde la V1.
+- **Solución:** el límite de la consulta es ahora la apertura de ese día (`unlockAtFor`), que se calcula con la fecha de inicio. Las reglas no cambiaron.
+- **Reloj muy corrido:** si la compu cree que ya es otro día, las reglas siguen rechazando, y la app ahora pide revisar la fecha y la hora en lugar de decir "No tenés permiso".
+
+**2. Jugar vacío al pasar los días cargados (6/11)**
+- **Cómo apareció:** al revisar la app contra las fechas de entrega. Hay 14 días cargados, y simulando el 13/11 Jugar abría en el "Día 19" con "No hay canciones para este día".
+- **Solución:** el calendario llega hasta el último día cargado (`day-sizes.json`). Después de eso, Jugar abre en ese día y avisa que ya se abrieron todos y que valen la mitad de puntos.
+
+### Cómo se verificó
+
+Pruebas de solo lectura en local, contra la base real:
+
+| Caso | Antes | Ahora |
+|---|---|---|
+| Reloj 1 minuto atrasado o en hora | Carga | Carga |
+| Reloj 5 segundos o 1 minuto adelantado | "No tenés permiso" | Carga |
+| Reloj 30 minutos adelantado | — | Carga |
+| Reloj 2 días atrasado | — | Carga |
+| Reloj 2 días adelantado | — | Pide revisar la fecha y la hora |
+| Calendario más allá de los días cargados | Día vacío | Abre en el último día, con pistas de 50, 30 y 15 puntos |
+
+El último caso no se pudo probar con los 14 días, porque en la fecha de la prueba el servidor todavía no los había abierto. Se redujeron a 10 los días cargados solo en local, se simuló el 13/11 y después se restauró el archivo.
+
+**Pendiente:** publicar estos cambios, repetir la prueba en la URL de Vercel y probar agregar, modificar y eliminar en la versión final. El guardado de una jugada con el reloj corrido tampoco se probó.
+
+### Documentación
+
+- **README:** se corrigieron las tipografías, la estructura de carpetas y la limitación del reloj, que decía algo incorrecto.
+- **Informe:** se agregó `INFORME.md`, con lo que pide la entrega.

@@ -3,10 +3,11 @@
 import { collection, doc, getDoc, getDocs, query, Timestamp, where } from 'firebase/firestore'
 import { db } from './firebase.js'
 
-export async function getTitlesForDay(day) {
-  // La condición unlockAt <= ahora hace que la consulta coincida con la regla
-  // de seguridad (que no deja leer títulos bloqueados).
-  const q = query(collection(db, 'titles'), where('day', '==', day), where('unlockAt', '<=', Timestamp.now()))
+// unlockAt: el momento en que se abre ese día. La regla de seguridad exige que la
+// consulta no pida nada posterior a la hora del SERVIDOR; por eso el límite es la
+// apertura del día y no "ahora" según la compu, que puede estar adelantada.
+export async function getTitlesForDay(day, unlockAt) {
+  const q = query(collection(db, 'titles'), where('day', '==', day), where('unlockAt', '<=', Timestamp.fromDate(unlockAt)))
   const snap = await getDocs(q)
   return snap.docs
     .map((d) => ({ id: d.id, type: 'music', ...d.data() }))

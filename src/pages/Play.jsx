@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from 'react'
 import { Link } from 'react-router-dom'
 import answerNames from '../data/answer-names.json'
+import daySizes from '../data/day-sizes.json'
 import GameBoard from '../components/game/GameBoard.jsx'
 import HowToPlay from '../components/game/HowToPlay.jsx'
 import StatusMessage from '../components/ui/StatusMessage.jsx'
@@ -10,14 +11,21 @@ import { getMyGuesses, saveGuess } from '../services/guessesService.js'
 import { getMyEntry, saveMyEntry, totalsFrom } from '../services/leaderboardService.js'
 import { getTitlesForDay } from '../services/titlesService.js'
 import { buildAnswerOptions } from '../utils/answers.js'
-import { currentDay, isLate } from '../utils/calendar.js'
+import { currentDay, isLate, unlockAtFor } from '../utils/calendar.js'
 import { toUserMessage } from '../utils/firebaseErrors.js'
+
+const TOTAL_DAYS = Object.keys(daySizes).length // días con canciones cargadas
+
+// Las reglas comparan contra la hora del servidor: si rechazan algo que debería
+// andar, lo más probable es que el reloj de la compu esté corrido.
+const CLOCK_HINT = 'Revisá que la fecha y la hora de tu compu o celular sean correctas.'
 
 // Juego por día: cada día tiene 10 títulos. Los días pasados se pueden jugar
 // con la mitad de puntos ("ponte al día"). Cada jugada se guarda en Firestore.
 export default function Play() {
   const { user } = useAuth()
   const [today, setToday] = useState(null)
+  const [startDate, setStartDate] = useState(null)
   const [day, setDay] = useState(null)
   const [titles, setTitles] = useState([])
   const [guesses, setGuesses] = useState([]) // jugadas guardadas del jugador (todas)
@@ -35,9 +43,12 @@ export default function Play() {
   useEffect(() => {
     Promise.all([getGameConfig(), getMyGuesses(user.uid)])
       .then(([config, myGuesses]) => {
-        const n = currentDay(config.startDate.toDate())
+        const start = config.startDate.toDate()
+        const n = currentDay(start)
+        setStartDate(start)
         setToday(n)
-        setDay(n >= 1 ? n : null)
+        // Cuando pasan los días cargados, abre en el último en vez de uno vacío.
+        setDay(n >= 1 ? Math.min(n, TOTAL_DAYS) : null)
         setGuesses(myGuesses)
         if (n < 1) setLoading(false)
       })
@@ -55,14 +66,21 @@ export default function Play() {
   useEffect(() => {
     if (!day) return
     let cancelled = false
-    getTitlesForDay(day)
+    getTitlesForDay(day, unlockAtFor(startDate, day))
       .then((list) => !cancelled && setTitles(list))
-      .catch((err) => !cancelled && setError(toUserMessage(err, 'No se pudieron cargar las canciones del día.')))
+      .catch((err) => {
+        if (cancelled) return
+        setError(
+          err.code === 'permission-denied'
+            ? `Este día todavía no abrió. ${CLOCK_HINT}`
+            : toUserMessage(err, 'No se pudieron cargar las canciones del día.'),
+        )
+      })
       .finally(() => !cancelled && setLoading(false))
     return () => {
       cancelled = true
     }
-  }, [day])
+  }, [day, startDate])
 
   function chooseDay(n) {
     if (n === day) return
@@ -91,7 +109,8 @@ export default function Play() {
       const entry = await getMyEntry(user.uid)
       if (entry) await saveMyEntry(user.uid, { nickname: entry.nickname, ...totalsFrom(updated) })
     } catch (err) {
-      setSaveError(toUserMessage(err, 'No se pudo guardar tu jugada.') + ' Tocá el botón para reintentar.')
+      const reason = err.code === 'permission-denied' ? CLOCK_HINT : toUserMessage(err, 'No se pudo guardar tu jugada.')
+      setSaveError(`${reason} Tocá el botón para reintentar.`)
     }
   }
 
@@ -120,7 +139,8 @@ export default function Play() {
   if (today !== null && today < 1)
     return <StatusMessage kind="empty" title="El juego todavía no empezó">¡Volvé pronto!</StatusMessage>
 
-  const days = today ? Array.from({ length: today }, (_, i) => today - i) : []
+  const lastDay = Math.min(today ?? 0, TOTAL_DAYS)
+  const days = Array.from({ length: lastDay }, (_, i) => lastDay - i)
 
   return (
     <section>
@@ -142,6 +162,10 @@ export default function Play() {
             </li>
           ))}
         </ol>
+      )}
+
+      {today > TOTAL_DAYS && (
+        <p className="alert alert-info">Ya se abrieron todos los días. Podés jugar cualquiera con la mitad de puntos.</p>
       )}
 
       {saveError && <p className="alert alert-error" role="alert">{saveError}</p>}

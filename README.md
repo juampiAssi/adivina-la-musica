@@ -105,7 +105,7 @@ node scripts/build-titles.mjs
 | `src/services/firebase.js` | **Único punto de conexión**: lee `import.meta.env`, inicializa Firebase y exporta `auth` y `db`. |
 | `src/services/authService.js` | Sesión anónima, ingreso del admin y chequeo de `admins/{uid}`. |
 | `src/context/AuthContext.jsx` | Escucha la sesión (`onAuthStateChanged`) y abre una anónima si no hay ninguna. |
-| `src/services/titlesService.js` | **Consulta** los 10 títulos del día (`where day == n` y `unlockAt <= ahora`). |
+| `src/services/titlesService.js` | **Consulta** los títulos del día (`where day == n` y `unlockAt <=` la apertura de ese día) y el detalle de una cinta. |
 | `src/services/guessesService.js` | **Agrega**, consulta y **elimina** jugadas (`setDoc`, `getDocs`, `deleteDoc`). |
 | `src/services/leaderboardService.js` | Top 20 del ranking; **crea, modifica y elimina** la entrada propia. |
 | `src/services/configService.js` | Lee `config/game` (fecha de inicio). |
@@ -137,24 +137,35 @@ No se guarda audio: de Deezer solo se guarda el id del tema y el fragmento se pi
 - **`totalPoints` del ranking lo calcula el navegador.** Las jugadas sí están validadas por las reglas, pero sin un backend propio no se puede verificar que el total del ranking coincida con la suma de las jugadas.
 - **Rejugar un título:** si un jugador borra una jugada de su estante, puede volver a jugar ese título.
 - **Sesión anónima por navegador:** cada navegador tiene su propia identidad; desde otro dispositivo no se recupera el mismo progreso.
-- **Reloj del navegador:** se usa solo para mostrar el día; lo que se puede leer y si una jugada es atrasada lo deciden las reglas con la hora del servidor.
+- **Reloj del navegador:** se usa para calcular qué día mostrar; lo que se puede leer y si una jugada es atrasada lo deciden las reglas con la hora del servidor. Con el reloj muy corrido (por ejemplo, un día adelantado), las reglas rechazan la operación y la app pide revisar la fecha y la hora.
+- **Días cargados:** hay 14 días (138 títulos). Cuando pasan, Jugar abre en el último día y todos valen la mitad de puntos; se pueden sumar días importando más títulos o reiniciar el calendario cambiando la fecha de inicio desde `/admin`.
 
 ## Atribuciones y términos de terceros
 
 - **Audio:** fragmentos de 30 s de la [API de Deezer](https://developers.deezer.com/). Sus términos limitan el uso a fines no comerciales y no mencionan juegos; este es un trabajo académico sin fines de lucro.
 - **Datos y pósters de películas y series:** [TMDB](https://www.themoviedb.org/). Este producto usa la API de TMDB pero no está avalado ni certificado por TMDB. Sus términos piden mostrar su logo y no guardar sus datos más de 6 meses.
 - **Videos de la revelación:** reproductor embebido de YouTube, mostrado completo y sin tapar.
-- **Tipografías:** Bebas Neue y Montserrat (Google Fonts).
+- **Tipografías:** Archivo e IBM Plex Mono (Google Fonts).
 
 ## Estructura
 
 ```
 src/
-  components/   game/ (tablero, pista de música, respuesta), admin/, layout/
-  pages/        Home, Play, Ranking, Profile, Admin
-  services/     Firebase y acceso a datos
-  hooks/        useAuth, useAudioClip
-  utils/        calendario, puntos, respuestas, validaciones
+  components/   game/ (tablero, pista de música, respuesta), vhs/ (cinta, estante, popup),
+                ui/ (estados de carga, vacío y error), admin/, layout/
+  context/      sesión del usuario (AuthContext)
+  data/         nombres para el autocompletado y cantidad de títulos por día
+  hooks/        useAuth, useAudioClip, useTheme
+  pages/        Home, Play, Ranking, Profile, Admin, NotFound
+  services/     Firebase y acceso a datos (Firestore, Deezer)
+  styles/       tokens.css (variables de diseño y temas), vhs.css (cintas y mueble)
+  utils/        calendario, puntos, respuestas, validaciones, aspecto de las cintas
+docs/           capturas y evidencias de cada versión
 seed/           datos para importar
 scripts/        generación de seed/titles.json
 ```
+
+## Documentación del proceso
+
+- [`BITACORA.md`](BITACORA.md): evolución de la app, versión por versión.
+- [`INFORME.md`](INFORME.md): idea, funciones, datos guardados y uso de IA.

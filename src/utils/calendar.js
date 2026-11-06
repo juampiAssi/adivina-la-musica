@@ -1,8 +1,9 @@
 // Calendario del juego: un día nuevo cada 24 h desde config/game.startDate.
 // startDate se guarda como la medianoche de Argentina (UTC-3, sin horario de verano),
 // así que sumar 24 h siempre cae en la medianoche siguiente.
-// Ojo: esto usa el reloj del navegador solo para MOSTRAR; quien decide qué se puede
-// leer y si una jugada es "atrasada" son las reglas de Firestore (request.time).
+// Ojo: esto usa el reloj del navegador para calcular qué día mostrar; quien decide
+// qué se puede leer y si una jugada es "atrasada" son las reglas de Firestore
+// (request.time). Si el reloj de la compu está muy corrido, las reglas rechazan.
 export const DAY_MS = 24 * 60 * 60 * 1000
 
 // 'AAAA-MM-DD' → Date a las 00:00 de Argentina.
