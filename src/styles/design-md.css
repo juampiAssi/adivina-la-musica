@@ -1,0 +1,285 @@
+/* =========================================================
+   Prueba de estilo a partir de un DESIGN.md ajeno (rama prueba-design-md).
+   Fuente: design-md/spotify/DESIGN.md de VoltAgent/awesome-design-md (MIT).
+   Se carga última y pisa las variables y componentes: borrar este archivo
+   y su import vuelve al diseño "Mi videoteca". Sin logos ni marca de terceros.
+   Las cintas y el mueble no cambian: son el "arte" que le da color a la app.
+   ========================================================= */
+
+/* El documento pide fondo casi negro siempre: los dos temas usan los mismos valores */
+:root,
+[data-theme='dark'],
+[data-theme='light'] {
+  color-scheme: dark;
+  --font-title: 'Figtree', 'Helvetica Neue', Arial, sans-serif;
+  --font-body: 'Figtree', 'Helvetica Neue', Arial, sans-serif;
+  --font-mono: 'Figtree', 'Helvetica Neue', Arial, sans-serif;
+  --stretch-title: 100%;
+  --radius-sm: 6px;
+  --radius: 8px;
+  --radius-lg: 8px;
+
+  --bg: #121212;
+  --room-light: transparent;
+  --surface: #181818;
+  --surface-2: #1f1f1f;
+  --border: #2a2a2a;
+  --text: #ffffff;
+  --text-strong: #ffffff;
+  --muted: #b3b3b3;
+  --primary: #1ed760;
+  --primary-ink: #000000;
+  --success: #1ed760;
+  --error: #f3727f;
+  --focus: #ffffff;
+  --shadow-1: 0 8px 8px rgb(0 0 0 / 0.3);
+  --shadow-2: 0 8px 24px rgb(0 0 0 / 0.5);
+  --shelf-light: radial-gradient(120% 90% at 50% -20%, rgb(255 196 120 / 0.2), transparent 60%);
+  --shelf-shade: rgb(0 0 0 / 0.5);
+}
+
+/* Las cintas conservan su tipografía propia */
+.vhs {
+  --font-title: 'Archivo', 'Arial Narrow', sans-serif;
+  --font-mono: 'IBM Plex Mono', ui-monospace, monospace;
+  --stretch-title: 72%;
+}
+
+/* Sin selector de tema: el estilo es solo oscuro */
+.theme-toggle,
+.announce {
+  display: none;
+}
+
+/* ---------- Tipografía: compacta, negrita o regular ---------- */
+body {
+  line-height: 1.4;
+}
+
+h1,
+h2 {
+  font-weight: 700;
+  line-height: 1.1;
+  text-transform: none;
+  letter-spacing: -0.01em;
+}
+
+h1 {
+  font-size: clamp(1.9rem, 5vw, 2.5rem);
+}
+
+h2 {
+  font-size: clamp(1.25rem, 4vw, 1.5rem);
+}
+
+.hero-copy h1 {
+  font-size: clamp(2.6rem, 8vw, 3.75rem);
+}
+
+.answer-title {
+  font-size: clamp(1.6rem, 5vw, 2.25rem);
+}
+
+.eyebrow,
+label {
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+/* ---------- Navegación: activo en blanco y negrita, sin fondo ---------- */
+.navbar {
+  border-bottom: 0;
+}
+
+.brand {
+  font-size: 1.15rem;
+  font-weight: 700;
+  text-transform: none;
+}
+
+.nav-links a {
+  font-size: 0.875rem;
+  font-weight: 400;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+.nav-links a.active {
+  background: var(--surface-2);
+  color: var(--text);
+  font-weight: 700;
+}
+
+/* ---------- Botones: píldoras con etiqueta en mayúsculas ---------- */
+.btn {
+  font-size: 0.875rem;
+  letter-spacing: 0.1em;
+  padding: 0.8rem 1.6rem;
+}
+
+.btn:hover:not(:disabled) {
+  transform: scale(1.03);
+  box-shadow: none;
+  background: #2a2a2a;
+}
+
+.btn-primary:hover:not(:disabled) {
+  background: #3be477;
+}
+
+.btn-ghost {
+  border-color: #7c7c7c;
+  color: var(--text);
+}
+
+.btn-ghost:hover:not(:disabled) {
+  background: transparent;
+  border-color: var(--text);
+}
+
+/* ---------- Superficies: sin bordes, separadas por el tono ---------- */
+.card,
+.hero-card,
+.status,
+.ranking li {
+  border: 0;
+}
+
+.status {
+  background: var(--surface);
+}
+
+.status--error {
+  border: 1px solid var(--error);
+}
+
+.alert {
+  border: 0;
+}
+
+.alert-info {
+  background: var(--surface-2);
+}
+
+input[type='text'],
+input[type='password'],
+input[type='date'],
+input[type='file'] {
+  border: 1px solid #7c7c7c;
+  border-radius: var(--radius-pill);
+  background: var(--surface-2);
+  padding-inline: 1.25rem;
+}
+
+input:focus {
+  border-color: var(--focus);
+  box-shadow: 0 0 0 1px var(--focus);
+}
+
+.suggestions {
+  border: 0;
+  background: #282828;
+}
+
+.suggestions li:hover,
+.suggestions li.is-highlighted {
+  background: #3a3a3a;
+  color: var(--text);
+}
+
+/* ---------- Juego ---------- */
+.score-pill {
+  border: 0;
+  border-radius: var(--radius-pill);
+  background: var(--surface-2);
+  font-size: 0.875rem;
+  font-weight: 700;
+  padding: 0.45rem 1rem;
+}
+
+.clue-steps li {
+  border: 0;
+  border-radius: var(--radius-pill);
+  background: var(--surface-2);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+.clue-steps li.is-current {
+  background: var(--text);
+  color: #000000;
+}
+
+.progress span {
+  background: var(--primary);
+}
+
+/* El reproductor: sin aparato, como una barra de música; verde solo en lo que suena */
+.vcr {
+  padding: 0;
+  background: none;
+  box-shadow: none;
+}
+
+.vcr__screen {
+  min-height: 104px;
+  border-radius: var(--radius);
+  background: var(--surface-2);
+  box-shadow: none;
+  color: var(--muted);
+}
+
+.vcr.is-playing .vcr__screen {
+  color: var(--primary);
+}
+
+.vcr__slot {
+  display: none;
+}
+
+/* Fichas de puntos: sin franjas, el color queda para las cintas */
+.tile {
+  background: var(--surface-2);
+  color: var(--text);
+  border-radius: var(--radius);
+  box-shadow: none;
+}
+
+.tile strong {
+  margin-top: 0;
+  font-family: var(--font-title);
+  font-size: 1.75rem;
+  font-weight: 700;
+}
+
+.tile span {
+  font-size: 0.8rem;
+  letter-spacing: 0;
+  text-transform: none;
+  color: var(--muted);
+}
+
+/* ---------- Ranking ---------- */
+.ranking li:nth-child(-n + 3) {
+  border-left: 0;
+}
+
+.ranking li.is-me {
+  outline-color: var(--primary);
+}
+
+/* ---------- Popup de la cinta ---------- */
+.tape-dialog {
+  border: 0;
+  background: #282828;
+  box-shadow: var(--shadow-2);
+}
+
+/* ---------- Pie ---------- */
+.site-footer {
+  border-top: 0;
+}

@@ -4,6 +4,7 @@ import { BrowserRouter } from 'react-router-dom'
 import './styles/tokens.css'
 import './index.css'
 import './styles/vhs.css'
+import './styles/design-md.css'
 import App from './App.jsx'
 import { AuthProvider } from './context/AuthContext.jsx'
 

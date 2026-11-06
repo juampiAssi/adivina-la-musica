@@ -403,3 +403,24 @@ Medido en una sola compu y conexión, contra la base real: "antes", en la URL pu
 En la URL pública no se escribieron datos de prueba: guardar y borrar se probó a mano en local, contra la misma base y con el mismo código.
 
 **Pendiente de esta entrega:** hacer público el repositorio o sumar al profesor, grabar el mini video y completar en `INFORME.md` lo marcado con [completar]. Siguen abiertos de V1 el título dudoso (*Cuenta conmigo*) y el ajuste de los fragmentos poco reconocibles.
+
+---
+
+## Prueba aparte — Estilo a partir de un DESIGN.md (rama `prueba-design-md`, 6/11)
+
+**Qué es:** un experimento para ver cómo queda la app con un documento de diseño ajeno. No es parte de la versión entregada: vive solo en esta rama y `main` no cambió.
+
+**Fuente:** `design-md/spotify/DESIGN.md` de [VoltAgent/awesome-design-md](https://github.com/VoltAgent/awesome-design-md) (licencia MIT). Se eligió porque es una app de música oscura, donde el color lo aporta el contenido, igual que las cintas acá.
+
+**Qué se aplicó** (todo en `src/styles/design-md.css`, sin tocar la lógica ni los datos): fondo casi negro, verde solo en acciones principales y en lo que suena, botones en forma de píldora, títulos compactos sin mayúsculas, superficies sin bordes y reproductor sin aparato. Las cintas y el mueble no cambiaron.
+
+**Qué se adaptó**
+- **Tipografía:** la original es propia de la marca; se usó Figtree, de Google Fonts.
+- **Marca:** no se usa su logo ni su nombre en la interfaz.
+- **Tema claro:** se ocultó el selector, porque el documento pide fondo oscuro siempre.
+
+**Pruebas:** a 320 px sin scroll horizontal en las 4 pantallas; todos los textos fuera de las cintas pasan AA con el script propio de contraste; botones de al menos 44 px; el popup abre. Solo lectura: no se probó guardar datos, aunque no se tocó ese código.
+
+**Para volver atrás:** borrar `src/styles/design-md.css` y su `import` en `main.jsx`.
+
+**Capturas:** `docs/capturas/prueba-design-md-*`.
