@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import { getTitleDetails } from '../../services/titlesService.js'
 import { toUserMessage } from '../../utils/firebaseErrors.js'
 import { posterAt } from '../../utils/poster.js'
-import { CLUES } from '../../utils/scoring.js'
+import { guessSeconds } from '../../utils/scoring.js'
 import VhsTape from './VhsTape.jsx'
 
 const CLOSE_MS = 160 // duración de la animación de cierre (y respaldo si no hay animación)
@@ -114,8 +114,8 @@ export default function TapeDialog({ tape, origin, onClose, onDelete }) {
             )}
             <dl className="tape-dialog__stats">
               <div>
-                <dt>Pista</dt>
-                <dd>{CLUES[(guess.cluesUsed ?? 1) - 1].seconds} s</dd>
+                <dt>Tiempo</dt>
+                <dd>{guessSeconds(guess)} s</dd>
               </div>
               <div>
                 <dt>Día</dt>

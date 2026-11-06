@@ -1,73 +1,112 @@
 import { useState } from 'react'
+import { useSongPlayer } from '../../hooks/useSongPlayer.js'
 import { isCorrectAnswer } from '../../utils/answers.js'
-import { CLUES, MAX_LEVEL, pointsFor } from '../../utils/scoring.js'
+import { MAX_ATTEMPTS, pointsAt } from '../../utils/scoring.js'
 import AnswerForm from './AnswerForm.jsx'
 import MusicClue from './MusicClue.jsx'
 
-// Qué componente dibuja la pista según el tipo de pregunta.
-// En V3 se agrega acá, por ejemplo: cover: CoverClue
-const clueByType = { music: MusicClue }
+const HINT_CATEGORY_AT = 10 // segundo en que se muestra el tipo de contenido
+const HINT_YEAR_AT = 20 // segundo en que se muestra el año
 
-// Lógica del juego, independiente del tipo de pista: nivel actual, intentos y puntos.
-// Cuando termina la ronda avisa con onFinish({ points, cluesUsed, attempts, correct, skipped }).
+const CATEGORY_HINTS = {
+  película: 'Es una película',
+  serie: 'Es una serie',
+  anime: 'Es un anime',
+  videojuego: 'Es un videojuego',
+}
+
+// Una ronda tiene tres fases:
+//  - "ready": la canción está lista y espera el primer click.
+//  - "listening": suena de corrido y los puntos van bajando.
+//  - "answering": se tocó "¡La sé!": la canción y los puntos se frenan y hay
+//    unos segundos para escribir. Si falla, la canción sigue desde donde estaba.
+// Cuando termina avisa con onFinish({ points, secondsUsed, attempts, correct, skipped }).
 // late: si es un día pasado ("ponte al día"), los puntos valen la mitad.
 export default function GameBoard({ question, answerOptions, late = false, onFinish, onNext, isLast }) {
-  const [level, setLevel] = useState(0)
+  const player = useSongPlayer(question.deezerTrackId, question.deezerStartSeconds ?? 0)
+  const { ended, play, pause } = player
+  const [phase, setPhase] = useState('ready')
   const [attempts, setAttempts] = useState(0)
   const [result, setResult] = useState(null) // null mientras se juega
   const [message, setMessage] = useState('')
 
-  const Clue = clueByType[question.type]
+  const points = pointsAt(player.seconds, late)
+  // Si la canción termina sin respuesta, queda la última oportunidad de escribir.
+  const answering = phase === 'answering' || (phase === 'listening' && ended)
 
   function finish(correct, skipped = false) {
-    const cluesUsed = level + 1
-    const points = correct ? pointsFor(cluesUsed, late) : 0
-    const outcome = { points, cluesUsed, attempts: attempts + (correct ? 1 : 0), correct, skipped }
+    pause()
+    const outcome = {
+      points: correct ? points : 0,
+      secondsUsed: player.seconds,
+      attempts: attempts + 1,
+      correct,
+      skipped,
+    }
     setResult(outcome)
     onFinish?.(outcome)
   }
 
-  function handleAnswer(answer) {
-    if (isCorrectAnswer(answer, question)) {
-      finish(true)
+  function handleStart() {
+    play()
+    setPhase('listening')
+  }
+
+  function handleBuzz() {
+    pause()
+    setMessage('')
+    setPhase('answering')
+  }
+
+  // Respuesta incorrecta o tiempo agotado: gasta un intento.
+  function handleMiss(text) {
+    const used = attempts + 1
+    if (used >= MAX_ATTEMPTS) {
+      finish(false)
       return
     }
-    setAttempts((n) => n + 1)
-    if (level < MAX_LEVEL) {
-      setLevel(level + 1)
-      setMessage('Incorrecto. Desbloqueaste una pista más larga, pero vale menos puntos.')
-    } else {
-      finish(false)
+    setAttempts(used)
+    const left = MAX_ATTEMPTS - used
+    setMessage(`${text} ${left === 1 ? 'Te queda 1 intento.' : `Te quedan ${left} intentos.`}`)
+    if (!ended) {
+      play()
+      setPhase('listening')
     }
   }
 
-  function handleNextClue() {
-    setMessage('')
-    setLevel(level + 1)
-  }
-
-  // Saltear: termina la ronda sin puntos y muestra la respuesta.
-  function handleGiveUp() {
-    finish(false, true)
-  }
-
-  if (!Clue) {
-    return <p className="alert alert-error">Tipo de pregunta no soportado: {question.type}</p>
+  function handleAnswer(answer) {
+    if (isCorrectAnswer(answer, question)) finish(true)
+    else handleMiss('Incorrecto.')
   }
 
   return (
     <div className="card song-enter">
       {!result && (
-        <ol className="clue-steps" aria-label="Pistas">
-          {CLUES.map(({ seconds }, i) => (
-            <li key={seconds} className={i === level ? 'is-current' : i < level ? 'is-used' : ''}>
-              {seconds} seg · {pointsFor(i + 1, late)}
-            </li>
-          ))}
-        </ol>
+        <div className="song-meter">
+          <div>
+            <p className="eyebrow">Vale ahora</p>
+            <strong className="song-points">{points} pts</strong>
+          </div>
+          <p className="muted">
+            Intento {Math.min(attempts + 1, MAX_ATTEMPTS)} de {MAX_ATTEMPTS}
+          </p>
+        </div>
       )}
-      <Clue question={question} level={level} finished={Boolean(result)} />
-      {message && !result && <p className="alert alert-info">{message}</p>}
+
+      <MusicClue question={question} player={player} finished={Boolean(result)} />
+
+      {!result && (player.seconds >= HINT_CATEGORY_AT || ended) && (
+        <ul className="song-hints" aria-live="polite">
+          <li>{CATEGORY_HINTS[question.category] ?? 'Pista: mirá la lista de opciones'}</li>
+          {(player.seconds >= HINT_YEAR_AT || ended) && question.year && <li>Del año {question.year}</li>}
+        </ul>
+      )}
+
+      {message && !result && (
+        <p className="alert alert-info" role="status">
+          {message}
+        </p>
+      )}
 
       {result ? (
         <div className="result">
@@ -78,23 +117,38 @@ export default function GameBoard({ question, answerOptions, late = false, onFin
             role="status"
           >
             {result.correct
-              ? `¡Correcto! Ganaste ${result.points} puntos.`
+              ? `¡Correcto! La sacaste en ${result.secondsUsed} segundos y ganaste ${result.points} puntos.`
               : result.skipped
                 ? 'Salteaste esta canción.'
-                : 'Se acabaron las pistas.'}
+                : 'Se acabaron los intentos.'}
           </p>
           <button type="button" className="btn btn-primary" onClick={onNext}>
             {isLast ? 'Ver resultado' : 'Siguiente canción'}
           </button>
         </div>
-      ) : (
+      ) : answering ? (
         <AnswerForm
+          key={attempts} // cada intento reinicia el campo y la cuenta regresiva
           options={answerOptions}
           onSubmit={handleAnswer}
-          onNextClue={handleNextClue}
-          canNextClue={level < MAX_LEVEL}
-          onGiveUp={handleGiveUp}
+          onTimeout={() => handleMiss('Se acabó el tiempo.')}
+          onGiveUp={() => finish(false, true)}
         />
+      ) : (
+        <div className="row song-actions">
+          {phase === 'ready' ? (
+            <button type="button" className="btn btn-primary" disabled={!player.ready} onClick={handleStart}>
+              {player.ready ? '▶ Reproducir' : 'Cargando canción…'}
+            </button>
+          ) : (
+            <button type="button" className="btn btn-primary" onClick={handleBuzz} autoFocus>
+              ¡La sé!
+            </button>
+          )}
+          <button type="button" className="btn btn-ghost" onClick={() => finish(false, true)}>
+            Saltear canción
+          </button>
+        </div>
       )}
     </div>
   )

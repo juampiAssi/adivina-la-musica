@@ -121,7 +121,7 @@ export default function Play() {
   }
 
   function handleFinish(outcome) {
-    const data = { cluesUsed: outcome.cluesUsed, points: outcome.points, late, solved: outcome.correct }
+    const data = { secondsUsed: outcome.secondsUsed, points: outcome.points, late, solved: outcome.correct }
     setFinished({ title: current, data, saved: false })
     persist(current, data)
   }

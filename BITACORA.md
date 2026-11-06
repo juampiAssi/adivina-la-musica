@@ -403,3 +403,25 @@ Medido en una sola compu y conexión, contra la base real: "antes", en la URL pu
 En la URL pública no se escribieron datos de prueba: guardar y borrar se probó a mano en local, contra la misma base y con el mismo código.
 
 **Pendiente de esta entrega:** hacer público el repositorio o sumar al profesor, grabar el mini video y completar en `INFORME.md` lo marcado con [completar]. Siguen abiertos de V1 el título dudoso (*Cuenta conmigo*) y el ajuste de los fragmentos poco reconocibles.
+
+---
+
+## V3.2 — Mecánica por tiempo (en desarrollo, rama `mecanicas-v3.2`)
+
+**Por qué:** el profesor comentó que el juego es bastante difícil. Se decidió cambiar la mecánica para hacerlo más dinámico y sumar modos de juego. El actual se va a llamar Popurrí.
+
+**Qué cambió (etapa 1)**
+- La canción suena de corrido hasta 30 segundos, en lugar de pistas de 3, 6 y 10 segundos. El tiempo sale del propio audio, así el contador no avanza si se frena para cargar.
+- **Puntaje:** 100 hasta el segundo 3 y después pierde 3 por segundo, hasta 19 en el segundo 30. Los días pasados valen la mitad, redondeada para abajo. La misma cuenta está en las reglas.
+- **"¡La sé!":** frena la canción y los puntos, y da 10 segundos para escribir. Hay 3 intentos; si se falla o se acaba el tiempo, la canción sigue desde donde estaba.
+- **Ayudas:** a los 10 segundos, el tipo de contenido; a los 20, el año.
+- Las jugadas viejas se conservan: el estante entiende los dos formatos y las reglas aceptan ambos durante el cambio.
+
+**Alternativas descartadas**
+- **Que el reloj siga mientras se escribe:** castigaba escribir lento, sobre todo en el celular.
+- **Botón para volver a escuchar sin responder:** permitía frenar los puntos para pensar sin costo; por eso el tiempo agotado gasta un intento.
+- **Medir el tiempo en el servidor:** requiere un backend propio. Queda como limitación conocida.
+
+**Pruebas hechas:** 5 pruebas automáticas de la cuenta de puntos (`npm test`). El tablero de juego, con audio real y sin guardar datos: acierto, fallo, tiempo agotado, 3 errores, salteo, día pasado y canción completa. Las reglas compilan (prueba en seco, sin publicar).
+
+**Pendiente:** probar las reglas nuevas y el guardado de punta a punta con el emulador de Firebase, y publicarlas.

@@ -9,12 +9,12 @@ export function guessId(uid, titleId) {
 }
 
 // title: el título jugado (se copia lo mínimo para armar el estante sin leer titles).
-export async function saveGuess(uid, title, { cluesUsed, points, late, solved }) {
+export async function saveGuess(uid, title, { secondsUsed, points, late, solved }) {
   const id = guessId(uid, title.id)
   const data = {
     uid,
     titleId: title.id,
-    cluesUsed,
+    secondsUsed,
     points,
     late,
     solved,

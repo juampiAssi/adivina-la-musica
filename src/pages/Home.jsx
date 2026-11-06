@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
 import VhsTape from '../components/vhs/VhsTape.jsx'
 import { preloadPage } from '../utils/preload.js'
-import { CLUES } from '../utils/scoring.js'
+import { POINT_EXAMPLES, pointsAt } from '../utils/scoring.js'
 
 // Cintas decorativas del inicio: textos genéricos (no son títulos reales, no adelantan nada).
 const HERO_TAPES = [
@@ -50,13 +50,13 @@ export default function Home() {
       <section className="home-section">
         <div className="on-scroll">
           <p className="eyebrow">Cómo funciona</p>
-          <h2>Cuanto menos escuchás, más sumás</h2>
+          <h2>Cuanto antes la sacás, más sumás</h2>
         </div>
         <ul className="tiles on-scroll">
-          {CLUES.map(({ seconds, points }) => (
+          {POINT_EXAMPLES.map((seconds) => (
             <li key={seconds} className="tile">
               <strong>{seconds} seg</strong>
-              <span>{points} puntos</span>
+              <span>{pointsAt(seconds)} puntos</span>
             </li>
           ))}
         </ul>

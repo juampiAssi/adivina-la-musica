@@ -1,15 +1,29 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { filterAnswerOptions } from '../../utils/answers.js'
+import { ANSWER_SECONDS } from '../../utils/scoring.js'
 
-// Campo de respuesta con autocompletado y validación básica (no se acepta vacío).
+// Campo de respuesta con autocompletado, validación básica (no se acepta vacío)
+// y cuenta regresiva. GameBoard lo vuelve a montar en cada intento.
 // options: sugerencias armadas con buildAnswerOptions (todas las respuestas posibles).
-export default function AnswerForm({ options = [], onSubmit, onNextClue, canNextClue, onGiveUp }) {
+export default function AnswerForm({ options = [], onSubmit, onTimeout, onGiveUp }) {
   const [value, setValue] = useState('')
   const [validation, setValidation] = useState('')
   const [open, setOpen] = useState(false)
   const [highlighted, setHighlighted] = useState(-1) // sugerencia marcada con el teclado
+  const [left, setLeft] = useState(ANSWER_SECONDS)
 
   const suggestions = open ? filterAnswerOptions(options, value) : []
+
+  useEffect(() => {
+    const timer = setInterval(() => setLeft((n) => n - 1), 1000)
+    return () => clearInterval(timer)
+  }, [])
+
+  useEffect(() => {
+    if (left <= 0) onTimeout()
+    // Solo depende de la cuenta: onTimeout cambia en cada render de GameBoard.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [left])
 
   function submit(answer) {
     if (!answer.trim()) {
@@ -50,11 +64,17 @@ export default function AnswerForm({ options = [], onSubmit, onNextClue, canNext
 
   return (
     <form onSubmit={handleSubmit} className="answer-form" noValidate>
-      <label htmlFor="answer">¿De qué película, serie o videojuego es?</label>
+      <div className="answer-head">
+        <label htmlFor="answer">¿De qué es esta canción?</label>
+        <span className="answer-timer" role="timer">
+          {Math.max(left, 0)} s
+        </span>
+      </div>
       <div className="autocomplete">
         <input
           id="answer"
           type="text"
+          autoFocus
           value={value}
           onChange={handleChange}
           onKeyDown={handleKeyDown}
@@ -95,9 +115,6 @@ export default function AnswerForm({ options = [], onSubmit, onNextClue, canNext
       <div className="row">
         <button type="submit" className="btn btn-primary">
           Responder
-        </button>
-        <button type="button" className="btn" onClick={onNextClue} disabled={!canNextClue}>
-          Siguiente pista
         </button>
         <button type="button" className="btn btn-ghost" onClick={onGiveUp}>
           Saltear canción

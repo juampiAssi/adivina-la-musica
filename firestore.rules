@@ -51,13 +51,22 @@ service cloud.firestore {
         let title = get(/databases/$(database)/documents/titles/$(g.titleId)).data;
         // "Ponte al día": si pasó más de un día desde que se desbloqueó, es atrasada.
         let late = request.time >= title.unlockAt + duration.value(1, 'd');
-        let base = g.cluesUsed == 1 ? 100 : (g.cluesUsed == 2 ? 60 : 30);
-        let expected = g.solved ? (late ? base / 2 : base) : 0;
-        return g.keys().hasOnly(['uid', 'titleId', 'cluesUsed', 'points', 'late', 'solved',
+        // Sistema nuevo: 100 puntos hasta el segundo 3 y después pierde 3 por segundo.
+        // El sistema anterior (cluesUsed) se sigue aceptando hasta publicar la app nueva.
+        let isTimed = 'secondsUsed' in g;
+        let base = isTimed
+          ? (g.secondsUsed <= 3 ? 100 : 100 - (g.secondsUsed - 3) * 3)
+          : (g.cluesUsed == 1 ? 100 : (g.cluesUsed == 2 ? 60 : 30));
+        let expected = g.solved ? (late ? math.floor(base / 2) : base) : 0;
+        return g.keys().hasOnly(['uid', 'titleId', 'cluesUsed', 'secondsUsed', 'points', 'late', 'solved',
                                  'createdAt', 'title', 'year', 'posterUrl', 'day'])
-          && g.keys().hasAll(['uid', 'titleId', 'cluesUsed', 'points', 'late', 'solved', 'createdAt'])
+          && g.keys().hasAll(['uid', 'titleId', 'points', 'late', 'solved', 'createdAt'])
           && title.unlockAt <= request.time      // el título tiene que estar desbloqueado
-          && g.cluesUsed in [1, 2, 3]
+          // Una jugada usa un sistema u otro, nunca los dos. El tiempo lo informa el
+          // navegador: las reglas validan el rango y los puntos, no cuánto tardó de verdad.
+          && (isTimed
+            ? (!('cluesUsed' in g) && g.secondsUsed is int && g.secondsUsed >= 0 && g.secondsUsed <= 30)
+            : g.cluesUsed in [1, 2, 3])
           && g.solved is bool
           && g.late == late                      // el navegador no puede mentir sobre el atraso
           && g.points == expected                // ni sobre los puntos

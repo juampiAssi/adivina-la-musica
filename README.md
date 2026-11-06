@@ -1,6 +1,6 @@
 # Adiviná la música
 
-Juego web para adivinar de qué **película, serie o videojuego** es una música. Cada día se desbloquean 10 canciones nuevas: primero suenan **3 segundos**; si no la reconocés, podés pedir **6** y después **10 segundos**, pero cada pista extra vale menos puntos. Cada acierto se guarda en tu **estante** y suma puntos en el **ranking**.
+Juego web para adivinar de qué **película, serie o videojuego** es una música. Cada día se desbloquean 10 canciones nuevas, que suenan de corrido hasta **30 segundos**: cuanto antes la reconozcas, más puntos vale. Cada acierto se guarda en tu **estante** y suma puntos en el **ranking**.
 
 Trabajo práctico 2 de Desarrollo Frontend II (UADE). Pensado para quienes disfrutan de las bandas sonoras y quieren un desafío corto todos los días.
 
@@ -16,16 +16,12 @@ Trabajo práctico 2 de Desarrollo Frontend II (UADE). Pensado para quienes disfr
 
 ## Cómo jugar
 
-1. Tocá **Escuchar** y prestá atención al fragmento.
-2. Escribí de qué es y elegí el nombre de la lista (vale en español o en inglés).
-3. Si no la sabés, pedí **Siguiente pista**; una respuesta incorrecta también te da la pista siguiente.
+1. Tocá **Reproducir**: la canción suena de corrido hasta 30 segundos y los puntos van bajando.
+2. Cuando la reconozcas, tocá **¡La sé!**. La canción y los puntos se frenan, y tenés 10 segundos para escribir y elegir el nombre de la lista (vale en español o en inglés).
+3. Tenés 3 intentos. Si fallás, la canción sigue desde donde estaba. A los 10 segundos se muestra el tipo de contenido y a los 20, el año.
 4. **Saltear canción** muestra la respuesta, pero no suma puntos.
 
-| Pista | Puntos | Días pasados ("ponte al día") |
-|---|---|---|
-| 3 segundos | 100 | 50 |
-| 6 segundos | 60 | 30 |
-| 10 segundos | 30 | 15 |
+La canción vale 100 puntos hasta el segundo 3 y después pierde 3 por segundo, hasta 19 en el segundo 30. Los días pasados ("ponte al día") valen la mitad, redondeada para abajo.
 
 ## Instalación y ejecución local
 
@@ -37,7 +33,7 @@ cp .env.example .env   # y completar los valores (ver abajo)
 npm run dev            # abre http://localhost:5173
 ```
 
-Otros comandos: `npm run build` (genera `dist/`), `npm run preview` y `npm run lint`.
+Otros comandos: `npm run build` (genera `dist/`), `npm run preview`, `npm run lint` y `npm test` (pruebas de la cuenta de puntos).
 
 > Después de cambiar el archivo `.env` hay que reiniciar `npm run dev`.
 
@@ -119,7 +115,7 @@ node scripts/build-titles.mjs
 |---|---|---|
 | `config` | `game` | `startDate` (Timestamp), `timezone` |
 | `titles` | `{slug del título}` | `day`, `order`, `title`, `aliases[]`, `category`, `year`, `director`, `genre`, `synopsis`, `posterUrl`, `deezerTrackId`, `unlockAt`, … |
-| `guesses` | `{uid}_{titleId}` | `uid`, `titleId`, `cluesUsed` (1–3), `points`, `late`, `solved`, `createdAt` y una copia mínima para el estante (`title`, `year`, `posterUrl`, `day`) |
+| `guesses` | `{uid}_{titleId}` | `uid`, `titleId`, `secondsUsed` (0–30; las jugadas viejas tienen `cluesUsed`, 1–3), `points`, `late`, `solved`, `createdAt` y una copia mínima para el estante (`title`, `year`, `posterUrl`, `day`) |
 | `leaderboard` | `{uid}` | `nickname`, `totalPoints`, `guessesCount`, `updatedAt` (sin email ni nombre real) |
 | `admins` | `{uid}` | Documento creado a mano; marca quién es administrador |
 
@@ -129,7 +125,7 @@ No se guarda audio: de Deezer solo se guarda el id del tema y el fragmento se pi
 
 - Todo lo que no está permitido está denegado; sin sesión no se puede leer nada.
 - `titles`: un jugador solo lee títulos ya desbloqueados (`unlockAt <= request.time`, la hora del servidor); solo el admin escribe.
-- `guesses`: cada jugador lee, crea y borra solo las suyas. Al crear se valida el id, `cluesUsed`, los puntos exactos según pistas y atraso, que el título esté desbloqueado, que `late` coincida con la hora del servidor y que `createdAt` sea la hora del servidor. No se pueden editar.
+- `guesses`: cada jugador lee, crea y borra solo las suyas. Al crear se valida el id, el rango de `secondsUsed`, los puntos exactos según segundos y atraso, que el título esté desbloqueado, que `late` coincida con la hora del servidor y que `createdAt` sea la hora del servidor. No se pueden editar.
 - `leaderboard`: lectura con sesión; cada uno escribe solo su entrada; apodo de 3 a 20 caracteres validado con expresión regular.
 - `admins` y `config`: solo el admin; nadie escribe en `admins` desde la app.
 
@@ -138,6 +134,7 @@ No se guarda audio: de Deezer solo se guarda el id del tema y el fragmento se pi
 - **`totalPoints` del ranking lo calcula el navegador.** Las jugadas sí están validadas por las reglas, pero sin un backend propio no se puede verificar que el total del ranking coincida con la suma de las jugadas.
 - **Rejugar un título:** si un jugador borra una jugada de su estante, puede volver a jugar ese título.
 - **Sesión anónima por navegador:** cada navegador tiene su propia identidad; desde otro dispositivo no se recupera el mismo progreso.
+- **Tiempo de respuesta:** lo mide el navegador. Las reglas validan el rango y que los puntos coincidan con esos segundos, pero sin un backend propio no pueden comprobar cuánto tardó de verdad el jugador.
 - **Reloj del navegador:** se usa para calcular qué día mostrar; lo que se puede leer y si una jugada es atrasada lo deciden las reglas con la hora del servidor. Con el reloj muy corrido (por ejemplo, un día adelantado), las reglas rechazan la operación y la app pide revisar la fecha y la hora.
 - **Días cargados:** hay 14 días (138 títulos). Cuando pasan, Jugar abre en el último día y todos valen la mitad de puntos; se pueden sumar días importando más títulos o reiniciar el calendario cambiando la fecha de inicio desde `/admin`.
 
@@ -156,7 +153,7 @@ src/
                 ui/ (estados de carga, vacío y error), admin/, layout/
   context/      sesión del usuario (AuthContext)
   data/         nombres para el autocompletado y cantidad de títulos por día
-  hooks/        useAuth, useAudioClip, useTheme
+  hooks/        useAuth, useSongPlayer, useTheme
   pages/        Home, Play, Ranking, Profile, Admin, NotFound
   services/     Firebase y acceso a datos (Firestore, Deezer)
   styles/       tokens.css (variables de diseño y temas), vhs.css (cintas y mueble)
