@@ -1,7 +1,7 @@
 // Inicio y cierre de sesión. Jugadores: sesión anónima automática (sin datos
 // personales). Admin: correo y contraseña de una cuenta creada a mano en la consola.
 import { signInAnonymously, signInWithEmailAndPassword, signOut } from 'firebase/auth'
-import { doc, getDoc } from 'firebase/firestore'
+import { doc, getDoc } from 'firebase/firestore/lite'
 import { auth, db } from './firebase.js'
 
 // Evita crear dos usuarios anónimos si se llama dos veces seguidas

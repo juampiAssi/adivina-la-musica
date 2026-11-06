@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { getTitleDetails } from '../../services/titlesService.js'
 import { toUserMessage } from '../../utils/firebaseErrors.js'
+import { posterAt } from '../../utils/poster.js'
 import { CLUES } from '../../utils/scoring.js'
 import VhsTape from './VhsTape.jsx'
 
@@ -84,7 +85,14 @@ export default function TapeDialog({ tape, origin, onClose, onDelete }) {
         <div className="tape-dialog__body">
           <div className="tape-dialog__poster">
             {guess.posterUrl ? (
-              <img src={guess.posterUrl} alt={`Póster de ${guess.title}`} />
+              <img
+                src={posterAt(guess.posterUrl, 342)}
+                srcSet={`${posterAt(guess.posterUrl, 342)} 1x, ${guess.posterUrl} 2x`}
+                alt={`Póster de ${guess.title}`}
+                width="342"
+                height="513"
+                decoding="async"
+              />
             ) : (
               <VhsTape id={guess.titleId} title={guess.title} year={guess.year} state="recorded" view="cover" />
             )}

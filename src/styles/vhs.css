@@ -319,7 +319,7 @@
 }
 
 .tape-btn .vhs-spine {
-  transition: transform var(--dur) var(--ease-out), box-shadow var(--dur) var(--ease-out);
+  transition: transform var(--dur) var(--ease-out); /* solo transform: no obliga a redibujar */
 }
 
 /* "Asomar" la cinta: sube unos px y se inclina desde la base, por encima de las vecinas.

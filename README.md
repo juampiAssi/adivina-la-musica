@@ -10,7 +10,7 @@ Trabajo práctico 2 de Desarrollo Frontend II (UADE). Pensado para quienes disfr
 
 - **React + Vite**: interfaz, componentes, eventos y estado.
 - **Firebase Authentication**: sesión anónima automática para jugadores y correo/contraseña para el administrador.
-- **Cloud Firestore** (sin backend propio): títulos, jugadas, ranking y configuración.
+- **Cloud Firestore** (sin backend propio), con la versión `firebase/firestore/lite`: títulos, jugadas, ranking y configuración.
 - **Vercel**: publicación, con despliegue automático en cada push a `main`.
 - **Deezer API** (fragmentos de 30 s) para el audio y **TMDB** para los datos de películas y series.
 
@@ -96,13 +96,14 @@ node scripts/build-titles.mjs
 3. **Settings → Environment Variables**: cargar las 4 variables `VITE_FIREBASE_*` en **Production** y **Preview**, como **Config** (no Secret).
 4. Con GitHub conectado, cada push a `main` despliega solo. Si se cambian las variables, hacer **Redeploy**.
 
-`.vercelignore` evita que la CLI de Vercel suba archivos `.env` locales.
+`.vercelignore` evita que la CLI de Vercel suba archivos `.env` locales. `vercel.json` también guarda un año en caché los archivos de `/assets`, que cambian de nombre en cada versión.
 
 ## Dónde se conecta Firebase
 
 | Archivo | Qué hace |
 |---|---|
-| `src/services/firebase.js` | **Único punto de conexión**: lee `import.meta.env`, inicializa Firebase y exporta `auth` y `db`. |
+| `src/services/firebase.js` | **Único punto de conexión**: lee `import.meta.env`, inicializa Firebase (Auth y Firestore lite) y exporta `auth` y `db`. |
+| `src/services/cache.js` | Caché en memoria de lo ya leído, para no repetir consultas mientras la pestaña está abierta. |
 | `src/services/authService.js` | Sesión anónima, ingreso del admin y chequeo de `admins/{uid}`. |
 | `src/context/AuthContext.jsx` | Escucha la sesión (`onAuthStateChanged`) y abre una anónima si no hay ninguna. |
 | `src/services/titlesService.js` | **Consulta** los títulos del día (`where day == n` y `unlockAt <=` la apertura de ese día) y el detalle de una cinta. |
@@ -144,7 +145,7 @@ No se guarda audio: de Deezer solo se guarda el id del tema y el fragmento se pi
 
 - **Audio:** fragmentos de 30 s de la [API de Deezer](https://developers.deezer.com/). Sus términos limitan el uso a fines no comerciales y no mencionan juegos; este es un trabajo académico sin fines de lucro.
 - **Datos y pósters de películas y series:** [TMDB](https://www.themoviedb.org/). Este producto usa la API de TMDB pero no está avalado ni certificado por TMDB. Sus términos piden mostrar su logo y no guardar sus datos más de 6 meses.
-- **Videos de la revelación:** reproductor embebido de YouTube, mostrado completo y sin tapar.
+- **Videos de la revelación:** primero se muestra la miniatura; al tocar play se carga el reproductor embebido de YouTube, completo y sin tapar.
 - **Tipografías:** Archivo e IBM Plex Mono (Google Fonts).
 
 ## Estructura
@@ -164,6 +165,17 @@ docs/           capturas y evidencias de cada versión
 seed/           datos para importar
 scripts/        generación de seed/titles.json
 ```
+
+## Versiones
+
+Cada versión está marcada con un tag de Git:
+
+| Tag | Qué tiene |
+|---|---|
+| `v1` | Primera versión funcional publicada |
+| `v2` | Diseño "Mi videoteca" (iteraciones A, B y C) |
+| `v3` | Arreglos del reloj y de los días cargados, informe y documentación |
+| `v3.1` | Optimización de la velocidad de carga |
 
 ## Documentación del proceso
 

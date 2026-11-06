@@ -1,3 +1,4 @@
+import { Suspense } from 'react'
 import { Outlet, useLocation } from 'react-router-dom'
 import { useAuth } from '../../hooks/useAuth.js'
 import StatusMessage from '../ui/StatusMessage.jsx'
@@ -8,6 +9,8 @@ import Navbar from './Navbar.jsx'
 export default function Layout() {
   const { pathname } = useLocation()
   const { loading, error } = useAuth()
+  const isHome = pathname === '/' // el inicio no lee datos: no espera a la sesión
+
   return (
     <>
       <div className="announce">Películas · Series · Videojuegos</div>
@@ -15,14 +18,16 @@ export default function Layout() {
       {/* key: al cambiar de página se vuelve a montar y repite la entrada "desde la oscuridad" */}
       <main key={pathname} className="container screen">
         {/* Hasta que no hay sesión no se puede leer Firestore: esperamos o mostramos el error. */}
-        {error ? (
+        {error && !isHome ? (
           <StatusMessage kind="error" title="No se pudo conectar">
             {error}
           </StatusMessage>
-        ) : loading ? (
+        ) : loading && !isHome ? (
           <StatusMessage kind="loading" title="Conectando…" />
         ) : (
-          <Outlet />
+          <Suspense fallback={<StatusMessage kind="loading" title="Cargando…" />}>
+            <Outlet />
+          </Suspense>
         )}
       </main>
       {/* Atribución obligatoria: TMDB (datos y pósters) y Deezer (audio). */}

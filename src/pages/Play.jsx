@@ -1,20 +1,18 @@
 import { useEffect, useMemo, useState } from 'react'
 import { Link } from 'react-router-dom'
 import answerNames from '../data/answer-names.json'
-import daySizes from '../data/day-sizes.json'
 import GameBoard from '../components/game/GameBoard.jsx'
 import HowToPlay from '../components/game/HowToPlay.jsx'
 import StatusMessage from '../components/ui/StatusMessage.jsx'
 import { useAuth } from '../hooks/useAuth.js'
 import { getGameConfig } from '../services/configService.js'
 import { getMyGuesses, saveGuess } from '../services/guessesService.js'
+import { preloadTrack } from '../services/deezerService.js'
 import { getMyEntry, saveMyEntry, totalsFrom } from '../services/leaderboardService.js'
 import { getTitlesForDay } from '../services/titlesService.js'
 import { buildAnswerOptions } from '../utils/answers.js'
-import { currentDay, isLate, unlockAtFor } from '../utils/calendar.js'
+import { currentDay, isLate, TOTAL_DAYS, unlockAtFor } from '../utils/calendar.js'
 import { toUserMessage } from '../utils/firebaseErrors.js'
-
-const TOTAL_DAYS = Object.keys(daySizes).length // días con canciones cargadas
 
 // Las reglas comparan contra la hora del servidor: si rechazan algo que debería
 // andar, lo más probable es que el reloj de la compu esté corrido.
@@ -94,7 +92,15 @@ export default function Play() {
   const playedIds = new Set(guesses.map((g) => g.titleId))
   const pending = titles.filter((t) => !playedIds.has(t.id))
   const current = pending[0]
+  const nextTrackId = pending[1]?.deezerTrackId
   const shown = finished?.title ?? current // la canción que está en pantalla
+
+  // Adelanta el audio de esta canción y de la siguiente, para que no haya que esperarlo.
+  useEffect(() => {
+    preloadTrack(current?.deezerTrackId)
+    preloadTrack(nextTrackId)
+  }, [current?.deezerTrackId, nextTrackId])
+
   const late = shown ? isLate(shown.unlockAt.toDate()) : false
   const dayGuesses = guesses.filter((g) => g.day === day)
   const dayPoints = dayGuesses.reduce((sum, g) => sum + g.points, 0)

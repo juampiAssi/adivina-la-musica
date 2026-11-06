@@ -1,3 +1,5 @@
+import daySizes from '../data/day-sizes.json'
+
 // Calendario del juego: un día nuevo cada 24 h desde config/game.startDate.
 // startDate se guarda como la medianoche de Argentina (UTC-3, sin horario de verano),
 // así que sumar 24 h siempre cae en la medianoche siguiente.
@@ -5,6 +7,7 @@
 // qué se puede leer y si una jugada es "atrasada" son las reglas de Firestore
 // (request.time). Si el reloj de la compu está muy corrido, las reglas rechazan.
 export const DAY_MS = 24 * 60 * 60 * 1000
+export const TOTAL_DAYS = Object.keys(daySizes).length // días con canciones cargadas
 
 // 'AAAA-MM-DD' → Date a las 00:00 de Argentina.
 export function argentinaMidnight(isoDate) {

@@ -313,9 +313,73 @@ Pruebas de solo lectura en local, contra la base real:
 
 El último caso no se pudo probar con los 14 días, porque en la fecha de la prueba el servidor todavía no los había abierto. Se redujeron a 10 los días cargados solo en local, se simuló el 13/11 y después se restauró el archivo.
 
-**Pendiente:** publicar estos cambios, repetir la prueba en la URL de Vercel y probar agregar, modificar y eliminar en la versión final. El guardado de una jugada con el reloj corrido tampoco se probó.
+**Sin probar:** guardar una jugada con el reloj muy corrido. Queda como limitación conocida en el README.
+
+**Capturas:** `docs/capturas/v3-*`.
 
 ### Documentación
 
 - **README:** se corrigieron las tipografías, la estructura de carpetas y la limitación del reloj, que decía algo incorrecto.
 - **Informe:** se agregó `INFORME.md`, con lo que pide la entrega.
+
+### Publicación de V3 y marcas de versión (6/11)
+
+`main` avanzó hasta `6ce3fdc` sin merge ni reescribir el historial, y Vercel lo publicó. En la URL pública, con el reloj en hora y adelantado 5 segundos o 1 minuto, Jugar cargó bien; antes, adelantado, mostraba "No tenés permiso". Ranking y Perfil también cargaron. El tope de días en el sitio público recién se ve desde el 9/11; antes se probó en local.
+
+Se marcó cada versión con un tag de Git:
+
+| Tag | Commit | Qué tiene |
+|---|---|---|
+| `v1` | `0991e43` | Primera versión funcional publicada |
+| `v2` | `7c37241` | Diseño "Mi videoteca" (iteraciones A, B y C) |
+| `v3` | `6ce3fdc` | Arreglos del reloj y de los días, informe y documentación |
+| `v3.1` | ver abajo | Optimización de la velocidad de carga |
+
+La optimización quedó fuera de `v3` a propósito: cambiaba cómo se guarda todo en la base real, y antes había que probar las escrituras.
+
+---
+
+## V3.1 — Velocidad de carga (6/11)
+
+**Cómo apareció:** la pantalla de juego se sentía lenta. Primero se midió, para no optimizar a ciegas.
+
+| Medición | Antes | Ahora |
+|---|---|---|
+| Código JavaScript (comprimido) | 270 KB | 158 KB |
+| Datos del perfil listos al recargar | ~1280 ms | ~380 ms |
+| Abrir una pantalla por primera vez | 195–537 ms | 86–98 ms |
+| Volver a una pantalla ya abierta | 135–299 ms | 13–21 ms |
+| Canción lista al empezar | Hasta 2,7 s la primera consulta a Deezer | Al instante si ya se adelantó |
+
+Medido en una sola compu y conexión, contra la base real: "antes", en la URL publicada; "ahora", con la versión compilada en local. Son referencias, no valores exactos.
+
+**Qué se cambió**
+- **Firestore "lite":** consulta por HTTP en lugar de abrir una conexión permanente, que tardaba unos 750 ms. La app no escucha cambios en vivo, así que no se pierde nada.
+- **Auth sin ventana emergente:** `initializeAuth` con los mismos lugares de guardado, para que nadie pierda su sesión. Se comprobó que la sesión anónima siguió siendo la misma.
+- **Caché en memoria** (`services/cache.js`): lo ya leído se reutiliza mientras la pestaña está abierta y se actualiza al guardar o borrar. No guarda nada en el navegador.
+- **Datos adelantados:** al pasar el mouse o tocar un enlace ya se piden los datos de esa pantalla.
+- **Audio adelantado:** se piden la canción actual y la siguiente antes de que el jugador las necesite.
+- **Inicio:** no espera a que se abra la sesión, porque no lee datos.
+- **YouTube:** se muestra una miniatura y el reproductor, que es pesado, se carga recién al tocar play.
+- **Pósters:** se pide el de 342 px en lugar del de 500 px y se adelanta al acercarse a la cinta.
+- **Vercel:** los archivos con nombre único se guardan un año en la caché del navegador.
+- **Fuentes:** ya no frenan el primer dibujo de la página.
+- **CSS:** barra de navegación sin desenfoque, cintas que animan solo `transform` y entradas de pantalla más cortas.
+- **Versión nueva con la pestaña abierta:** si faltan archivos viejos, la página se recarga sola en lugar de quedar en blanco (`vite:preloadError`).
+- **Botones de día:** el texto quedó centrado; estaba pegado a la izquierda.
+
+**Alternativas descartadas**
+- **Un archivo por pantalla (`React.lazy`):** ahorraba solo unos 11 KB y sumaba unos 300 ms, porque React demora mostrar contenido justo después de un estado de carga. Se midió y se dejó aparte solo el panel admin.
+- **Reemplazar el ruido SVG de la madera:** dibujarlo tarda 3–6 ms; no era el problema.
+- **Guardar datos en `localStorage`:** se descartó para seguir usándolo solo para el tema.
+
+**Limitaciones:** un jugador nuevo sigue esperando la creación de su sesión anónima (cerca de 1,5 s en la prueba), porque la hace Firebase. Tampoco se controla cuánto tarda Deezer en responder la primera vez.
+
+**Sin verificar:** la miniatura de YouTube no cargó desde la compu de las pruebas, ni desde el navegador ni desde la terminal; el botón y la carga del reproductor sí funcionaron. Si la imagen no llega, se ve un fondo negro con el botón de play.
+
+**Dificultades**
+- Las escrituras no se podían probar con el navegador automático, porque la base es la real y la herramienta las bloqueó. Por eso la prueba de guardar y borrar se hizo a mano antes de publicar.
+- `initializeAuth` falla si se vuelve a ejecutar al editar `firebase.js` con el servidor de desarrollo abierto (`auth/already-initialized`). Solo pasa al editar ese archivo; se resuelve recargando la página.
+- El servidor de desarrollo no respondía si se abría desde la herramienta de la IA; arrancó desde una terminal normal.
+
+**Prueba manual antes de publicar** (el autor, en local, contra la base real): guardar una jugada y recargar, elegir y cambiar el apodo, sacar la cinta, salir del ranking y abrir `/admin`.

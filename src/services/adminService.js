@@ -1,6 +1,7 @@
 // Operaciones del panel admin. Las reglas de Firestore solo las permiten si
 // existe admins/{uid}, así que un jugador no puede usarlas aunque las llame.
-import { collection, doc, getDocs, setDoc, Timestamp, writeBatch } from 'firebase/firestore'
+import { collection, doc, getDocs, setDoc, Timestamp, writeBatch } from 'firebase/firestore/lite'
+import { invalidate } from './cache.js'
 import { db } from './firebase.js'
 import { TIMEZONE } from './configService.js'
 import { unlockAtFor } from '../utils/calendar.js'
@@ -27,12 +28,16 @@ export function importTitles(titles, startDate, onProgress) {
       batch.set(doc(db, 'titles', id), { ...data, unlockAt: Timestamp.fromDate(unlockAtFor(startDate, t.day)) })
     },
     onProgress,
-  )
+  ).finally(() => {
+    invalidate('titles:')
+    invalidate('details:')
+  })
 }
 
 // Cambia la fecha de inicio y recalcula unlockAt de TODOS los títulos.
 export async function changeStartDate(startDate, onProgress) {
   await setDoc(doc(db, 'config', 'game'), { startDate: Timestamp.fromDate(startDate), timezone: TIMEZONE })
+  invalidate('config')
   const snap = await getDocs(collection(db, 'titles')) // el admin puede leer todos
   await inBatches(
     snap.docs,

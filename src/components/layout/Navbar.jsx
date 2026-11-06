@@ -1,4 +1,5 @@
 import { NavLink } from 'react-router-dom'
+import { preloadPage } from '../../utils/preload.js'
 import ThemeToggle from './ThemeToggle.jsx'
 
 const links = [
@@ -9,6 +10,7 @@ const links = [
 ]
 
 // NavLink agrega la clase "active" al enlace de la página actual.
+// Al acercarse a un enlace ya se adelantan los datos de esa pantalla.
 export default function Navbar() {
   return (
     <header className="navbar">
@@ -18,7 +20,7 @@ export default function Navbar() {
         </NavLink>
         <nav className="nav-links" aria-label="Navegación principal">
           {links.map(({ to, label }) => (
-            <NavLink key={to} to={to} end={to === '/'}>
+            <NavLink key={to} to={to} end={to === '/'} onPointerEnter={() => preloadPage(to)} onFocus={() => preloadPage(to)}>
               {label}
             </NavLink>
           ))}

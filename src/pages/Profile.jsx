@@ -78,7 +78,7 @@ export default function Profile() {
   async function handleDeleteGuess(guess) {
     setBusy(true)
     try {
-      await deleteGuess(guess.id)
+      await deleteGuess(user.uid, guess.id)
       const remaining = guesses.filter((g) => g.id !== guess.id)
       setGuesses(remaining)
       if (entry) {

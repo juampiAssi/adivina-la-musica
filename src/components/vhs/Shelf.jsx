@@ -1,3 +1,4 @@
+import { preloadPoster } from '../../utils/poster.js'
 import VhsTape from './VhsTape.jsx'
 
 // Mueble con un estante por día. Cada fila tiene tantas cintas como títulos tiene
@@ -34,6 +35,8 @@ export default function Shelf({ days, daySizes, recordedByDay, lockedFrom, locke
                           ? `${tape.guess.title}${tape.guess.year ? ` (${tape.guess.year})` : ''}. Ver detalles`
                           : `Cinta sin grabar del día ${day}`
                       }
+                      onPointerEnter={() => preloadPoster(tape.guess?.posterUrl)}
+                      onFocus={() => preloadPoster(tape.guess?.posterUrl)}
                       onClick={(e) => onOpen?.(tape, e.currentTarget)}
                     >
                       <VhsTape

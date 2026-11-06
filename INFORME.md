@@ -23,12 +23,14 @@ Juego diario para adivinar de qué película, serie o videojuego es una música.
 
 - **Juego por días:** cada día abre un grupo de títulos nuevos. Los días pasados se pueden jugar con la mitad de puntos ("ponte al día").
 - **Pistas de audio** de 3, 6 y 10 segundos (100, 60 y 30 puntos), con autocompletado de respuestas en español o inglés y opción de saltear.
-- **Revelación** de la respuesta con el video de YouTube o la portada del tema.
+- **Revelación** de la respuesta con el video de YouTube, que carga al tocar play, o la portada del tema.
 - **Mi videoteca:** mueble con un estante por día. Las cintas se graban al acertar; las demás son negras, sin datos que adelanten la respuesta. Cada cinta abre un popup con póster, ficha, pista usada y puntos.
 - **Ranking** de los 20 mejores puntajes, con apodo a elección.
 - **Perfil:** crear, cambiar y borrar el apodo, y sacar cintas del estante.
 - **Panel de administración:** ingreso con correo y contraseña, fecha de inicio del calendario e importación de títulos por JSON o CSV.
 - **Experiencia de uso:** validaciones, estados de carga, vacío y error, mensajes de éxito y de error, tema claro y oscuro, diseño para compu y celular, uso con teclado.
+
+**Versiones:** `v1` (primera versión funcional), `v2` (diseño "Mi videoteca"), `v3` (correcciones a partir de pruebas reales y documentación) y `v3.1` (velocidad). El detalle está en la bitácora.
 
 ## Operaciones sobre Firestore
 
@@ -83,5 +85,6 @@ _[Completar con tus palabras: qué te gustó, qué pediste cambiar y qué decidi
 - **Archivos sensibles:** una prueba en seco mostró que la CLI de Vercel iba a subir los `.env`. Se agregó `.vercelignore`.
 - **Error con un usuario real:** a un compañero no le cargaba el juego porque la consulta usaba la hora de su compu y las reglas, la del servidor. Se reprodujo simulando el reloj y se corrigió la consulta.
 - **Días agotados:** al pasar los 14 días cargados, Jugar abría vacío. Ahora abre en el último día disponible.
+- **Velocidad:** se midió antes de cambiar nada. La conexión de Firestore y la primera respuesta de Deezer eran lo más lento. Con Firestore lite, una caché en memoria y datos adelantados, abrir una pantalla bajó de 195–537 ms a 86–98 ms en la misma compu. Separar cada pantalla en un archivo aparte empeoraba la carga, y se descartó después de medirlo.
 
 El resto está en [`BITACORA.md`](BITACORA.md).

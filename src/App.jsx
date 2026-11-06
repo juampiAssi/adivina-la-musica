@@ -1,11 +1,14 @@
+import { lazy } from 'react'
 import { Routes, Route } from 'react-router-dom'
 import Layout from './components/layout/Layout.jsx'
 import Home from './pages/Home.jsx'
-import Play from './pages/Play.jsx'
-import Ranking from './pages/Ranking.jsx'
-import Profile from './pages/Profile.jsx'
-import Admin from './pages/Admin.jsx'
 import NotFound from './pages/NotFound.jsx'
+import Play from './pages/Play.jsx'
+import Profile from './pages/Profile.jsx'
+import Ranking from './pages/Ranking.jsx'
+
+// Solo el panel admin va en un archivo aparte: los jugadores nunca lo usan.
+const Admin = lazy(() => import('./pages/Admin.jsx'))
 
 // Tabla de rutas: cada URL muestra una página dentro del Layout común.
 export default function App() {
