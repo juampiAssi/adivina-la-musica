@@ -18,6 +18,13 @@
     ]
   },
   {
+    "title": "Attack on Titan",
+    "aliases": [
+      "Ataque a los titanes",
+      "Shingeki no Kyojin"
+    ]
+  },
+  {
     "title": "Avengers: Endgame",
     "aliases": [
       "Endgame",
@@ -129,15 +136,37 @@
     ]
   },
   {
+    "title": "Cowboy Bebop",
+    "aliases": []
+  },
+  {
     "title": "Cuenta conmigo",
     "aliases": [
       "Stand by Me"
     ]
   },
   {
+    "title": "Death Note",
+    "aliases": []
+  },
+  {
+    "title": "Demon Slayer",
+    "aliases": [
+      "Kimetsu no Yaiba",
+      "Guardianes de la noche"
+    ]
+  },
+  {
     "title": "Diarios de motocicleta",
     "aliases": [
       "The Motorcycle Diaries"
+    ]
+  },
+  {
+    "title": "Dragon Ball Z",
+    "aliases": [
+      "DBZ",
+      "Dragon Ball"
     ]
   },
   {
@@ -243,6 +272,14 @@
     ]
   },
   {
+    "title": "Final Fantasy VII",
+    "aliases": [
+      "Final Fantasy 7",
+      "FF7",
+      "FFVII"
+    ]
+  },
+  {
     "title": "Forrest Gump",
     "aliases": []
   },
@@ -264,6 +301,13 @@
     ]
   },
   {
+    "title": "Fullmetal Alchemist: Brotherhood",
+    "aliases": [
+      "Fullmetal Alchemist",
+      "FMA"
+    ]
+  },
+  {
     "title": "Futurama",
     "aliases": []
   },
@@ -280,9 +324,21 @@
     ]
   },
   {
+    "title": "God of War",
+    "aliases": []
+  },
+  {
     "title": "Gravity Falls",
     "aliases": [
       "Gravity Falls: un verano de misterios"
+    ]
+  },
+  {
+    "title": "GTA San Andreas",
+    "aliases": [
+      "Grand Theft Auto: San Andreas",
+      "San Andreas",
+      "GTA"
     ]
   },
   {
@@ -337,6 +393,12 @@
     ]
   },
   {
+    "title": "Hunter x Hunter",
+    "aliases": [
+      "HxH"
+    ]
+  },
+  {
     "title": "Indiana Jones: cazadores del arca perdida",
     "aliases": [
       "Indiana Jones",
@@ -364,6 +426,10 @@
       "Game of Thrones",
       "GOT"
     ]
+  },
+  {
+    "title": "Jujutsu Kaisen",
+    "aliases": []
   },
   {
     "title": "Jurassic Park",
@@ -495,6 +561,13 @@
     ]
   },
   {
+    "title": "Los Caballeros del Zodiaco",
+    "aliases": [
+      "Saint Seiya",
+      "Caballeros del Zodiaco"
+    ]
+  },
+  {
     "title": "Los Vengadores",
     "aliases": [
       "The Avengers",
@@ -545,10 +618,30 @@
     ]
   },
   {
+    "title": "My Hero Academia",
+    "aliases": [
+      "Boku no Hero Academia"
+    ]
+  },
+  {
+    "title": "Naruto",
+    "aliases": []
+  },
+  {
     "title": "Náufrago",
     "aliases": [
       "Cast Away"
     ]
+  },
+  {
+    "title": "Neon Genesis Evangelion",
+    "aliases": [
+      "Evangelion"
+    ]
+  },
+  {
+    "title": "One Piece",
+    "aliases": []
   },
   {
     "title": "Oppenheimer",
@@ -590,6 +683,12 @@
       "Piratas del Caribe",
       "Pirates of the Caribbean: On Stranger Tides",
       "Pirates of the Caribbean"
+    ]
+  },
+  {
+    "title": "Pokémon",
+    "aliases": [
+      "Pokemon"
     ]
   },
   {
@@ -638,6 +737,13 @@
     "aliases": [
       "Rocky",
       "Rocky 4"
+    ]
+  },
+  {
+    "title": "Sailor Moon",
+    "aliases": [
+      "Sailor Scouts",
+      "Bishoujo Senshi Sailor Moon"
     ]
   },
   {
@@ -744,6 +850,13 @@
       "The Last of Us Part II",
       "The Last of Us 2",
       "The Last of Us"
+    ]
+  },
+  {
+    "title": "The Legend of Zelda",
+    "aliases": [
+      "Zelda",
+      "La leyenda de Zelda"
     ]
   },
   {

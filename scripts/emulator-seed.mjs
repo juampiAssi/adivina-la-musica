@@ -1,10 +1,10 @@
 // Carga los títulos de seed/titles.json en el emulador, para probar la app sin la base real.
-// Uso: con el emulador abierto, node scripts/emulator-seed.mjs
+// Uso: con el emulador abierto, node scripts/emulator-seed.mjs [días desde el inicio]
 import { readFileSync } from 'node:fs'
 
 const DOCS = 'http://127.0.0.1:8080/v1/projects/demo-adivina/databases/(default)/documents'
 const DAY_MS = 86_400_000
-const DAYS_AGO = 11 // el día 12 queda como "hoy"
+const DAYS_AGO = Number(process.argv[2] ?? 15) // con 15, el día 16 queda como "hoy"
 
 const today = new Date(`${new Date(Date.now() - 3 * 3_600_000).toISOString().slice(0, 10)}T00:00:00-03:00`).getTime()
 const start = today - DAYS_AGO * DAY_MS

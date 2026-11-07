@@ -4,7 +4,7 @@
 
 export const MAX_DAY = 27
 export const PER_DAY = 10
-const CATEGORIES = ['película', 'serie', 'videojuego']
+const CATEGORIES = ['película', 'serie', 'anime', 'videojuego']
 
 // Id determinista a partir del título: "El Rey León" → "el-rey-leon".
 export function slugify(text) {

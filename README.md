@@ -26,7 +26,7 @@ La canción vale 100 puntos hasta el segundo 3 y después pierde 3 por segundo, 
 ## Modos de juego
 
 - **Popurrí:** el juego del día, con las mismas canciones para todos. Es el único que guarda jugadas: suma al ranking y graba cintas en el estante.
-- **Por contenido:** 10 canciones al azar de películas, series, anime o videojuegos.
+- **Por contenido:** 10 canciones al azar de películas, series, anime o videojuegos. Usa solo títulos cuyos días ya abrieron.
 - **Tranqui:** se elige entre 4 opciones, sin escribir.
 
 Los modos libres usan solo títulos ya abiertos y no guardan nada.
@@ -94,6 +94,10 @@ El archivo `.firebaserc` tiene el proyecto por defecto (`adivina-la-musica`); si
 
 La importación valida cada fila, escribe en lotes de hasta 500 y es **idempotente**: el id de cada documento sale del archivo, así que importar dos veces no duplica nada. Cambiar la fecha de inicio recalcula cuándo se desbloquea cada día (sirve para la demo o para reiniciar el juego).
 
+#### Sumar títulos sin mover los ya publicados
+
+`scripts/add-titles.mjs` agrega los títulos de su lista al final de `seed/titles.json` y actualiza `src/data/answer-names.json` y `src/data/day-sizes.json`. Después hay que importar el archivo desde `/admin`. Necesita `.env.tmdb`.
+
 #### Regenerar `seed/titles.json` (opcional)
 
 `scripts/build-titles.mjs` arma el archivo desde `seed/questions.json` (los temas, verificados en Deezer), elige un tema por título, reparte los títulos en días de 10 y completa año, dirección, género, sinopsis y póster con la API de TMDB. Necesita un token de TMDB en un archivo `.env.tmdb` (ignorado por git):
@@ -101,7 +105,10 @@ La importación valida cada fila, escribe en lotes de hasta 500 y es **idempoten
 ```bash
 echo "TMDB_TOKEN=tu_token" > .env.tmdb
 node scripts/build-titles.mjs
+node scripts/add-titles.mjs
 ```
+
+Regenerar todo vuelve a repartir los días; usarlo solo antes de publicar.
 
 ## Publicar en Vercel
 
@@ -154,7 +161,7 @@ No se guarda audio: de Deezer solo se guarda el id del tema y el fragmento se pi
 - **Sesión anónima por navegador:** cada navegador tiene su propia identidad; desde otro dispositivo no se recupera el mismo progreso.
 - **Tiempo de respuesta:** lo mide el navegador. Las reglas validan el rango y que los puntos coincidan con esos segundos, pero sin un backend propio no pueden comprobar cuánto tardó de verdad el jugador.
 - **Reloj del navegador:** se usa para calcular qué día mostrar; lo que se puede leer y si una jugada es atrasada lo deciden las reglas con la hora del servidor. Con el reloj muy corrido (por ejemplo, un día adelantado), las reglas rechazan la operación y la app pide revisar la fecha y la hora.
-- **Días cargados:** hay 14 días (138 títulos). Cuando pasan, Jugar abre en el último día y todos valen la mitad de puntos; se pueden sumar días importando más títulos o reiniciar el calendario cambiando la fecha de inicio desde `/admin`.
+- **Días cargados:** hay 16 días (157 títulos). Cuando pasan, Jugar abre en el último día y todos valen la mitad de puntos; se pueden sumar días importando más títulos o reiniciar el calendario cambiando la fecha de inicio desde `/admin`.
 
 ## Atribuciones y términos de terceros
 
