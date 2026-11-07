@@ -1,5 +1,4 @@
-// Suma animes y videojuegos a seed/titles.json SIN cambiar los días ya publicados:
-// los títulos nuevos completan el último día y siguen en los días siguientes.
+// Suma animes y videojuegos a seed/titles.json SIN cambiar los días ya publicados.
 // Es idempotente: si un título ya está en el archivo, no se vuelve a agregar.
 // Si se regenera todo con build-titles.mjs, después hay que volver a ejecutar este.
 //
@@ -124,13 +123,15 @@ for (const [title, year, studio, genre, trackId, aliases, synopsis] of GAMES) {
   })
 }
 
-// Mezcla fija para no dejar todos los animes juntos: siempre da el mismo orden.
-const mixed = fresh
-  .map((t, i) => [t, (i * 7 + 3) % fresh.length])
-  .sort((a, b) => a[1] - b[1])
-  .map(([t]) => t)
-
-for (const t of mixed) {
+// Los animes van en el día 0: están siempre abiertos para los modos libres y no entran
+// en Popurrí. Los demás completan el último día y siguen en los días siguientes.
+let animeOrder = titles.filter((t) => t.day === 0).length
+for (const t of fresh) {
+  if (t.category === 'anime') {
+    animeOrder += 1
+    titles.push({ ...t, day: 0, order: animeOrder })
+    continue
+  }
   const lastDay = Math.max(...titles.map((x) => x.day))
   const inLastDay = titles.filter((x) => x.day === lastDay).length
   const day = inLastDay < PER_DAY ? lastDay : lastDay + 1
@@ -141,6 +142,6 @@ writeFileSync('seed/titles.json', JSON.stringify(titles, null, 2) + '\n')
 const names = titles.map((t) => ({ title: t.title, aliases: t.aliases })).sort((a, b) => a.title.localeCompare(b.title, 'es'))
 writeFileSync('src/data/answer-names.json', JSON.stringify(names, null, 2) + '\n')
 const daySizes = {}
-for (const t of titles) daySizes[t.day] = (daySizes[t.day] ?? 0) + 1
+for (const t of titles) if (t.day > 0) daySizes[t.day] = (daySizes[t.day] ?? 0) + 1
 writeFileSync('src/data/day-sizes.json', JSON.stringify(daySizes) + '\n')
 console.log(`\nSe agregaron ${fresh.length}. Total: ${titles.length} títulos en ${Object.keys(daySizes).length} días.`)

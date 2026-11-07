@@ -102,8 +102,9 @@ export function validateTitles(rawList) {
 
     if (!t.title) rowErrors.push('falta el título')
     if (!/^[a-z0-9-]{1,80}$/.test(t.id)) rowErrors.push(`id inválido "${t.id}"`)
-    if (!Number.isInteger(t.day) || t.day < 1 || t.day > MAX_DAY) rowErrors.push(`day tiene que ser un entero de 1 a ${MAX_DAY}`)
-    if (!Number.isInteger(t.order) || t.order < 1 || t.order > PER_DAY) rowErrors.push(`order tiene que ser un entero de 1 a ${PER_DAY}`)
+    if (!Number.isInteger(t.day) || t.day < 0 || t.day > MAX_DAY) rowErrors.push(`day tiene que ser un entero de 0 a ${MAX_DAY}`)
+    // Día 0: títulos solo para los modos libres, siempre abiertos y sin límite por día.
+    if (!Number.isInteger(t.order) || t.order < 1 || (t.day > 0 && t.order > PER_DAY)) rowErrors.push(`order tiene que ser un entero de 1 a ${PER_DAY}`)
     if (!/^\d{1,15}$/.test(t.deezerTrackId)) rowErrors.push('deezerTrackId tiene que ser un número')
     if (!CATEGORIES.includes(t.category)) rowErrors.push(`category tiene que ser ${CATEGORIES.join(', ')}`)
     if (t.year !== null && (!Number.isInteger(t.year) || t.year < 1880 || t.year > 2100)) rowErrors.push('year inválido')

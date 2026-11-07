@@ -26,10 +26,10 @@ La canción vale 100 puntos hasta el segundo 3 y después pierde 3 por segundo, 
 ## Modos de juego
 
 - **Popurrí:** el juego del día, con las mismas canciones para todos. Es el único que guarda jugadas: suma al ranking y graba cintas en el estante.
-- **Por contenido:** 10 canciones al azar de películas, series, anime o videojuegos. Usa solo títulos cuyos días ya abrieron.
+- **Por contenido:** 10 canciones al azar de películas, series, anime o videojuegos. Usa todo el catálogo.
 - **Tranqui:** se elige entre 4 opciones, sin escribir.
 
-Los modos libres usan solo títulos ya abiertos y no guardan nada.
+Los modos libres usan todo el catálogo y no guardan nada.
 
 ## Instalación y ejecución local
 
@@ -127,7 +127,7 @@ Regenerar todo vuelve a repartir los días; usarlo solo antes de publicar.
 | `src/services/cache.js` | Caché en memoria de lo ya leído, para no repetir consultas mientras la pestaña está abierta. |
 | `src/services/authService.js` | Sesión anónima, ingreso del admin y chequeo de `admins/{uid}`. |
 | `src/context/AuthContext.jsx` | Escucha la sesión (`onAuthStateChanged`) y abre una anónima si no hay ninguna. |
-| `src/services/titlesService.js` | **Consulta** los títulos del día (`where day == n` y `unlockAt <=` la apertura de ese día), los títulos abiertos para los modos libres y el detalle de una cinta. |
+| `src/services/titlesService.js` | **Consulta** los títulos del día (`where day == n` y `unlockAt <=` la apertura de ese día), el catálogo completo para los modos libres y el detalle de una cinta. |
 | `src/services/guessesService.js` | **Agrega**, consulta y **elimina** jugadas (`setDoc`, `getDocs`, `deleteDoc`). |
 | `src/services/leaderboardService.js` | Top 20 del ranking; **crea, modifica y elimina** la entrada propia. |
 | `src/services/configService.js` | Lee `config/game` (fecha de inicio). |
@@ -149,7 +149,7 @@ No se guarda audio: de Deezer solo se guarda el id del tema y el fragmento se pi
 ## Seguridad (resumen de `firestore.rules`)
 
 - Todo lo que no está permitido está denegado; sin sesión no se puede leer nada.
-- `titles`: un jugador solo lee títulos ya desbloqueados (`unlockAt <= request.time`, la hora del servidor); solo el admin escribe.
+- `titles`: cualquier jugador con sesión lee el catálogo; solo el admin escribe. Popurrí no se puede adelantar: una jugada solo se guarda si el título ya está desbloqueado según la hora del servidor.
 - `guesses`: cada jugador lee, crea y borra solo las suyas. Al crear se valida el id, el rango de `secondsUsed`, los puntos exactos según segundos y atraso, que el título esté desbloqueado, que `late` coincida con la hora del servidor y que `createdAt` sea la hora del servidor. No se pueden editar.
 - `leaderboard`: lectura con sesión; cada uno escribe solo su entrada; apodo de 3 a 20 caracteres validado con expresión regular.
 - `admins` y `config`: solo el admin; nadie escribe en `admins` desde la app.
@@ -159,9 +159,10 @@ No se guarda audio: de Deezer solo se guarda el id del tema y el fragmento se pi
 - **`totalPoints` del ranking lo calcula el navegador.** Las jugadas sí están validadas por las reglas, pero sin un backend propio no se puede verificar que el total del ranking coincida con la suma de las jugadas.
 - **Rejugar un título:** si un jugador borra una jugada de su estante, puede volver a jugar ese título.
 - **Sesión anónima por navegador:** cada navegador tiene su propia identidad; desde otro dispositivo no se recupera el mismo progreso.
+- **Respuestas futuras:** como los modos libres usan todo el catálogo, alguien con conocimientos técnicos puede leer las respuestas de días que todavía no abrieron.
 - **Tiempo de respuesta:** lo mide el navegador. Las reglas validan el rango y que los puntos coincidan con esos segundos, pero sin un backend propio no pueden comprobar cuánto tardó de verdad el jugador.
 - **Reloj del navegador:** se usa para calcular qué día mostrar; lo que se puede leer y si una jugada es atrasada lo deciden las reglas con la hora del servidor. Con el reloj muy corrido (por ejemplo, un día adelantado), las reglas rechazan la operación y la app pide revisar la fecha y la hora.
-- **Días cargados:** hay 16 días (157 títulos). Cuando pasan, Jugar abre en el último día y todos valen la mitad de puntos; se pueden sumar días importando más títulos o reiniciar el calendario cambiando la fecha de inicio desde `/admin`.
+- **Días cargados:** hay 15 días de Popurrí y 15 animes siempre abiertos para los modos libres (157 títulos). Cuando pasan, Jugar abre en el último día y todos valen la mitad de puntos; se pueden sumar días importando más títulos o reiniciar el calendario cambiando la fecha de inicio desde `/admin`.
 
 ## Atribuciones y términos de terceros
 
@@ -198,6 +199,7 @@ Cada versión está marcada con un tag de Git:
 | `v2` | Diseño "Mi videoteca" (iteraciones A, B y C) |
 | `v3` | Arreglos del reloj y de los días cargados, informe y documentación |
 | `v3.1` | Optimización de la velocidad de carga |
+| `v3.2` | Canción de corrido, puntaje por segundo, modos de juego y más contenido |
 
 ## Documentación del proceso
 

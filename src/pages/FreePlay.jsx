@@ -2,16 +2,14 @@ import { useEffect, useMemo, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import GameBoard from '../components/game/GameBoard.jsx'
 import StatusMessage from '../components/ui/StatusMessage.jsx'
-import { getGameConfig } from '../services/configService.js'
 import { preloadTrack } from '../services/deezerService.js'
-import { getOpenTitles } from '../services/titlesService.js'
+import { getAllTitles } from '../services/titlesService.js'
 import { buildAnswerOptions } from '../utils/answers.js'
-import { currentDay, TOTAL_DAYS, unlockAtFor } from '../utils/calendar.js'
 import { toUserMessage } from '../utils/firebaseErrors.js'
 import { contentTypeBySlug, pickChoices, ROUND_SIZE, shuffle } from '../utils/modes.js'
 
 // Modos libres: "Por contenido" (con :slug) y "Tranqui" (sin :slug, con 4 opciones).
-// Usan solo títulos ya abiertos y no guardan nada: los puntos duran hasta terminar la partida.
+// Usan todo el catálogo y no guardan nada: los puntos duran hasta terminar la partida.
 export default function FreePlay() {
   const { slug } = useParams()
   const type = slug ? contentTypeBySlug(slug) : null
@@ -25,12 +23,7 @@ export default function FreePlay() {
 
   useEffect(() => {
     let cancelled = false
-    getGameConfig()
-      .then((config) => {
-        const start = config.startDate.toDate()
-        const day = Math.min(currentDay(start), TOTAL_DAYS)
-        return day >= 1 ? getOpenTitles(unlockAtFor(start, day)) : []
-      })
+    getAllTitles()
       .then((titles) => !cancelled && setPool(titles))
       .catch((err) => !cancelled && setError(toUserMessage(err, 'No se pudieron cargar las canciones.')))
     return () => {

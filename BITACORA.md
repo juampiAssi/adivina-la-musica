@@ -449,12 +449,19 @@ En la URL pública no se escribieron datos de prueba: guardar y borrar se probó
 
 **Etapa 3: más contenido**
 - Se sumaron 19 títulos, de 138 a 157: 15 animes (categoría nueva) y 4 videojuegos, para llegar a 13.
-- `scripts/add-titles.mjs` los agrega sin mover ningún título ya publicado: completan el día 14 y siguen en los días 15 y 16. Se comprobó que los 138 anteriores conservan su día y su orden.
+- `scripts/add-titles.mjs` los agrega sin mover ningún título ya publicado. Se comprobó que los 138 anteriores conservan su día y su orden.
 - Sinopsis y pósters de animes desde TMDB, comprobando año y título de cada resultado. Autores de los animes y datos de videojuegos, cargados a mano. Temas verificados con fragmento en Deezer, sin escucharlos.
-- Por eso los días 15 y 16 son casi todos de anime: es el costo de no cambiar los días ya publicados.
 
 **Pruebas con el emulador:** Por contenido con anime y videojuegos, autocompletado por alias ("shingeki" encuentra Attack on Titan), estante con los 16 días y panel admin completo (ingreso, importación de 157 títulos y cambio de fecha, que recalcula todos). `npm test`: 14 pruebas, incluidos los datos de `seed/titles.json`.
 
-**Sin probar:** el teclado en un celular real y estos cambios contra la base real. Las reglas nuevas y los títulos nuevos todavía no están publicados.
+**Publicación en la base real (6/11):**
+- Se publicaron las reglas nuevas, que aceptan el formato viejo y el nuevo. Se comprobó en la API de reglas que quedaron activas.
+- Se agregaron solo los 19 títulos nuevos con la sesión de `firebase-tools`, en una escritura que falla si un título ya existe, para no pisar nada. La base pasó de 138 a 157 títulos. Abren el 8, 9 y 10/11 según la fecha de inicio actual (26/10).
+- Después se decidió que el juego arranque de nuevo el 6/11 y que todo el anime esté disponible de entrada:
+  - **Fecha de inicio:** 6/11. Se recalcularon los 157 títulos en una sola escritura atómica. Sirve para que el contenido dure más allá de las entregas: el día 15 cae el 20/11.
+  - **Anime en el "día 0":** siempre abierto y fuera de Popurrí, solo para los modos libres. Así no quedan días de Popurrí casi solo de anime. Los 4 videojuegos nuevos completan los días 14 y 15.
+  - **Efecto en quienes ya jugaron:** hay 123 jugadas guardadas. Conservan sus puntos y el ranking no cambió, pero las cintas de días que ahora están cerrados no se ven hasta que esos días abran, y esos días no se pueden volver a jugar.
 
-**Decisión pendiente:** los modos libres solo usan títulos ya abiertos, así que el anime recién aparece cuando abren sus días. Con inicio 29/10, el día 16 cae justo el 13/11.
+**Sin probar:** el teclado en un celular real y guardar jugadas en la base real.
+
+**Catálogo abierto en los modos libres:** al arrancar de nuevo, los modos libres casi no tenían canciones (0 videojuegos, 1 serie). Se decidió que usen todo el catálogo. Las reglas ahora permiten leer los títulos con sesión; Popurrí sigue por días porque no se puede guardar una jugada de un título bloqueado. El costo: alguien con conocimientos técnicos puede leer respuestas futuras, aceptable en un juego sin premios. No afecta datos de usuarios.

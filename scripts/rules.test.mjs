@@ -11,11 +11,9 @@ import {
   doc,
   getDocs,
   getFirestore,
-  query,
   serverTimestamp,
   setDoc,
   Timestamp,
-  where,
 } from 'firebase/firestore/lite'
 import { pointsAt } from '../src/utils/scoring.js'
 
@@ -138,10 +136,13 @@ test('no se puede jugar por otro, ni un título bloqueado, ni dos veces', async 
   await deleteDoc(guessRef('hoy'))
 })
 
-test('la consulta de títulos depende de la apertura, no de la hora de la compu', async () => {
-  const titles = collection(me.db, 'titles')
-  const open = Timestamp.fromMillis(Date.now() - HOUR)
-  const snap = await getDocs(query(titles, where('unlockAt', '<=', open)))
-  assert.deepEqual(snap.docs.map((d) => d.id).sort(), ['hoy', 'pasado'])
-  await denied(getDocs(query(titles, where('unlockAt', '<=', Timestamp.fromMillis(Date.now() + 48 * HOUR)))))
+test('con sesión se lee todo el catálogo, sin sesión nada', async () => {
+  const snap = await getDocs(collection(me.db, 'titles'))
+  assert.deepEqual(snap.docs.map((d) => d.id).sort(), ['futuro', 'hoy', 'pasado'])
+  const closed = await fetch(`${DOCS}/titles/hoy`)
+  assert.equal(closed.status, 403)
+})
+
+test('nadie sin permiso de admin puede escribir títulos', async () => {
+  await denied(setDoc(doc(me.db, 'titles', 'nuevo'), { title: 'x', day: 1 }))
 })

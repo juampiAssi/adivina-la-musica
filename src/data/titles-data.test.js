@@ -27,6 +27,11 @@ test('los días no tienen más de 10 títulos ni órdenes repetidos', () => {
   }
 })
 
+test('los animes están en el día 0: siempre abiertos y fuera de Popurrí', () => {
+  for (const t of titles) assert.equal(t.category === 'anime', t.day === 0, `día incorrecto: ${t.id}`)
+  assert.equal(daySizes[0], undefined)
+})
+
 test('todos los títulos aparecen en el autocompletado', () => {
   const names = new Set(answerNames.map((n) => n.title))
   for (const t of titles) assert.ok(names.has(t.title), `falta: ${t.title}`)

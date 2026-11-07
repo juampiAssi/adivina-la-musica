@@ -17,12 +17,11 @@ export function getTitlesForDay(day, unlockAt) {
   })
 }
 
-// Todos los títulos abiertos, para los modos libres. El tipo de contenido se filtra en
-// el navegador: una sola consulta sirve para todos los modos y no necesita otro índice.
-export function getOpenTitles(unlockAt) {
-  return cached(`titles:open:${unlockAt.getTime()}`, async () => {
-    const q = query(collection(db, 'titles'), where('unlockAt', '<=', Timestamp.fromDate(unlockAt)))
-    const snap = await getDocs(q)
+// Todo el catálogo, para los modos libres. El tipo de contenido se filtra en el
+// navegador: una sola consulta sirve para todos los modos y no necesita otro índice.
+export function getAllTitles() {
+  return cached('titles:all', async () => {
+    const snap = await getDocs(collection(db, 'titles'))
     return snap.docs.map((d) => ({ id: d.id, type: 'music', ...d.data() }))
   })
 }

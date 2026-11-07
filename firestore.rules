@@ -30,10 +30,12 @@ service cloud.firestore {
     }
 
     // ---------- titles: películas, series y juegos ----------
-    // Un jugador solo puede leer un título ya desbloqueado. request.time es la hora
-    // del SERVIDOR, así que cambiar el reloj de la compu no sirve para adelantarse.
+    // Cualquier jugador con sesión puede leer el catálogo: los modos libres lo usan entero.
+    // Popurrí sigue por días porque una jugada solo se puede guardar si el título ya está
+    // desbloqueado (ver guesses); request.time es la hora del SERVIDOR, así que cambiar el
+    // reloj de la compu no sirve para adelantarse. Limitación: se pueden leer respuestas futuras.
     match /titles/{titleId} {
-      allow read: if signedIn() && (resource.data.unlockAt <= request.time || isAdmin());
+      allow read: if signedIn();
       allow write: if isAdmin();
     }
 
