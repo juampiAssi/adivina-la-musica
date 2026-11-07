@@ -1,6 +1,5 @@
 import { Link } from 'react-router-dom'
 import VhsTape from '../components/vhs/VhsTape.jsx'
-import { preloadPage } from '../utils/preload.js'
 import { POINT_EXAMPLES, pointsAt } from '../utils/scoring.js'
 
 // Cintas decorativas del inicio: textos genéricos (no son títulos reales, no adelantan nada).
@@ -28,7 +27,7 @@ export default function Home() {
               la música
             </h1>
             <p>Unos segundos de una canción. ¿De qué película, serie o videojuego es?</p>
-            <Link to="/jugar" className="btn btn-primary" onPointerEnter={() => preloadPage('/jugar')}>
+            <Link to="/jugar" className="btn btn-primary">
               Jugar ahora
             </Link>
           </div>
@@ -71,7 +70,7 @@ export default function Home() {
           <p className="eyebrow">¿Listo?</p>
           <h2>Bandas sonoras que conocés de memoria</h2>
           <p className="muted">De Pixar a The Last of Us, pasando por Stranger Things y El Señor de los Anillos.</p>
-          <Link to="/jugar" className="btn btn-primary" onPointerEnter={() => preloadPage('/jugar')}>
+          <Link to="/jugar" className="btn btn-primary">
             Empezar partida
           </Link>
         </div>

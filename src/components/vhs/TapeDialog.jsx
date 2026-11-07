@@ -149,7 +149,7 @@ export default function TapeDialog({ tape, origin, onClose, onDelete }) {
             <h2 id="tape-dialog-title">Todavía no la adivinaste</h2>
             <p className="muted">Jugá el día {tape.day} para grabar esta cinta.</p>
             <div className="row">
-              <Link to="/jugar" className="btn btn-primary">
+              <Link to="/jugar/popurri" className="btn btn-primary">
                 Ir a jugar
               </Link>
               <button type="button" className="btn btn-ghost" onClick={requestClose} autoFocus>

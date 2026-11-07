@@ -17,6 +17,16 @@ export function getTitlesForDay(day, unlockAt) {
   })
 }
 
+// Todos los títulos abiertos, para los modos libres. El tipo de contenido se filtra en
+// el navegador: una sola consulta sirve para todos los modos y no necesita otro índice.
+export function getOpenTitles(unlockAt) {
+  return cached(`titles:open:${unlockAt.getTime()}`, async () => {
+    const q = query(collection(db, 'titles'), where('unlockAt', '<=', Timestamp.fromDate(unlockAt)))
+    const snap = await getDocs(q)
+    return snap.docs.map((d) => ({ id: d.id, type: 'music', ...d.data() }))
+  })
+}
+
 // Detalle de UN título (director, sinopsis...) para el popup del estante.
 // Se pide solo cuando el jugador abre una cinta grabada (1 lectura) y queda en
 // memoria, así abrir la misma cinta otra vez no vuelve a leer de Firestore.

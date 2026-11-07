@@ -103,7 +103,8 @@ export default function Play() {
 
   const late = shown ? isLate(shown.unlockAt.toDate()) : false
   const dayGuesses = guesses.filter((g) => g.day === day)
-  const dayPoints = dayGuesses.reduce((sum, g) => sum + g.points, 0)
+  // Incluye la jugada recién guardada, que se suma a la lista al pasar a la siguiente.
+  const dayPoints = dayGuesses.reduce((sum, g) => sum + g.points, 0) + (finished?.saved ? finished.data.points : 0)
 
   // Guarda la jugada y, si el jugador ya tiene apodo, actualiza su fila del ranking.
   async function persist(title, data) {
@@ -152,7 +153,7 @@ export default function Play() {
     <section>
       <div className="play-header">
         <div>
-          <p className="eyebrow">{day === today ? 'Hoy' : `Ponte al día · mitad de puntos`}</p>
+          <p className="eyebrow">Popurrí · {day === today ? 'Hoy' : `Ponte al día · mitad de puntos`}</p>
           <h1>Día {day ?? '…'}</h1>
         </div>
         <span className="score-pill">{dayPoints} pts</span>

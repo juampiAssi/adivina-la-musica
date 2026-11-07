@@ -23,6 +23,14 @@ Trabajo práctico 2 de Desarrollo Frontend II (UADE). Pensado para quienes disfr
 
 La canción vale 100 puntos hasta el segundo 3 y después pierde 3 por segundo, hasta 19 en el segundo 30. Los días pasados ("ponte al día") valen la mitad, redondeada para abajo.
 
+## Modos de juego
+
+- **Popurrí:** el juego del día, con las mismas canciones para todos. Es el único que guarda jugadas: suma al ranking y graba cintas en el estante.
+- **Por contenido:** 10 canciones al azar de películas, series, anime o videojuegos.
+- **Tranqui:** se elige entre 4 opciones, sin escribir.
+
+Los modos libres usan solo títulos ya abiertos y no guardan nada.
+
 ## Instalación y ejecución local
 
 Requisitos: **Node.js 20.19 o superior** y una cuenta de Firebase.
@@ -36,6 +44,16 @@ npm run dev            # abre http://localhost:5173
 Otros comandos: `npm run build` (genera `dist/`), `npm run preview`, `npm run lint` y `npm test` (pruebas de la cuenta de puntos).
 
 > Después de cambiar el archivo `.env` hay que reiniciar `npm run dev`.
+
+### Probar sin tocar la base real
+
+`npm run test:rules` prueba `firestore.rules` contra el emulador de Firebase (necesita Java 21 o superior). Para usar la app completa con datos de prueba:
+
+```bash
+npx firebase-tools emulators:start --only auth,firestore --project demo-adivina
+node scripts/emulator-seed.mjs
+VITE_EMULATOR=true VITE_FIREBASE_PROJECT_ID=demo-adivina npm run dev
+```
 
 ## Configurar Firebase
 
@@ -102,7 +120,7 @@ node scripts/build-titles.mjs
 | `src/services/cache.js` | Caché en memoria de lo ya leído, para no repetir consultas mientras la pestaña está abierta. |
 | `src/services/authService.js` | Sesión anónima, ingreso del admin y chequeo de `admins/{uid}`. |
 | `src/context/AuthContext.jsx` | Escucha la sesión (`onAuthStateChanged`) y abre una anónima si no hay ninguna. |
-| `src/services/titlesService.js` | **Consulta** los títulos del día (`where day == n` y `unlockAt <=` la apertura de ese día) y el detalle de una cinta. |
+| `src/services/titlesService.js` | **Consulta** los títulos del día (`where day == n` y `unlockAt <=` la apertura de ese día), los títulos abiertos para los modos libres y el detalle de una cinta. |
 | `src/services/guessesService.js` | **Agrega**, consulta y **elimina** jugadas (`setDoc`, `getDocs`, `deleteDoc`). |
 | `src/services/leaderboardService.js` | Top 20 del ranking; **crea, modifica y elimina** la entrada propia. |
 | `src/services/configService.js` | Lee `config/game` (fecha de inicio). |
@@ -154,7 +172,7 @@ src/
   context/      sesión del usuario (AuthContext)
   data/         nombres para el autocompletado y cantidad de títulos por día
   hooks/        useAuth, useSongPlayer, useTheme
-  pages/        Home, Play, Ranking, Profile, Admin, NotFound
+  pages/        Home, ModeSelect, Play (Popurrí), FreePlay (modos libres), Ranking, Profile, Admin, NotFound
   services/     Firebase y acceso a datos (Firestore, Deezer)
   styles/       tokens.css (variables de diseño y temas), vhs.css (cintas y mueble)
   utils/        calendario, puntos, respuestas, validaciones, aspecto de las cintas

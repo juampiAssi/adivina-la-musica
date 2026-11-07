@@ -22,13 +22,25 @@ const CATEGORY_HINTS = {
 //    unos segundos para escribir. Si falla, la canción sigue desde donde estaba.
 // Cuando termina avisa con onFinish({ points, secondsUsed, attempts, correct, skipped }).
 // late: si es un día pasado ("ponte al día"), los puntos valen la mitad.
-export default function GameBoard({ question, answerOptions, late = false, onFinish, onNext, isLast }) {
+// choices: modo Tranqui: en lugar de escribir, se elige una opción mientras suena.
+// showCategoryHint: en "Por contenido" no hace falta, porque el tipo ya se eligió.
+export default function GameBoard({
+  question,
+  answerOptions,
+  choices = null,
+  showCategoryHint = true,
+  late = false,
+  onFinish,
+  onNext,
+  isLast,
+}) {
   const player = useSongPlayer(question.deezerTrackId, question.deezerStartSeconds ?? 0)
   const { ended, play, pause } = player
   const [phase, setPhase] = useState('ready')
   const [attempts, setAttempts] = useState(0)
   const [result, setResult] = useState(null) // null mientras se juega
   const [message, setMessage] = useState('')
+  const [wrongChoices, setWrongChoices] = useState([])
 
   const points = pointsAt(player.seconds, late)
   // Si la canción termina sin respuesta, queda la última oportunidad de escribir.
@@ -79,6 +91,11 @@ export default function GameBoard({ question, answerOptions, late = false, onFin
     else handleMiss('Incorrecto.')
   }
 
+  function handleChoice(choice) {
+    if (choice !== question.title) setWrongChoices((list) => [...list, choice])
+    handleAnswer(choice)
+  }
+
   return (
     <div className="card song-enter">
       {!result && (
@@ -97,7 +114,7 @@ export default function GameBoard({ question, answerOptions, late = false, onFin
 
       {!result && (player.seconds >= HINT_CATEGORY_AT || ended) && (
         <ul className="song-hints" aria-live="polite">
-          <li>{CATEGORY_HINTS[question.category] ?? 'Pista: mirá la lista de opciones'}</li>
+          {showCategoryHint && CATEGORY_HINTS[question.category] && <li>{CATEGORY_HINTS[question.category]}</li>}
           {(player.seconds >= HINT_YEAR_AT || ended) && question.year && <li>Del año {question.year}</li>}
         </ul>
       )}
@@ -117,7 +134,7 @@ export default function GameBoard({ question, answerOptions, late = false, onFin
             role="status"
           >
             {result.correct
-              ? `¡Correcto! La sacaste en ${result.secondsUsed} segundos y ganaste ${result.points} puntos.`
+              ? `¡Correcto! La sacaste en ${result.secondsUsed} ${result.secondsUsed === 1 ? 'segundo' : 'segundos'} y ganaste ${result.points} puntos.`
               : result.skipped
                 ? 'Salteaste esta canción.'
                 : 'Se acabaron los intentos.'}
@@ -126,6 +143,27 @@ export default function GameBoard({ question, answerOptions, late = false, onFin
             {isLast ? 'Ver resultado' : 'Siguiente canción'}
           </button>
         </div>
+      ) : choices && phase !== 'ready' ? (
+        <>
+          <div className="choice-grid">
+            {choices.map((choice) => (
+              <button
+                key={choice}
+                type="button"
+                className="btn"
+                disabled={wrongChoices.includes(choice)}
+                onClick={() => handleChoice(choice)}
+              >
+                {choice}
+              </button>
+            ))}
+          </div>
+          <div className="row">
+            <button type="button" className="btn btn-ghost" onClick={() => finish(false, true)}>
+              Saltear canción
+            </button>
+          </div>
+        </>
       ) : answering ? (
         <AnswerForm
           key={attempts} // cada intento reinicia el campo y la cuenta regresiva

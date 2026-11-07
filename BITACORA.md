@@ -424,4 +424,27 @@ En la URL pública no se escribieron datos de prueba: guardar y borrar se probó
 
 **Pruebas hechas:** 5 pruebas automáticas de la cuenta de puntos (`npm test`). El tablero de juego, con audio real y sin guardar datos: acierto, fallo, tiempo agotado, 3 errores, salteo, día pasado y canción completa. Las reglas compilan (prueba en seco, sin publicar).
 
-**Pendiente:** probar las reglas nuevas y el guardado de punta a punta con el emulador de Firebase, y publicarlas.
+**Etapa 2: modos de juego**
+- `/jugar` ahora es una pantalla para elegir el juego. El anterior pasó a `/jugar/popurri`.
+- **Por contenido:** 10 canciones al azar del tipo elegido. El autocompletado solo ofrece títulos de ese tipo.
+- **Tranqui:** 4 opciones mientras suena la canción; las incorrectas son del mismo tipo de contenido cuando alcanzan.
+- Estos modos no guardan nada, para que nadie sume al ranking repitiendo canciones.
+- También se corrigió que los puntos del día se actualizaban recién al pasar a la siguiente canción; era un pendiente de V1.
+
+**Alternativas descartadas**
+- **Consultar por tipo de contenido en Firestore:** necesitaba otro índice publicado. Se traen una vez los títulos abiertos y se filtran en el navegador; cuesta hasta unas 140 lecturas por sesión, que quedan en memoria.
+- **Guardar puntajes de los modos libres:** requería una colección y reglas nuevas, sin aporte claro por ahora.
+
+**Pruebas con el emulador de Firebase** (base local de prueba, nunca la real). Se instaló Java 21 en una carpeta del usuario, con la suma de control verificada.
+- `npm run test:rules`, 8 pruebas:
+  - Cada segundo de 0 a 30 acepta los puntos exactos y rechaza uno más.
+  - Días pasados, jugadas sin acertar y formato anterior.
+  - Rechazo de segundos inválidos, de los dos sistemas juntos, de otro usuario, de títulos bloqueados y de jugar dos veces.
+- La app completa contra el emulador:
+  - Popurrí: acierto guardado, recarga y salteo.
+  - Perfil: apodo inválido, crearlo y cambiarlo, popup, sacar la cinta (descuenta del ranking) y salir del ranking.
+  - Tranqui: partida completa y otra partida.
+  - Por contenido: series; sin títulos de anime muestra un aviso; una URL inexistente también.
+- `npm test`: 10 pruebas de puntos y modos.
+
+**Sin probar:** el teclado en un celular real y estos cambios contra la base real. Las reglas nuevas todavía no están publicadas.

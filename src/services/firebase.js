@@ -2,10 +2,16 @@
 // `auth` y `db` desde acá. Los valores salen del archivo .env (ver .env.example);
 // Vite solo expone al navegador las variables que empiezan con VITE_.
 import { initializeApp } from 'firebase/app'
-import { browserLocalPersistence, browserSessionPersistence, indexedDBLocalPersistence, initializeAuth } from 'firebase/auth'
+import {
+  browserLocalPersistence,
+  browserSessionPersistence,
+  connectAuthEmulator,
+  indexedDBLocalPersistence,
+  initializeAuth,
+} from 'firebase/auth'
 // Versión "lite" de Firestore: consulta por HTTP en vez de abrir una conexión
 // permanente. La app no escucha cambios en vivo, así que abre mucho más rápido y pesa menos.
-import { getFirestore } from 'firebase/firestore/lite'
+import { connectFirestoreEmulator, getFirestore } from 'firebase/firestore/lite'
 
 const firebaseConfig = {
   apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
@@ -31,3 +37,9 @@ export const auth = initializeAuth(app, {
   persistence: [indexedDBLocalPersistence, browserLocalPersistence, browserSessionPersistence],
 })
 export const db = getFirestore(app) // base de datos Cloud Firestore
+
+// Pruebas: con VITE_EMULATOR=true se usa el emulador local en lugar de la base real.
+if (import.meta.env.VITE_EMULATOR === 'true') {
+  connectAuthEmulator(auth, 'http://127.0.0.1:9099', { disableWarnings: true })
+  connectFirestoreEmulator(db, '127.0.0.1', 8080)
+}

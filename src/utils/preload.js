@@ -14,7 +14,7 @@ async function preloadTitles() {
 }
 
 const dataLoaders = {
-  '/jugar': (uid) => [getMyGuesses(uid), preloadTitles()],
+  '/jugar/popurri': (uid) => [getMyGuesses(uid), preloadTitles()],
   '/ranking': () => [getTopScores()],
   '/perfil': (uid) => [getMyGuesses(uid), getMyEntry(uid), getGameConfig()],
 }
