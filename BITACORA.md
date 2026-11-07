@@ -406,7 +406,7 @@ En la URL pública no se escribieron datos de prueba: guardar y borrar se probó
 
 ---
 
-## V3.2 — Mecánica por tiempo (en desarrollo, rama `mecanicas-v3.2`)
+## V3.2 — Mecánica por tiempo y modos de juego
 
 **Por qué:** el profesor comentó que el juego es bastante difícil. Se decidió cambiar la mecánica para hacerlo más dinámico y sumar modos de juego. El actual se va a llamar Popurrí.
 
@@ -465,3 +465,17 @@ En la URL pública no se escribieron datos de prueba: guardar y borrar se probó
 **Sin probar:** el teclado en un celular real y guardar jugadas en la base real.
 
 **Catálogo abierto en los modos libres:** al arrancar de nuevo, los modos libres casi no tenían canciones (0 videojuegos, 1 serie). Se decidió que usen todo el catálogo. Las reglas ahora permiten leer los títulos con sesión; Popurrí sigue por días porque no se puede guardar una jugada de un título bloqueado. El costo: alguien con conocimientos técnicos puede leer respuestas futuras, aceptable en un juego sin premios. No afecta datos de usuarios.
+
+**Publicación de V3.2 (6/11):** se publicaron las reglas y `main` avanzó hasta `9d0e74e`, sin merge ni reescribir el historial; Vercel lo desplegó en la URL pública. Sin iniciar sesión en Vercel:
+
+| Prueba | Resultado |
+|---|---|
+| El sitio sirve el código nuevo | Sí, el mismo archivo que la compilación local |
+| Selector de juegos | Se ve, también en celular |
+| Películas, Series, Anime y Videojuegos | 10 canciones en cada uno |
+| Tranqui | Suena y muestra 4 opciones |
+| Popurrí | Abre en el día 1, con todo disponible como "Hoy" |
+| Errores en la consola | Ninguno |
+| Lectura de `titles` sin sesión | Rechazada (403) |
+
+**Sin probar en la URL pública:** guardar una jugada, porque la herramienta de la IA no permite escribir en la base real. Guardar se probó con el emulador usando las mismas reglas; la prueba final en la base real la tiene que hacer una persona. Tampoco se probó el teclado en un celular real.
