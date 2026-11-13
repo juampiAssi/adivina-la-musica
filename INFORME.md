@@ -9,7 +9,7 @@ Trabajo práctico 2 · Desarrollo Frontend II (UADE) · 2026
 - **Aplicación publicada:** https://adivina-la-musica.vercel.app
 - **Repositorio:** https://github.com/juampiAssi/adivina-la-musica
 - **Bitácora del proceso:** [`BITACORA.md`](BITACORA.md)
-- **Demostración (mini video):** _[completar enlace]_
+- **Demostración (mini video):** https://drive.google.com/drive/folders/1VkWWnroAxH0vQDt6pGbEh_a9SKH4spSp?usp=sharing
 
 ## Idea y público
 
