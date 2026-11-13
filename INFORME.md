@@ -2,7 +2,7 @@
 
 Trabajo práctico 2 · Desarrollo Frontend II (UADE) · 2026
 
-**Autor/es:** _[completar nombre y L.U.]_
+**Integrantes:** Juan Pablo Assirio y Belén Florio
 
 ## Enlaces
 
