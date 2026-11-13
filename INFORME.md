@@ -13,7 +13,7 @@ Trabajo práctico 2 · Desarrollo Frontend II (UADE) · 2026
 
 ## Idea y público
 
-Juego diario para adivinar de qué película, serie o videojuego es una música. Suena un fragmento de 3 segundos; si no se reconoce, se puede pedir uno de 6 y después uno de 10, pero cada pista extra vale menos puntos. Cada acierto "graba" una cinta VHS en la videoteca personal del jugador.
+Juego para adivinar de qué película, serie, anime o videojuego es una música. La canción suena de corrido hasta 30 segundos y, cuanto antes se la reconoce, más puntos vale. Hay un juego del día (Popurrí) y modos libres para practicar. Cada acierto de Popurrí "graba" una cinta VHS en la videoteca personal del jugador.
 
 **Necesidad que resuelve:** un desafío corto y repetible para quienes disfrutan de las bandas sonoras, que además deja un registro de lo que fueron adivinando.
 
@@ -21,16 +21,32 @@ Juego diario para adivinar de qué película, serie o videojuego es una música.
 
 ## Funciones implementadas
 
-- **Juego por días:** cada día abre un grupo de títulos nuevos. Los días pasados se pueden jugar con la mitad de puntos ("ponte al día").
-- **Pistas de audio** de 3, 6 y 10 segundos (100, 60 y 30 puntos), con autocompletado de respuestas en español o inglés y opción de saltear.
+- **Tres modos de juego:**
+  - **Popurrí:** el juego del día, con las mismas canciones para todos. Los días pasados se pueden jugar con la mitad de puntos ("ponte al día").
+  - **Por contenido:** 10 canciones al azar de películas, series, anime o videojuegos.
+  - **Tranqui:** se elige entre 4 opciones, sin escribir.
+  Solo Popurrí guarda jugadas y suma al ranking.
+- **Canción de corrido:** suena hasta 30 segundos. Vale 100 puntos hasta el segundo 3 y pierde 3 por segundo, hasta 19 en el 30.
+- **"¡La sé!":** frena la canción y los puntos, y da 10 segundos para escribir con autocompletado, en español o inglés. Hay 3 intentos; si se falla, la canción sigue desde donde estaba. A los 10 segundos se muestra el tipo de contenido y a los 20, el año.
+- **Catálogo:** 157 títulos: 112 películas, 17 series, 15 animes y 13 videojuegos.
 - **Revelación** de la respuesta con el video de YouTube, que carga al tocar play, o la portada del tema.
-- **Mi videoteca:** mueble con un estante por día. Las cintas se graban al acertar; las demás son negras, sin datos que adelanten la respuesta. Cada cinta abre un popup con póster, ficha, pista usada y puntos.
+- **Mi videoteca:** mueble con un estante por día. Las cintas se graban al acertar; las demás son negras, sin datos que adelanten la respuesta. Cada cinta abre un popup con póster, ficha, segundos que tardó y puntos.
 - **Ranking** de los 20 mejores puntajes, con apodo a elección.
 - **Perfil:** crear, cambiar y borrar el apodo, y sacar cintas del estante.
 - **Panel de administración:** ingreso con correo y contraseña, fecha de inicio del calendario e importación de títulos por JSON o CSV.
 - **Experiencia de uso:** validaciones, estados de carga, vacío y error, mensajes de éxito y de error, tema claro y oscuro, diseño para compu y celular, uso con teclado.
 
-**Versiones:** `v1` (primera versión funcional), `v2` (diseño "Mi videoteca"), `v3` (correcciones a partir de pruebas reales y documentación) y `v3.1` (velocidad). El detalle está en la bitácora.
+**Versiones** (cada una es un tag de Git):
+
+| Versión | Qué cambió |
+|---|---|
+| `v1` | Primera versión funcional, con Firebase y Vercel |
+| `v2` | Diseño "Mi videoteca", en tres iteraciones |
+| `v3` | Correcciones a partir de pruebas reales y documentación |
+| `v3.1` | Velocidad de carga |
+| `v3.2` | Canción de corrido, puntaje por segundo, modos de juego, anime y más videojuegos |
+
+El detalle está en la bitácora.
 
 ## Operaciones sobre Firestore
 
@@ -48,14 +64,14 @@ La conexión con Firebase está en `src/services/firebase.js`, que lee las varia
 | Colección | Qué guarda |
 |---|---|
 | `config` | Fecha de inicio del calendario y zona horaria |
-| `titles` | Títulos de cada día: nombre, alternativas válidas, ficha, id del tema en Deezer y fecha de apertura |
-| `guesses` | Jugadas de cada jugador: pistas usadas, puntos, si acertó, si fue atrasada y una copia mínima para el estante |
+| `titles` | Catálogo: nombre, alternativas válidas, tipo de contenido, ficha, id del tema en Deezer, día de Popurrí y fecha de apertura |
+| `guesses` | Jugadas de Popurrí: segundos que tardó, puntos, si acertó, si fue atrasada y una copia mínima para el estante |
 | `leaderboard` | Apodo, puntos totales y cantidad de aciertos |
 | `admins` | Qué cuenta es administradora |
 
 **Privacidad:** los jugadores entran con sesión anónima. No se guardan correos ni nombres reales, y la app avisa que no se use el nombre real como apodo. No se guarda audio: de Deezer solo se guarda el id del tema.
 
-**Permisos:** las reglas de `firestore.rules` rechazan todo lo que no está permitido. Cada jugador solo lee y borra sus jugadas, los títulos se pueden leer recién cuando abre su día según la hora del servidor, y los puntos de cada jugada se validan.
+**Permisos:** las reglas de `firestore.rules` rechazan todo lo que no está permitido. Cada jugador solo lee y borra sus jugadas, y solo puede guardar una jugada de un título que ya abrió según la hora del servidor. Los puntos se validan con la misma cuenta que usa la app. El catálogo se puede leer con sesión, porque lo usan los modos libres.
 
 ## Herramientas de IA utilizadas
 
@@ -71,6 +87,8 @@ La conexión con Firebase está en `src/services/firebase.js`, que lee las varia
 - **Seguridad:** *"Nunca imprimas valores de claves en tus respuestas. Nunca commitees .env, JSON de cuentas de servicio ni claves privadas."*
 - **Verificación:** *"Si no estás seguro de que un comando o flag exista, verificalo con --help; no asumas."*
 - **Diseño:** *"Mi videoteca: un mueble de madera con estantes llenos de cintas VHS vistas de lomo. Cada fila = un día."* El diseño se trabajó en tres iteraciones (sistema base, interacción y pulido), para que no quedara en la primera propuesta de la IA.
+- **Mecánica nueva:** *"El juego a partir de ahora no va a ser por segundos, sino que vamos a dejar que la canción corra de corrido; mientras los segundos vayan bajando, el puntaje vaya bajando."* Surgió de un comentario del profesor sobre la dificultad del juego.
+- **Velocidad:** *"Quiero que todo cargue rapidísimo y que no haya lag."* Antes de cambiar nada, se midió qué tardaba.
 
 ## Por qué tiene esta apariencia
 
@@ -85,6 +103,8 @@ _[Completar con tus palabras: qué te gustó, qué pediste cambiar y qué decidi
 - **Archivos sensibles:** una prueba en seco mostró que la CLI de Vercel iba a subir los `.env`. Se agregó `.vercelignore`.
 - **Error con un usuario real:** a un compañero no le cargaba el juego porque la consulta usaba la hora de su compu y las reglas, la del servidor. Se reprodujo simulando el reloj y se corrigió la consulta.
 - **Días agotados:** al pasar los 14 días cargados, Jugar abría vacío. Ahora abre en el último día disponible.
+- **Probar sin tocar la base real:** la herramienta de IA no puede escribir en la base real. Se instaló el emulador de Firebase para probar las reglas (9 pruebas automáticas) y la app completa con datos de prueba.
+- **Pocas canciones al reiniciar el calendario:** los modos libres quedaron casi vacíos. Se decidió que usen todo el catálogo, aceptando que se puedan leer respuestas futuras en un juego sin premios.
 - **Velocidad:** se midió antes de cambiar nada. La conexión de Firestore y la primera respuesta de Deezer eran lo más lento. Con Firestore lite, una caché en memoria y datos adelantados, abrir una pantalla bajó de 195–537 ms a 86–98 ms en la misma compu. Separar cada pantalla en un archivo aparte empeoraba la carga, y se descartó después de medirlo.
 
 El resto está en [`BITACORA.md`](BITACORA.md).

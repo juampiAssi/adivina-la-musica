@@ -479,3 +479,8 @@ En la URL pública no se escribieron datos de prueba: guardar y borrar se probó
 | Lectura de `titles` sin sesión | Rechazada (403) |
 
 **Sin probar en la URL pública:** guardar una jugada, porque la herramienta de la IA no permite escribir en la base real. Guardar se probó con el emulador usando las mismas reglas; la prueba final en la base real la tiene que hacer una persona. Tampoco se probó el teclado en un celular real.
+
+**Capturas de V3.2** (URL pública, 13/11): `docs/capturas/v32-01-elegir-juego.jpg` (selector de juegos), `v32-02-popurri-sonando.jpg` (la canción corre y los puntos bajan) y `v32-03-la-se-responder.jpg` (después de "¡La sé!": canción frenada y 10 segundos para responder).
+
+**Revisión para la entrega (13/11):** el sitio público sirve V3.2 y los tres modos cargan. En la base real todavía no había jugadas con el formato nuevo, así que se pidió hacer una prueba a mano de guardar antes de entregar.
+
